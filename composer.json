@@ -1,0 +1,17 @@
+{
+    "name": "lowogroup/v4",
+    "authors": [
+        {
+            "name": "Izzul Afif",
+            "email": "maz.izzul@gmail.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "model"
+        ],
+        "psr-4": {
+            "Core\\": "core/"
+        }
+    }
+}

@@ -1,0 +1,50 @@
+@import url("accordion.css");
+@import url("calendar.css");
+@import url("combo.css");
+@import url("combobox.css");
+@import url("datagrid.css");
+@import url("datalist.css");
+@import url("datebox.css");
+@import url("dialog.css");
+@import url("filebox.css");
+@import url("layout.css");
+@import url("linkbutton.css");
+@import url("menu.css");
+@import url("menubutton.css");
+@import url("messager.css");
+@import url("numberbox.css");
+@import url("pagination.css");
+@import url("panel.css");
+@import url("progressbar.css");
+@import url("propertygrid.css");
+@import url("searchbox.css");
+@import url("slider.css");
+@import url("spinner.css");
+@import url("splitbutton.css");
+@import url("switchbutton.css");
+@import url("tabs.css");
+@import url("textbox.css");
+@import url("tooltip.css");
+@import url("tree.css");
+@import url("validatebox.css");
+@import url("window.css");
+@import url("icon.css");
+@import url("foundation.css");
+
+.bg-kotak {
+	background-image: url(../images/square.gif);
+}
+
+body {
+    font-family:verdana,helvetica,arial,sans-serif;
+    padding:20px;
+    margin:0;
+}
+
+.demo-info{
+	padding:0 0 12px 0;
+}
+.demo-tip{
+	display:none;
+}
+

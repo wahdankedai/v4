@@ -1,0 +1,1182 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"js",
+				"json_encode"
+			],
+			[
+				"con",
+				"config"
+			],
+			[
+				"conf",
+				"config_file"
+			],
+			[
+				"in",
+				"instance"
+			],
+			[
+				"stat",
+				"static"
+			],
+			[
+				"DB",
+				"DBO"
+			],
+			[
+				"fun",
+				"fun	function …"
+			],
+			[
+				"th",
+				"this"
+			],
+			[
+				"da",
+				"database"
+			],
+			[
+				"err",
+				"errorCode"
+			],
+			[
+				"cont",
+				"contentType"
+			],
+			[
+				"res",
+				"resp"
+			],
+			[
+				"fu",
+				"fun	function …"
+			],
+			[
+				"def",
+				"def	define(…, …)"
+			],
+			[
+				"req",
+				"request"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"roo",
+				"root_path"
+			],
+			[
+				"Roo",
+				"root_path"
+			],
+			[
+				"re",
+				"request"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"pat",
+				"path_info"
+			],
+			[
+				"pa",
+				"path_info"
+			],
+			[
+				"vie",
+				"views_path"
+			],
+			[
+				"ko",
+				"kode_urusan"
+			],
+			[
+				"kod",
+				"kode_program"
+			],
+			[
+				"dir",
+				"directive"
+			],
+			[
+				"indi",
+				"indikator_sasaran"
+			],
+			[
+				"q",
+				"qDetil"
+			],
+			[
+				"que",
+				"query"
+			],
+			[
+				"n",
+				"ndskn"
+			],
+			[
+				"exp",
+				"explode"
+			],
+			[
+				"cus",
+				"cust"
+			],
+			[
+				"_",
+				"_REQUEST"
+			],
+			[
+				"nd",
+				"Ndiskon"
+			],
+			[
+				"s",
+				"sTotal"
+			],
+			[
+				"get",
+				"getValue"
+			],
+			[
+				"on",
+				"onChange"
+			],
+			[
+				"ke",
+				"iKeterangan"
+			],
+			[
+				"cle",
+				"clearForm"
+			],
+			[
+				"sub",
+				"subTotal"
+			],
+			[
+				"text",
+				"textbox"
+			],
+			[
+				"ura",
+				"uraian"
+			],
+			[
+				"bar",
+				"barang_id"
+			],
+			[
+				"te",
+				"Telepon"
+			],
+			[
+				"dta",
+				"datagrid"
+			],
+			[
+				"qu",
+				"queryProgramPrioritas"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"targetKe",
+				"targetKegiatanPrioritas"
+			],
+			[
+				"ha",
+				"hasil"
+			],
+			[
+				"kel",
+				"keluaran"
+			],
+			[
+				"apbd",
+				"apbdKota2"
+			],
+			[
+				"arr",
+				"arr"
+			],
+			[
+				"tar",
+				"Target"
+			],
+			[
+				"ind",
+				"indikatorOutput"
+			],
+			[
+				"Targ",
+				"Target_Uraian"
+			],
+			[
+				"nam",
+				"namaFileExport"
+			],
+			[
+				"exl",
+				"excelKegiatan"
+			],
+			[
+				"rp",
+				"rowKegiatanPrioritas"
+			],
+			[
+				"for",
+				"foreach	foreach …"
+			],
+			[
+				"fec",
+				"fetchAll"
+			],
+			[
+				"PRE",
+				"prepare"
+			],
+			[
+				"file",
+				"file_exists"
+			],
+			[
+				"he",
+				"headerKegiatan"
+			],
+			[
+				"expr",
+				"excelProgram"
+			],
+			[
+				"excl",
+				"excelProgram"
+			],
+			[
+				"xl",
+				"xlProgramRutin"
+			],
+			[
+				"remo",
+				"removeQuote"
+			],
+			[
+				"nama",
+				"namaProgram"
+			],
+			[
+				"id",
+				"id_prog"
+			],
+			[
+				"int",
+				"intval"
+			],
+			[
+				"FE",
+				"FETCH_ASSOC"
+			],
+			[
+				"FECT",
+				"fetchAll"
+			],
+			[
+				"stri",
+				"string"
+			],
+			[
+				"sav",
+				"saveGroupMenu"
+			],
+			[
+				"ch",
+				"checkAllMenu"
+			],
+			[
+				"sta",
+				"start"
+			],
+			[
+				"siz",
+				"size"
+			],
+			[
+				"gr",
+				"group_id"
+			],
+			[
+				"use",
+				"user_group"
+			],
+			[
+				"grou",
+				"group_name"
+			],
+			[
+				"gro",
+				"group_id"
+			],
+			[
+				"show",
+				"showGroup"
+			],
+			[
+				"PARA",
+				"PARAM_INT"
+			],
+			[
+				"men",
+				"menu_id"
+			],
+			[
+				"eve",
+				"event_name"
+			],
+			[
+				"is",
+				"isNewRecord"
+			],
+			[
+				"add",
+				"addEventMenu"
+			],
+			[
+				"tit",
+				"titleMenu"
+			],
+			[
+				"row",
+				"rowCount"
+			],
+			[
+				"han",
+				"Handler"
+			],
+			[
+				"pre",
+				"prepare"
+			],
+			[
+				"PA",
+				"PARAM_INT"
+			],
+			[
+				"remov",
+				"removeMenu"
+			],
+			[
+				"che",
+				"checked"
+			],
+			[
+				"tex",
+				"text"
+			],
+			[
+				"pub",
+				"publishMenu"
+			],
+			[
+				"tre",
+				"mTree"
+			],
+			[
+				"par",
+				"parent_id"
+			],
+			[
+				"sort",
+				"sort_id"
+			],
+			[
+				"ti",
+				"titleData"
+			],
+			[
+				"titl",
+				"titleData"
+			],
+			[
+				"hand",
+				"handlerData"
+			],
+			[
+				"jso",
+				"json_encode"
+			],
+			[
+				"glo",
+				"glob"
+			],
+			[
+				"sh",
+				"showEvent"
+			],
+			[
+				"data",
+				"datagrid"
+			],
+			[
+				"fa",
+				"false"
+			],
+			[
+				"toolb",
+				"toolbarMenuEventGrid"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"print",
+				"print_r"
+			],
+			[
+				"sc",
+				"script"
+			],
+			[
+				"cop",
+				"copyright	@copyright"
+			],
+			[
+				"ro",
+				"rowProgramRutin"
+			],
+			[
+				"em",
+				"empty"
+			],
+			[
+				"bid",
+				"bidang"
+			],
+			[
+				"vae",
+				"var_skpd_report"
+			],
+			[
+				"skpd",
+				"skpd_nama"
+			],
+			[
+				"Ke",
+				"Kegiatan"
+			],
+			[
+				"na",
+				"namaKegiatan"
+			],
+			[
+				"fet",
+				"fetchAll"
+			],
+			[
+				"com",
+				"commit"
+			],
+			[
+				"sa",
+				"satuan"
+			],
+			[
+				"targe",
+				"target_angka"
+			],
+			[
+				"kd_uru",
+				"kd_urusan1"
+			],
+			[
+				"seri",
+				"serializable"
+			],
+			[
+				"crea",
+				"createUsulanRutin"
+			],
+			[
+				"ta",
+				"target"
+			],
+			[
+				"uni",
+				"unit"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "v4.sublime-project",
+			"settings":
+			{
+				"buffer_size": 283,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nclass Config {\n    static protected $config;\n\n    final private function __construct() {}\n    final private function __clone() {}\n\n    public static function get($config= NULL)\n    {\n        if ($config == NULL) \n        {\n            return new stdObject();\n        }\n\n        self::$config = require ROOT . DS . 'config' . DS . $config . EXT;\n\n        return json_decode(json_encode(self::$config));\n    }\n}",
+			"file": "core/Config.php",
+			"file_size": 451,
+			"file_write_time": 130951516196174700,
+			"settings":
+			{
+				"buffer_size": 416,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "in",
+		"selected_items":
+		[
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"setsq",
+				"Set Syntax: SQL"
+			],
+			[
+				"s",
+				"Set Syntax: PHP"
+			],
+			[
+				"se",
+				"Snippet: ifadd"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"re",
+				"Package Control: Remove Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: ahp"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"prv",
+				"Package Control: Discover Packages"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"setsjs",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"setjas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"seph",
+				"Set Syntax: PHP"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"ls",
+			"dir",
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/F/WAMPP/htdocs/v4",
+		"/F/WAMPP/htdocs/v4/core",
+		"/F/WAMPP/htdocs/v4/vendor/composer"
+	],
+	"file_history":
+	[
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/F/WAMPP/htdocs/v4/core/DB.php",
+		"/F/WAMPP/htdocs/v4/v4.sublime-project",
+		"/F/WAMPP/htdocs/laravel/integrasi.sublime-project",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/F/WAMPP/htdocs/v5/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
+		"/F/WAMPP/htdocs/v4/boot.php",
+		"/F/WAMPP/htdocs/v4/vendor/autoload.php",
+		"/F/WAMPP/htdocs/v4/config/database.php",
+		"/F/WAMPP/htdocs/v4/core/Model.php",
+		"/F/WAMPP/htdocs/v4/model/Test.php",
+		"/F/WAMPP/htdocs/ephp/class/class.grid.php",
+		"/F/WAMPP/htdocs/v4/core/Config.php",
+		"/F/WAMPP/htdocs/v4/composer.json",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/F/WAMPP/htdocs/v4/test.php",
+		"/F/WAMPP/htdocs/v5/composer.json",
+		"/F/WAMPP/htdocs/v4/vendor/composer/autoload_psr4.php",
+		"/F/WAMPP/htdocs/v5/vendor/nesbot/carbon/composer.json",
+		"/F/WAMPP/htdocs/v2/composer.json",
+		"/F/WAMPP/htdocs/v5/vendor/nesbot/carbon/src/Carbon/Carbon.php",
+		"/F/WAMPP/htdocs/ephp/app/controller/buyer_c.php",
+		"/F/WAMPP/htdocs/extmvc/css/cart.css",
+		"/F/WAMPP/htdocs/extmvc/css/komponen.css",
+		"/F/WAMPP/htdocs/v4/index.php",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/ahp.sublime-snippet",
+		"/F/WAMPP/apache/conf/extra/httpd-vhosts.conf",
+		"/F/WAMPP/htdocs/webdesktopakunting/store/pelanggan/dataStore.php",
+		"/F/WAMPP/htdocs/v2/public/testdb.php",
+		"/F/WAMPP/htdocs/v2/class/loquent/Connector.php",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
+		"/F/WAMPP/htdocs/v2/class/loquent/Model.php",
+		"/F/WAMPP/htdocs/v2/config/database.php",
+		"/F/WAMPP/htdocs/v2/public/config.php",
+		"/F/WAMPP/htdocs/v2/boot.php",
+		"/F/WAMPP/htdocs/v3/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.812/composer.json",
+		"/F/WAMPP/htdocs/v7/composer.json",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI08.187/FluentPDO.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI01.172/UpdateQuery.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI05.547/CommonQuery.php",
+		"/F/WAMPP/htdocs/v2/class/Response.php",
+		"/F/WAMPP/htdocs/v2/config/statusCode.php",
+		"/F/WAMPP/htdocs/v2/public/.htaccess",
+		"/F/WAMPP/apache/conf/httpd.conf",
+		"/F/WAMPP/htdocs/v2/views/index.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI01.812/index.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI03.609/data.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.500/repeatable.php",
+		"/F/WAMPP/htdocs/v3/.env",
+		"/F/WAMPP/htdocs/v3/config/app.php",
+		"/F/WAMPP/htdocs/v3/resources/views/home.blade.php",
+		"/C/Users/coding/syarat",
+		"/C/Users/coding/AppData/Local/Temp/scp17641/application/views/crud.php",
+		"/C/Users/coding/AppData/Local/Temp/scp16019/application/views/page/galeri.php",
+		"/C/Users/coding/AppData/Local/Temp/scp43334/opt/lampp/htdocs/bappeko/core/target_outcome.php",
+		"/C/Users/coding/AppData/Local/Temp/scp43214/application/controllers/web.php",
+		"/C/Users/coding/AppData/Local/Temp/scp49667/application/views/web/header.php",
+		"/C/Users/coding/AppData/Local/Temp/scp40189/application/controllers/webmin.php",
+		"/C/Users/coding/AppData/Local/Temp/scp20597/application/views/web/sambutan.php",
+		"/C/Users/coding/AppData/Local/Temp/scp51051/index.php",
+		"/C/Users/coding/AppData/Local/Temp/scp16504/69.txt",
+		"/C/Users/coding/AppData/Local/Temp/scp20822/application/views/page/pimpinan.php",
+		"/C/Users/coding/AppData/Local/Temp/scp19869/application/views/template.php",
+		"/C/Users/coding/AppData/Local/Temp/scp18910/error_log",
+		"/F/WAMPP/htdocs/v3/app/Http/routes.php",
+		"/F/WAMPP/htdocs/int/index.php",
+		"/F/WAMPP/htdocs/v3/public/index.php",
+		"/F/WAMPP/htdocs/v2/views/auth/logout.php",
+		"/F/WAMPP/htdocs/v2/public/index.php",
+		"/F/WAMPP/htdocs/int/view/bidang.php",
+		"/F/WAMPP/htdocs/int/modul/app.php",
+		"/F/WAMPP/htdocs/v5/resources/views/xhome.blade.php",
+		"/F/WAMPP/htdocs/v5/.env",
+		"/F/WAMPP/htdocs/v5/config/database.php",
+		"/F/WAMPP/htdocs/sinar/index.php",
+		"/F/WAMPP/htdocs/sinar/rep.php",
+		"/F/WAMPP/htdocs/sinar/rekap.php",
+		"/F/WAMPP/htdocs/v7/config/database.php",
+		"/C/Users/coding/AppData/Local/Temp/scp44095/var/www/html/index.php",
+		"/C/Users/coding/AppData/Local/Temp/scp15894/opt/lampp/htdocs/bappeko/core/realisasi_anggaran.php",
+		"/C/Users/coding/AppData/Local/Temp/scp16879/opt/lampp/htdocs/bappeko/include/function.php",
+		"/C/Users/coding/AppData/Local/Temp/scp38086/opt/lampp/htdocs/bappeko/core/realisasi_anggaran.php",
+		"/F/WAMPP/htdocs/v7/models/Bidang.php",
+		"/F/WAMPP/htdocs/v7/vendor/illuminate/database/Eloquent/Builder.php",
+		"/F/WAMPP/htdocs/v7/vendor/illuminate/database/Query/Builder.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.890/BaseModel.php",
+		"/F/WAMPP/htdocs/v7/boot.php",
+		"/F/WAMPP/htdocs/v7/index.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI02.547/CrudInterface.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI06.453/routes.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI03.328/User.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.593/composer.json",
+		"/F/WAMPP/htdocs/v7/models/Dpa.php",
+		"/F/WAMPP/htdocs/v7/model/Dpa.php",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/F/WAMPP/htdocs/v5/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
+		"/F/WAMPP/htdocs/bot/index.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_kegiatan.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/skpd/usulanPrioritas15_xls.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_edit_prioritas.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_edit_prioritas.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_kegiatan.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_kegiatan.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi_edit.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi_edit.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/index.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/template.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/template_header.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_edit_prioritas.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_edit_prioritas.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_kegiatan.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi_edit.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi_edit.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/index.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/template.html",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/template_header.php",
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/config/conf16.php"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"<open folders>",
+			"F:\\WAMPP\\htdocs\\v5\\vendor",
+			"F:\\WAMPP\\htdocs\\newlaravel\\laravel",
+			"F:\\WAMPP\\htdocs\\newlaravel\\laravel\\vendor",
+			"F:\\WAMPP\\htdocs\\newlaravel\\laravel",
+			"F:\\WAMPP\\htdocs\\html\\test",
+			"F:\\WAMPP\\htdocs\\html\\sitecake",
+			"F:\\WAMPP\\htdocs\\pns",
+			"F:\\WAMPP\\htdocs\\sampang",
+			"F:\\WAMPP\\htdocs\\dede\\",
+			"F:\\WAMPP\\htdocs\\int\\",
+			"F:\\WAMPP\\htdocs\\int\\static\\css",
+			"F:\\WAMPP\\htdocs\\integrasi"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"newQuery",
+			"static::$",
+			"'",
+			"static/",
+			"getQualifiedKeyName",
+			"')",
+			"SI-RKPD",
+			"mojokerto",
+			"Mojokerto",
+			"Kota Mojokerto",
+			"sampangk_mojokerto",
+			".",
+			" . ",
+			"gerbang",
+			"kegiatan",
+			"create_ref_master_kegiatan_table",
+			"program",
+			"bidang",
+			"urusan",
+			"ref_master_urusan",
+			"migration",
+			".stub",
+			"model",
+			"class",
+			"kegiatan",
+			"Kegiatan",
+			".",
+			"gate",
+			"themepunch.",
+			"http://torchtemplates.net/",
+			"Blade::",
+			"Sorry, the page you are looking for could not be found.",
+			"'kom",
+			"t_kegiatan_tahunan",
+			"setting",
+			">\n",
+			"r",
+			"' . buatrp($row2['rar']) . '",
+			"' . $row2['ror'] . '",
+			"' . buatrp($tra2) . '",
+			"' . $tro2 . '",
+			"' . buatrp($row['rar']) . '",
+			"' . $row['ror'] . '",
+			"' . buatrp($tra) . '",
+			"' . $tro . '",
+			"' . buatrp($tra2) . '",
+			"' . buatrp($row2['rar']) . '",
+			"' . $skip_k['ror'] . '",
+			"' . $tro2 . '",
+			"' . $row2['ror'] . '",
+			"precision:2",
+			"min:0",
+			",min:0",
+			"min:0",
+			"min:0,",
+			"precision:2",
+			"type=\"text\"",
+			"number_format",
+			"getValue",
+			"=",
+			"dtl",
+			"Bayar",
+			"addBtn",
+			"add",
+			"dg",
+			"enable",
+			"disable",
+			"clearForm",
+			"nama",
+			"'Message will be closed after 5 seconds.'",
+			"My Title",
+			"GET",
+			"mw-admin-main-menu-bottom",
+			"view",
+			"function mw",
+			"prod",
+			"class=\"",
+			"sitecake.com/services/update/check",
+			"\\",
+			"menu",
+			"AllowOverride None",
+			"+",
+			"asave",
+			"KegiatanRutin",
+			"targetKegiatanRutin",
+			"=",
+			"Rutin",
+			"arr",
+			"v",
+			"setAuthor",
+			"data_ppas_",
+			"Rutin",
+			"v",
+			"ds",
+			"arr",
+			"v",
+			"queryUsulanPrioritas",
+			"queryUsulanRutin",
+			"menuGrid",
+			"start",
+			"group_id",
+			"pagerFilter",
+			"group_id",
+			"id",
+			"group_name",
+			"isNewRecord",
+			"=user",
+			"handler-users.php",
+			"autoSave",
+			"menu_id",
+			"handler",
+			"_POST",
+			"title",
+			"id",
+			"POST",
+			"text",
+			"data",
+			"text",
+			"parent_id",
+			"title",
+			"username",
+			"MenuEventGrid",
+			"menuEventGrid",
+			"menuGrid",
+			"user_group",
+			" ",
+			"\"\"",
+			"Bojonegorok"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"\"",
+			"SIPPDA",
+			"Bojonegoro",
+			"Kota Bojonegoro",
+			"sampangk_bojonegoro",
+			"",
+			"class=\"sc-content ",
+			"Bojonegoro",
+			"../images/icons/",
+			"../images/",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "v4.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 283,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								256,
+								273
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "core/Config.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 416,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6,
+								6
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "v4.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"blade",
+				"resources\\views\\home.blade.php"
+			],
+			[
+				"ro",
+				"app\\Http\\routes.php"
+			],
+			[
+				"",
+				"Database\\Eloquent\\Builder.php"
+			],
+			[
+				"rela",
+				"Database\\Eloquent\\Relations\\Relation.php"
+			],
+			[
+				"hason",
+				"Database\\Eloquent\\Relations\\HasOneOrMany.php"
+			],
+			[
+				"hasma",
+				"Database\\Eloquent\\Relations\\HasMany.php"
+			],
+			[
+				"eloqbuil",
+				"Database\\Eloquent\\Builder.php"
+			],
+			[
+				"eloqmo",
+				"vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Model.php"
+			],
+			[
+				"rout",
+				"app\\Http\\routes.php"
+			],
+			[
+				"rou",
+				"app\\Http\\routes.php"
+			],
+			[
+				"route",
+				"app\\Http\\routes.php"
+			],
+			[
+				"index.",
+				"integrasi\\Filemanager-master\\index.html"
+			],
+			[
+				"connectors/php",
+				"integrasi\\Filemanager-master\\connectors\\php\\default.config.php"
+			],
+			[
+				"connectors/php/filemanager.class.php",
+				"integrasi\\Filemanager-master\\connectors\\php\\filemanager.class.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 219.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
