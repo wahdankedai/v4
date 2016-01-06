@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'name' => 'as',
+    'name' => 'forge',
     'user' => 'root',
     'pass' => '',
 ];

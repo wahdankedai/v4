@@ -1,6 +1,3 @@
 <?php 
 
-require 'boot.php';
-
-$ok = new Test;
-print_r($ok->dpa());
+echo (int) "6";

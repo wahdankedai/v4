@@ -1,4 +1,4 @@
-<?php namespace Core;
+<?php
 
 class Config {
     static protected $config;

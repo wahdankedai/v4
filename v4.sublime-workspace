@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"a",
+				"ahp	ahp"
+			],
+			[
 				"js",
 				"json_encode"
 			],
@@ -510,34 +514,11 @@
 			[
 				"ta",
 				"target"
-			],
-			[
-				"uni",
-				"unit"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "v4.sublime-project",
-			"settings":
-			{
-				"buffer_size": 283,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "<?php\n\nclass Config {\n    static protected $config;\n\n    final private function __construct() {}\n    final private function __clone() {}\n\n    public static function get($config= NULL)\n    {\n        if ($config == NULL) \n        {\n            return new stdObject();\n        }\n\n        self::$config = require ROOT . DS . 'config' . DS . $config . EXT;\n\n        return json_decode(json_encode(self::$config));\n    }\n}",
-			"file": "core/Config.php",
-			"file_size": 451,
-			"file_write_time": 130951516196174700,
-			"settings":
-			{
-				"buffer_size": 416,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -546,10 +527,26 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "in",
+		"height": 354.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: ahp"
+			],
+			[
+				"se",
+				"Set Syntax: PHP"
+			],
 			[
 				"in",
 				"Package Control: Install Package"
@@ -567,23 +564,11 @@
 				"Set Syntax: PHP"
 			],
 			[
-				"se",
-				"Snippet: ifadd"
-			],
-			[
 				"inst",
 				"Package Control: Install Package"
 			],
 			[
 				"re",
-				"Package Control: Remove Package"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
-			],
-			[
-				"Package Control: ",
 				"Package Control: Remove Package"
 			],
 			[
@@ -597,10 +582,6 @@
 			[
 				"Package Control: ins",
 				"Package Control: Install Package"
-			],
-			[
-				"Snippet: ",
-				"Snippet: ahp"
 			],
 			[
 				"Package Control: in",
@@ -631,7 +612,7 @@
 				"Set Syntax: PHP"
 			]
 		],
-		"width": 400.0
+		"width": 382.0
 	},
 	"console":
 	{
@@ -650,35 +631,63 @@
 		"show_minimap": false,
 		"show_open_files": false,
 		"show_tabs": false,
-		"side_bar_visible": false,
+		"side_bar_visible": true,
 		"status_bar_visible": false
 	},
 	"expanded_folders":
 	[
-		"/F/WAMPP/htdocs/v4",
-		"/F/WAMPP/htdocs/v4/core",
-		"/F/WAMPP/htdocs/v4/vendor/composer"
+		"/F/WAMPP/htdocs/v4"
 	],
 	"file_history":
 	[
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/F/WAMPP/htdocs/v4/index.php",
+		"/F/WAMPP/htdocs/v4/core/Model.php",
 		"/F/WAMPP/htdocs/v4/core/DB.php",
+		"/F/WAMPP/htdocs/v4/store/modul/list.php",
+		"/F/WAMPP/htdocs/v4/test.php",
+		"/F/WAMPP/htdocs/v4/boot.php",
+		"/F/WAMPP/htdocs/webdesktopakunting/store/jurnal/save.php",
+		"/F/WAMPP/htdocs/v4/.htaccess",
+		"/F/WAMPP/htdocs/v4/config/menu.php",
+		"/F/WAMPP/htdocs/laravel/public/.htaccess",
+		"/F/WAMPP/htdocs/egov/.htaccess",
+		"/F/WAMPP/htdocs/v4/static/css/easyui.css",
+		"/F/WAMPP/htdocs/v4/composer.json",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/F/WAMPP/htdocs/v4/v4.sublime-project",
+		"/F/xx_vw_unbra_indikakor_final_akhir_finish/xx_vw_unbra_indikakor_final_akhir_finish.sql",
+		"/F/WAMPP/apache/conf/extra/httpd-vhosts.conf",
+		"/F/WAMPP/htdocs/v1/index.php",
+		"/F/WAMPP/htdocs/v7/index.php",
+		"/F/WAMPP/htdocs/v4/app.js",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
+		"/F/WAMPP/htdocs/v4/config/database.php",
+		"/C/Users/coding/AppData/Local/Sublime Text 3/Cache/facebook-color-scheme-master/Facebook.tmTheme.cache",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Installed Packages/Material Theme.sublime-package",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/facebook-color-scheme-master/Facebook.tmTheme",
+		"/F/WAMPP/htdocs/v4/core/View.php",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/CodeComplice/Default (Windows).sublime-mousemap",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/CodeComplice/Default (Windows).sublime-keymap",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/CodeComplice/CodeComplice.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Package Control.cache/01524fae79697630d0454ba3fabd9414",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings",
+		"/F/WAMPP/htdocs/v4/v4.sublime-workspace",
+		"/F/WAMPP/htdocs/webdesktopakunting/app/controller/utama.js",
+		"/F/WAMPP/htdocs/webdesktopakunting/app/view/autoComplete.js",
+		"/F/WAMPP/htdocs/webdesktopakunting/app/view/wallpaper.js",
+		"/F/WAMPP/htdocs/v4/model/Test.php",
+		"/F/WAMPP/htdocs/webdesktopakunting/app/view/utama.js",
+		"/F/WAMPP/htdocs/cc_lama/config.php",
+		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/F/WAMPP/htdocs/v4/core/Config.php",
 		"/F/WAMPP/htdocs/laravel/integrasi.sublime-project",
 		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Plain text.sublime-settings",
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/F/WAMPP/htdocs/v5/vendor/laravel/framework/src/Illuminate/Database/Connection.php",
-		"/F/WAMPP/htdocs/v4/boot.php",
 		"/F/WAMPP/htdocs/v4/vendor/autoload.php",
-		"/F/WAMPP/htdocs/v4/config/database.php",
-		"/F/WAMPP/htdocs/v4/core/Model.php",
-		"/F/WAMPP/htdocs/v4/model/Test.php",
 		"/F/WAMPP/htdocs/ephp/class/class.grid.php",
-		"/F/WAMPP/htdocs/v4/core/Config.php",
-		"/F/WAMPP/htdocs/v4/composer.json",
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP Companion.sublime-settings",
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/Default (Windows).sublime-keymap",
-		"/F/WAMPP/htdocs/v4/test.php",
 		"/F/WAMPP/htdocs/v5/composer.json",
 		"/F/WAMPP/htdocs/v4/vendor/composer/autoload_psr4.php",
 		"/F/WAMPP/htdocs/v5/vendor/nesbot/carbon/composer.json",
@@ -687,14 +696,11 @@
 		"/F/WAMPP/htdocs/ephp/app/controller/buyer_c.php",
 		"/F/WAMPP/htdocs/extmvc/css/cart.css",
 		"/F/WAMPP/htdocs/extmvc/css/komponen.css",
-		"/F/WAMPP/htdocs/v4/index.php",
 		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/ahp.sublime-snippet",
-		"/F/WAMPP/apache/conf/extra/httpd-vhosts.conf",
 		"/F/WAMPP/htdocs/webdesktopakunting/store/pelanggan/dataStore.php",
 		"/F/WAMPP/htdocs/v2/public/testdb.php",
 		"/F/WAMPP/htdocs/v2/class/loquent/Connector.php",
 		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/bz2/dependency-metadata.json",
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/User/PHP.sublime-settings",
 		"/F/WAMPP/htdocs/v2/class/loquent/Model.php",
 		"/F/WAMPP/htdocs/v2/config/database.php",
 		"/F/WAMPP/htdocs/v2/public/config.php",
@@ -752,7 +758,6 @@
 		"/F/WAMPP/htdocs/v7/vendor/illuminate/database/Query/Builder.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.890/BaseModel.php",
 		"/F/WAMPP/htdocs/v7/boot.php",
-		"/F/WAMPP/htdocs/v7/index.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI02.547/CrudInterface.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI06.453/routes.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI03.328/User.php",
@@ -760,39 +765,13 @@
 		"/F/WAMPP/htdocs/v7/models/Dpa.php",
 		"/F/WAMPP/htdocs/v7/model/Dpa.php",
 		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/PHP Companion/PHP Companion.sublime-settings",
-		"/C/Users/coding/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
 		"/F/WAMPP/htdocs/v5/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php",
 		"/F/WAMPP/htdocs/bot/index.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_kegiatan.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/skpd/usulanPrioritas15_xls.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_edit_prioritas.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_edit_prioritas.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_kegiatan.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_kegiatan.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi_edit.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/head_opsi_edit.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/index.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/template.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/template_header.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_edit_prioritas.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_edit_prioritas.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_kegiatan.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi_edit.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_opsi_edit.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/index.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/template.html",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/template_header.php",
-		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/config/conf16.php"
+		"/E/2015/sampang/bakar/ok/mojokerto/mojokerto/#pelatihan/head_kegiatan.html"
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -819,6 +798,19 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"php",
+			" varchar(255) CHARACTER SET latin1 NOT NULL",
+			"`pak_pagu`,",
+			"`pak`",
+			"klpk_sasaran",
+			"`dpa_perubahan`, `jml_dppa",
+			"`tahun`",
+			"jml_anggaran",
+			"id_dpa_dpa",
+			"xx_vw_unbra_indikakor_final_akhir_finish",
+			"window",
+			"2",
+			"listModul",
 			"newQuery",
 			"static::$",
 			"'",
@@ -933,20 +925,7 @@
 			"_POST",
 			"title",
 			"id",
-			"POST",
-			"text",
-			"data",
-			"text",
-			"parent_id",
-			"title",
-			"username",
-			"MenuEventGrid",
-			"menuEventGrid",
-			"menuGrid",
-			"user_group",
-			" ",
-			"\"\"",
-			"Bojonegorok"
+			"POST"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -954,6 +933,14 @@
 		"regex": false,
 		"replace_history":
 		[
+			"`pak`,",
+			"`pak_pagu`",
+			"kode_bakklpk_sasaran",
+			"`pak_pagu`, `pak",
+			"`thn`",
+			"jml_pagu",
+			"id",
+			"dpa_2015",
 			"\"",
 			"SIPPDA",
 			"Bojonegoro",
@@ -975,75 +962,14 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "v4.sublime-project",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 283,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								256,
-								273
-							]
-						],
-						"settings":
-						{
-							"auto_complete": true,
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "core/Config.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 416,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								6,
-								6
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 36.0
 	},
 	"input":
 	{
@@ -1080,7 +1006,7 @@
 	"project": "v4.sublime-project",
 	"replace":
 	{
-		"height": 62.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1090,16 +1016,40 @@
 		"selected_items":
 		[
 			[
+				"db",
+				"core\\DB.php"
+			],
+			[
+				"te",
+				"test.php"
+			],
+			[
+				"eas",
+				"static\\css\\easyui.css"
+			],
+			[
+				"a",
+				"app.js"
+			],
+			[
+				"",
+				"app.js"
+			],
+			[
+				"aut",
+				"webdesktopakunting\\app\\view\\autoComplete.js"
+			],
+			[
+				"wall",
+				"webdesktopakunting\\app\\view\\wallpaper.js"
+			],
+			[
 				"blade",
 				"resources\\views\\home.blade.php"
 			],
 			[
 				"ro",
 				"app\\Http\\routes.php"
-			],
-			[
-				"",
-				"Database\\Eloquent\\Builder.php"
 			],
 			[
 				"rela",

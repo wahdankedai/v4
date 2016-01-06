@@ -1,6 +1,7 @@
 <?php 
 
 define('ROOT', dirname(__FILE__));
+define('BASE_URL', 'http://localhost/v4/');
 
 define('DS', DIRECTORY_SEPARATOR);
 
