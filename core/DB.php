@@ -60,8 +60,72 @@ class DB
 
         $dt = self::instance()->query($q);
 
-        $result = $dt->fetchAll();
+        $result = $dt->fetch();
         return $result;
+    }
+
+
+    public static function insert($table='', array $param)
+    {
+        if (count($param) == 0) {
+            return false;
+        }
+        
+        $q = "insert into $table ";
+        
+
+        if (count($param) > 0) {
+            $k = '('; 
+            $v = "";
+            $i = 0;
+            foreach ($param as $key => $value) {
+                if(++$i === count($param)) {
+                    $k .= '`' . $key . '`) VALUES (';
+                    $v .=  "'$value' )";
+                    break;
+                }
+                    $k .= '`' . $key . '`, ';
+                    $v .=  "'$value', ";
+            }            
+        }
+
+        $q .= $k . $v;
+        // return $q;
+
+        try {
+            $dt = self::instance()->query($q);
+            return true;
+            
+        } catch (Exception $e) {
+            return false;
+        }
+        
+    }
+
+    public static function delete($table='', $param)
+    {
+        if (count($param) == 0) {
+            return false;
+        }
+
+        $q = "DELETE FROM $table WHERE ";
+        $i = 0;
+        foreach ($param as $key => $value) {
+            if(++$i === count($param)) {
+                $q .= $key . " = '" . $value . "'";
+                break;
+            }
+                $q .= $key . " = '" . $value . "', AND ";
+        }
+
+        try {
+            $dt = self::instance()->query($q);
+            return true;
+            
+        } catch (Exception $e) {
+            return false;
+        }
+
     }
     
     /**

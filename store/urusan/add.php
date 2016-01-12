@@ -2,12 +2,28 @@
 
 require '../../boot.php';
 
-$dt = [
-    "success" => true,
-    "message" => "berhasil"
-];
+$kd_urusan = Request::post('kd_urusan');
+$nm_urusan = Request::post('nm_urusan');
 
-echo json_encode($dt);
+$dt = DB::insert('urusan', [
+        "kd_urusan" => $kd_urusan,
+        "nm_urusan" => $nm_urusan,
+    ]);
+
+if ($dt) {
+    $hasil = [
+        "success" => true,
+        "message" => "Data Urusan {$nm_urusan} berhasil dimasukkan"  
+    ];
+    
+} else {
+    $hasil = [
+        "success" => false,
+        "message" => "Data Urusan {$nm_urusan} gagal dimasukkan"
+    ];
+}
+
+echo json_encode($hasil);
 
 
 exit;

@@ -1,6 +1,6 @@
 <div id='x-datagrid'/>
 <script type="text/javascript">
-var halaman = "Data Master Urusan";
+var halaman = "Data Master Bidang";
 $('#x-datagrid').datagrid({
     title: halaman,
     fit:true,
@@ -13,7 +13,7 @@ $('#x-datagrid').datagrid({
                 width: 350,
                 height: 180,
                 modal:true,
-                href: BASE_URL+ 'store/urusan/view_create.php',
+                href: BASE_URL+ 'store/bidang/view_create.php',
                 buttons:[{
                     text:'Save',
                     handler:function (){                            
@@ -44,57 +44,9 @@ $('#x-datagrid').datagrid({
                     }
                 }],
                 onLoad: function() {
-                    $('#kd_urusan').numberbox('textbox').focus(); 
+                    $('#kd_bidang').numberbox('textbox').focus(); 
                 }
             });  
-        }
-    },{
-        text:'Edit',
-        iconCls: 'icon-edit',
-        handler: function(){
-            var row = $('#x-datagrid').datagrid('getSelected');
-            if (row) {
-                $('#x-dialog').dialog({
-                    title: 'Edit ' + halaman,
-                    width: 350,
-                    height: 180,
-                    modal:true,
-                    href: BASE_URL+ 'store/urusan/view_edit.php',
-                    queryParams : {id : row.kd_urusan},
-                    buttons:[{
-                        text:'Save',
-                        handler:function (){                            
-                            $('#fm').form('submit',{  
-                                onSubmit:function(){
-                                    return $('#fm').form('enableValidation').form('validate');
-                                },
-                                success: function(data){
-                                    var data = eval('(' + data + ')');
-                                    if (data.success){
-                                        $.messager.show({  
-                                            title: 'Status',  
-                                            msg: data.message  
-                                        });
-                                        $('#x-datagrid').datagrid('reload');
-                                        $('#x-dialog').dialog('close')
-                                    }
-                                    else {
-                                        $.messager.alert('Warning', data.message);
-                                    } 
-                                } 
-                            });
-                            }
-                        },{
-                        text:'Close',
-                        handler:function(){
-                            $('#x-dialog').dialog('close')
-                        }
-                    }],
-                    onLoad: function() {
-                        $('#kd_urusan').numberbox('textbox').focus(); 
-                    }
-                }); 
-            }
         }
     },{
         text:'Hapus',
@@ -105,9 +57,9 @@ $('#x-datagrid').datagrid({
                 $.messager.confirm('Hapus ' + halaman, 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
                     if (r)
                     {
-                        $.post(BASE_URL + 'store/urusan/delete.php', {
-                            id : row.kd_urusan,
-                            nm : row.nm_urusan
+                        $.post(BASE_URL + 'store/bidang/delete.php', {
+                            id : row.kd_bidang,
+                            nm : row.nm_bidang
                         },
                         function (d) {
                             var data = eval('(' + d + ')');
@@ -128,13 +80,13 @@ $('#x-datagrid').datagrid({
         }
     }],
     columns:[[
-        {field:'kd_urusan',title:'Kode',width:100, align:'right'},
-        {field:'nm_urusan',title:'Nama Urusan',width:280}
+        {field:'kd_bidang',title:'Kode',width:100, align:'right'},
+        {field:'nm_bidang',title:'Nama bidang',width:280}
     ]],
     rownumbers : true,
     singleSelect:true,
     striped:true
 });
 
-    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/urusan/list.php',resize:true});
+    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/bidang/list.php',resize:true});
 </script>
