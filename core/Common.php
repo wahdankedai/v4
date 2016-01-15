@@ -8,10 +8,10 @@ class Common
         $branch = array();
 
         foreach ($elements as $element) {
-            if ($element['parent'] == $parentId) {
-                $children = self::buildTree($elements, $element['id']);
+            if ($element->parent == $parentId) {
+                $children = self::buildTree($elements, $element->id);
                 if ($children) {
-                    $element['children'] = $children;
+                    $element->children = $children;
                 }
                 $branch[] = $element;
             }

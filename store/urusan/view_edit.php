@@ -1,10 +1,10 @@
 <?php 
 require '../../boot.php';
 
-$id = Request::Post('id');
-print_r($id);
-die();
+$id = Request::get('id');
+
 $old = DB::find('urusan', ['kd_urusan' => $id]);
+
 
 ?>
 <form id="fm" method="post" 
@@ -19,19 +19,17 @@ $old = DB::find('urusan', ['kd_urusan' => $id]);
                 <label for="kd_urusan" class="left inline">Kode</label>
             </div>
             <div class="small-9 columns">
+                <input type="hidden" name="old_kd_urusan" value="<?php echo $old->kd_urusan; ?>" />
                 <input  type="text" 
                         id="kd_urusan" 
                         name="kd_urusan" 
                         class="form-control easyui-numberbox" 
-                        value = "<?php echo $old->nm_urusan; ?>"
+                        value = "<?php echo $old->kd_urusan; ?>"
                         data-options="
                             min:1,
                             precision:0,
                             delay:200,
-                            required:true,
-                            validType:{
-                                dataKosong:['<?php echo BASE_URL; ?>store/urusan/check.php','id']
-                            }">
+                            required:true">
             </div>
         </div>
         <div class="row mb20">

@@ -19,7 +19,9 @@ $('#x-datagrid').datagrid({
                     handler:function (){                            
                         $('#fm').form('submit',{  
                             onSubmit:function(){
-                                return $('#fm').form('enableValidation').form('validate');
+                                var urlc = '<?php echo BASE_URL; ?>store/urusan/check.php';
+                                var param = $('form#fm').serialize();
+                                return beforeSendForm (urlc,param);
                             },
                             success: function(data){
                                 var data = eval('(' + data + ')');
@@ -63,11 +65,8 @@ $('#x-datagrid').datagrid({
                     queryParams : {id : row.kd_urusan},
                     buttons:[{
                         text:'Save',
-                        handler:function (){                            
+                        handler:function (){    
                             $('#fm').form('submit',{  
-                                onSubmit:function(){
-                                    return $('#fm').form('enableValidation').form('validate');
-                                },
                                 success: function(data){
                                     var data = eval('(' + data + ')');
                                     if (data.success){

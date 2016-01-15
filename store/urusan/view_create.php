@@ -21,10 +21,7 @@ require '../../boot.php';
                             min:1,
                             precision:0,
                             delay:200,
-                            required:true,
-                            validType:{
-                                dataKosong:['<?php echo BASE_URL; ?>store/urusan/check.php','id']
-                            }">
+                            required:true">
             </div>
         </div>
         <div class="row mb20">
