@@ -7,18 +7,44 @@
             textField: 'nm_urusan',
             url: BASE_URL + 'store/urusan/list.php',
             onChange: function (n,o) {
-                $('#x-datagrid').datagrid({
-                    queryParams : {
-                        kd_urusan : n
-                    }
-                });
+                if(n!=o && $.isNumeric(n)) {
+                    $('#pilihBidang').combobox({
+                        disabled:false, 
+                        queryParams : {
+                            kd_urusan : n
+                        }
+                    });
+                }
             }" />
-        <a id="addBidang" class="easyui-linkbutton" iconCls="icon-add">Tambah</a>
-        <a id="editBidang" class="easyui-linkbutton" iconCls="icon-edit">Edit</a>
-        <a id="delBidang" class="easyui-linkbutton" iconCls="icon-remove">Hapus</a>
+         Bidang: 
+        <input id="pilihBidang" class="easyui-combobox" data-options="
+            valueField: 'kd_bidang',
+            textField: 'nm_bidang',
+            disabled:true,
+            panelWidth:500,
+            url: BASE_URL + 'store/bidang/list.php',
+            queryParams : {
+                kd_urusan : 0
+            },
+            onChange : function (n,o) {
+                var me = $('#pilihBidang');
+                if(n!=o && $.isNumeric(n)) {
+                    me.combobox('hidePanel');
+                    var l = $('#pilihUrusan').combobox('getValue');
+                    $('#x-datagrid').datagrid({
+                        queryParams : {
+                            kd_urusan : l,
+                            kd_bidang : n
+                        }
+                    });
+                }
+            }" />
+        <a id="addProgram" class="easyui-linkbutton" iconCls="icon-add">Tambah</a>
+        <a id="editProgram" class="easyui-linkbutton" iconCls="icon-edit">Edit</a>
+        <a id="delProgram" class="easyui-linkbutton" iconCls="icon-remove">Hapus</a>
 </div>
 <script type="text/javascript">
-var halaman = "Data Master Bidang";
+var halaman = "Data Master Program";
 $('#x-datagrid').datagrid({
     title: halaman,
     fit:true,
@@ -26,7 +52,8 @@ $('#x-datagrid').datagrid({
     columns:[[
         {field:'kd_urusan',title:'Kode Urusan',width:100, align:'right',sortable:true,order:'asc'},
         {field:'kd_bidang',title:'Kode Bidang',width:100, align:'right',sortable:true,order:'asc'},
-        {field:'nm_bidang',title:'Nama bidang',width:280}
+        {field:'kd_program',title:'Kode Program',width:100, align:'right',sortable:true,order:'asc'},
+        {field:'nm_program',title:'Nama Program',width:480}
     ]],
     rownumbers : true,
     singleSelect:true,
@@ -35,17 +62,18 @@ $('#x-datagrid').datagrid({
     striped:true
 });
 
-    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/bidang/list.php',resize:true,queryParams : {
-        kd_urusan : 0
+    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/program/list.php',resize:true, queryParams : {
+        kd_urusan : 0,
+        kd_bidang : 0
     }});
 
-    $("#delBidang").bind('click', function(){
+    $("#delProgram").bind('click', function(){
         var row = $('#x-datagrid').datagrid('getSelected');
         if (row){
             $.messager.confirm('Hapus ' + halaman, 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
                 if (r)
                 {
-                    $.post(BASE_URL + 'store/bidang/delete.php', 
+                    $.post(BASE_URL + 'store/program/delete.php', 
                         row
                     ,
                     function (d) {
@@ -65,18 +93,19 @@ $('#x-datagrid').datagrid({
             });
         }
     });
-    $("#addBidang").bind('click', function(){
+    $("#addProgram").bind('click', function(){
         var pilihUrusan = $('#pilihUrusan').combobox('getValue');
+        var pilihBidang = $('#pilihBidang').combobox('getValue');
         
-        if (pilihUrusan =="") {
-             $.messager.alert('Warning', 'Pilih Urusan terlebih Dahulu!!');
+        if (pilihUrusan =="" || pilihBidang =="") {
+             $.messager.alert('Warning', 'Pilih Urusan dan Bidang terlebih Dahulu!!');
         } else {
             $('#x-dialog').dialog({
                 title: 'Tambah ' + halaman,
-                width: 350,
+                width: 450,
                 height: 180,
                 modal:true,
-                href: BASE_URL+ 'store/bidang/view_create.php?kd_urusan=' + pilihUrusan,
+                href: BASE_URL+ 'store/program/view_create.php?kd_urusan=' + pilihUrusan + '&kd_bidang='+pilihBidang,
                 buttons:[{
                     text:'Save',
                     handler:function (){                            
@@ -104,16 +133,16 @@ $('#x-datagrid').datagrid({
                     }
                 }],
                 onLoad: function() {
-                    $('#kd_bidang').numberbox('textbox').focus(); 
+                    $('#kd_program').numberbox('textbox').focus(); 
                 }
             });  
         }
     });
 
-    $("#editBidang").bind('click', function(){
-        var pilihUrusan = $('#x-datagrid').datagrid('getSelected');
+    $("#editProgram").bind('click', function(){
+        var rowProgram = $('#x-datagrid').datagrid('getSelected');
 
-        if (! pilihUrusan) {
+        if (! rowProgram) {
              $.messager.alert('Warning', 'Pilih data yang akan dirubah terlebih Dahulu!!');
         } else {
             $('#x-dialog').dialog({
@@ -121,8 +150,8 @@ $('#x-datagrid').datagrid({
                 width: 350,
                 height: 180,
                 modal:true,
-                href: BASE_URL+ 'store/bidang/view_edit.php',
-                queryParams : pilihUrusan,
+                href: BASE_URL+ 'store/program/view_edit.php',
+                queryParams : rowProgram,
                 buttons:[{
                     text:'Save',
                     handler:function (){                            
@@ -150,7 +179,7 @@ $('#x-datagrid').datagrid({
                     }
                 }],
                 onLoad: function() {
-                    $('#kd_bidang').numberbox('textbox').focus(); 
+                    $('#kd_program').numberbox('textbox').focus(); 
                 }
             });  
         }

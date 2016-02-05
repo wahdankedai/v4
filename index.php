@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <?php require 'boot.php'; ?>
+<?php $aplikasi =  Config::get('aplikasi'); ?>
+
+<?php 
+    if (! isset($_SESSION[$aplikasi->name]) || $_SESSION[$aplikasi->name]['auth'] == "") {
+        App::redirectTo('login');
+    } 
+?>
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Full Layout - jQuery EasyUI Demo</title>
+	<title><?php echo $aplikasi->name . " " .$aplikasi->client; ?></title>
 	<link rel="stylesheet" type="text/css" href="static/css/easyui.css">
 	<script type="text/javascript" src="static/js/jquery.min.js"></script>
 	<script type="text/javascript" src="static/js/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="static/js/jquery.edatagrid.js"></script>
 	<script type="text/javascript" src="app.js"></script>
     <script type="text/javascript">
         var BASE_URL = "<?php echo BASE_URL; ?>"; 
@@ -68,10 +74,12 @@
             onClick: function(node){
                 
                 if (node.component != "") {
+
                     $.post( "view.php", { view: node.id })
                         .done(function( data ) {
                             $("#x-content").empty();
                             $("#x-content").append(data);
+                            $.parser.parse();   
                         })
                         .fail(function(e) {
                             console.log(e);

@@ -1,4 +1,6 @@
 <?php 
+ini_set('display_error', 'On');
+error_reporting(1);
 
 define('ROOT', dirname(__FILE__));
 define('BASE_URL', 'http://localhost/v4/');
@@ -13,3 +15,7 @@ define('EXT', '.php');
  */
 
 require 'vendor/autoload.php';
+
+// start session
+
+session_start();

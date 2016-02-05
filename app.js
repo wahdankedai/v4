@@ -1,32 +1,9 @@
+function deleteUnnecesaryDiv () {
+	var d = document.getElementsByClassName('')
+}
+
+
 $(document).ready(function(){
-	
-
-	// $('#x-menu-tree').tree({
-	
-	// 	onClick: function(node){
-	// 		var e = node.id;
-	// 		var leaf = node.leaf;
-	// 		if (leaf=='1'){
-	// 			$.post("handler.php", { id: e },
-	// 			function (data) {
-	// 				$("#x-content").empty();
-	// 				if (data == "404")
-	// 				{
-	// 					window.location.replace("logout");
-	// 				} 
-	// 				else 
-	// 				{
-	// 					$("#x-content").append(data);
-	// 				}
-	// 			});
-	// 		}
-			
-	// 	}
-	
-	// });
-	// 
-	
-
 
 	$('#logout').click(function(e) {
 		e.preventDefault();

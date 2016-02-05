@@ -39,8 +39,28 @@ class DB
 
     public static function find($table='', array $param)
     {
+        $q = self::_buildFind($table, $param);
+        // return $q;
+        $dt = self::instance()->query($q);
 
-        $q = "select * from $table ";
+       
+        $result = $dt->fetch();
+        return $result;
+    }
+
+    public static function findAll($table='', array $param)
+    {
+
+        $q = self::_buildFind($table, $param);
+        // return $q;
+        $dt = self::instance()->query($q);
+        $result = $dt->fetchAll();
+        return $result;
+    }
+
+    public static function _buildFind($table = '', array $param)
+    {
+         $q = "select * from $table ";
         
         if (count($param) == 0) {
             $q .= "where 0=0";
@@ -51,17 +71,15 @@ class DB
             $i = 0;
             foreach ($param as $key => $value) {
                 if(++$i === count($param)) {
-                    $q .= $key . ' = ' .$value . ' ';
+                    $q .= $key . ' = \'' .$value . '\' ';
                     break;
                 }
-                    $q .= $key . ' = ' .$value . ' AND ';
+                    $q .= $key . ' = \'' .$value . '\' AND ';
             }            
         }
 
-        $dt = self::instance()->query($q);
+        return $q;
 
-        $result = $dt->fetch();
-        return $result;
     }
 
 
@@ -102,6 +120,52 @@ class DB
         
     }
 
+    public static function update($table='',array $where, array $field)
+    {
+        if (count($field) == 0 || count($where) == 0) {
+            return false;
+        }
+        
+        $q = "UPDATE $table SET ";
+        
+
+        if (count($field) > 0) {
+            $k = ''; 
+            $i = 0;
+            foreach ($field as $key => $value) {
+                if(++$i === count($field)) {
+                    $k .= "`" . $key . "` = " . "'{$value}'";
+                    break;
+                }
+                    $k .= "`" . $key . "` = " . "'{$value}'" . ",";
+            }            
+        }
+
+        if (count($where) > 0) {
+            $v = ' WHERE '; 
+            $i = 0;
+            foreach ($where as $key => $value) {
+                if(++$i === count($where)) {
+                    $v .= "`" . $key . "` = " . "'{$value}'";
+                    break;
+                }
+                    $v .= "`" . $key . "` = " . "'{$value}'" . " AND ";
+            }            
+        }
+
+        $q .= $k . $v;
+        // return $q;
+
+        try {
+            $dt = self::instance()->query($q);
+            return true;
+            
+        } catch (Exception $e) {
+            return false;
+        }
+        
+    }
+
     public static function delete($table='', $param)
     {
         if (count($param) == 0) {
@@ -115,8 +179,9 @@ class DB
                 $q .= $key . " = '" . $value . "'";
                 break;
             }
-                $q .= $key . " = '" . $value . "', AND ";
+                $q .= $key . " = '" . $value . "' AND ";
         }
+        // return $q;
 
         try {
             $dt = self::instance()->query($q);

@@ -1,6 +1,6 @@
 <div id='x-datagrid'/>
 <script type="text/javascript">
-var halaman = "Data Master Urusan";
+var halaman = "Data Master Sumber Dana";
 $('#x-datagrid').datagrid({
     title: halaman,
     fit:true,
@@ -13,7 +13,7 @@ $('#x-datagrid').datagrid({
                 width: 350,
                 height: 180,
                 modal:true,
-                href: BASE_URL+ 'store/urusan/view_create.php',
+                href: BASE_URL+ 'store/sumber_dana/view_create.php',
                 buttons:[{
                     text:'Save',
                     handler:function (){                            
@@ -41,7 +41,7 @@ $('#x-datagrid').datagrid({
                     }
                 }],
                 onLoad: function() {
-                    $('#kd_urusan').numberbox('textbox').focus(); 
+                    $('#nm_sumber_dana').numberbox('textbox').focus(); 
                 }
             });  
         }
@@ -56,8 +56,8 @@ $('#x-datagrid').datagrid({
                     width: 350,
                     height: 180,
                     modal:true,
-                    href: BASE_URL+ 'store/urusan/view_edit.php',
-                    queryParams : {id : row.kd_urusan},
+                    href: BASE_URL+ 'store/sumber_dana/view_edit.php',
+                    queryParams : {id : row.nm_sumber_dana},
                     buttons:[{
                         text:'Save',
                         handler:function (){    
@@ -85,7 +85,7 @@ $('#x-datagrid').datagrid({
                         }
                     }],
                     onLoad: function() {
-                        $('#kd_urusan').numberbox('textbox').focus(); 
+                        $('#nm_sumber_dana').numberbox('textbox').focus(); 
                     }
                 }); 
             }
@@ -99,9 +99,8 @@ $('#x-datagrid').datagrid({
                 $.messager.confirm('Hapus ' + halaman, 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
                     if (r)
                     {
-                        $.post(BASE_URL + 'store/urusan/delete.php', {
-                            id : row.kd_urusan,
-                            nm : row.nm_urusan
+                        $.post(BASE_URL + 'store/sumber_dana/delete.php', {
+                            nm : row.nm_sumber_dana
                         },
                         function (d) {
                             var data = eval('(' + d + ')');
@@ -122,8 +121,7 @@ $('#x-datagrid').datagrid({
         }
     }],
     columns:[[
-        {field:'kd_urusan',title:'Kode',width:100, align:'right',sortable:true,order:'asc'},
-        {field:'nm_urusan',title:'Nama Urusan',width:280}
+        {field:'nm_sumber_dana',title:'Nama Sumber Dana',width:480}
     ]],
     rownumbers : true,
     singleSelect:true,
@@ -132,5 +130,5 @@ $('#x-datagrid').datagrid({
     multiSort:true
 });
 
-    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/urusan/list.php',resize:true});
+    $('#x-datagrid').datagrid({url:BASE_URL+ 'store/sumber_dana/list.php',resize:true});
 </script>
