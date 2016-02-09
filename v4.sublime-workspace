@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"Json",
+				"json_encode"
+			],
+			[
 				"kd",
 				"kd_urusan"
 			],
@@ -510,45 +514,26 @@
 			[
 				"hand",
 				"handlerData"
-			],
-			[
-				"jso",
-				"json_encode"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "views/sumber_dana.php",
+			"contents": "eselon 4 melekat output",
 			"settings":
 			{
-				"buffer_size": 5281,
-				"line_ending": "Windows"
+				"buffer_size": 23,
+				"line_ending": "Windows",
+				"name": "eselon 4 melekat output"
 			}
 		},
 		{
-			"file": "store/sumber_dana/view_edit.php",
+			"file": "/F/WAMPP/htdocs/beta/index.php",
 			"settings":
 			{
-				"buffer_size": 1154,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "store/sumber_dana/edit.php",
-			"settings":
-			{
-				"buffer_size": 608,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/DB.php",
-			"settings":
-			{
-				"buffer_size": 5065,
-				"line_ending": "Windows"
+				"buffer_size": 3525,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -676,13 +661,35 @@
 	},
 	"expanded_folders":
 	[
-		"/F/WAMPP/htdocs/v4/core",
-		"/F/WAMPP/htdocs/v4/store",
-		"/F/WAMPP/htdocs/v4/store/urusan",
+		"/F/WAMPP/htdocs/v4",
 		"/F/WAMPP/htdocs/v4/views"
 	],
 	"file_history":
 	[
+		"/C/Users/coding/AppData/Local/Temp/Rar$DR02.485/Renja KL 2018 Update 28042015/renja/datarenjaupdate.sql",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DR24.203/Renja KL 2018 Update 28042015/renja/assets/assets.bat",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DR21.157/Renja KL 2018 Update 28042015/renja/tinybox/ajax.html",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DR20.047/Renja KL 2018 Update 28042015/renja/script/script.pif",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.594/index.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI23.281/mskpd.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI28.609/sasaran_kl.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI16.219/template_db.php",
+		"/F/WAMPP/htdocs/v4/views/sumber_dana.php",
+		"/F/WAMPP/htdocs/v4/views/beranda.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI04.563/rka_model.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI11.563/master.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI17.594/template_login.php",
+		"/F/WAMPP/htdocs/v4/store/rekening/delete.php",
+		"/F/WAMPP/htdocs/v4/static/css/foundation.css",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.125/jquery.easyui.patch.js",
+		"/F/WAMPP/htdocs/v4/store/sumber_dana/view_edit.php",
+		"/F/WAMPP/htdocs/v4/store/sumber_dana/edit.php",
+		"/F/WAMPP/htdocs/v4/core/DB.php",
+		"/F/WAMPP/htdocs/v4/core/Common.php",
+		"/F/WAMPP/htdocs/v4/core/Request.php",
+		"/C/Users/coding/AppData/Local/Temp/Rar$DI18.969/cetak_ref.php",
+		"/F/WAMPP/htdocs/v4/store/rekening/api.php",
+		"/F/WAMPP/htdocs/v4/static/js/jquery.easyui.min.js",
 		"/F/WAMPP/htdocs/v4/store/sumber_dana/add.php",
 		"/F/WAMPP/htdocs/v4/store/sumber_dana/view_create.php",
 		"/F/WAMPP/htdocs/v4/store/sumber_dana/delete.php",
@@ -725,11 +732,9 @@
 		"/E/2016/sampang/db/sampang123_analisis_untuk_m_alex.sql",
 		"/F/WAMPP/htdocs/sampang/config/conf16.php",
 		"/C/Users/coding/AppData/Local/Temp/scp37118/opt/lampp/htdocs/bappeko/public/lap_2_tahun_2015_skpd_1200305.pdf",
-		"/F/WAMPP/htdocs/v4/core/Request.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/list.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/edit.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/delete.php",
-		"/F/WAMPP/htdocs/v4/core/DB.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/add.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/view_create.php",
 		"/F/WAMPP/htdocs/v4/store/bidang/view_edit.php",
@@ -788,29 +793,7 @@
 		"/F/WAMPP/htdocs/bojonegoros/kecamatan/usulanPrioritas15.php",
 		"/F/WAMPP/htdocs/bojonegoros/skpd/multi_indikator_3.php",
 		"/F/WAMPP/htdocs/bojonegoros/kecamatan/laporanEksport.php",
-		"/F/WAMPP/htdocs/bojonegoros/config/conf16.php",
-		"/F/WAMPP/htdocs/bojonegoros/kecamatan/topmenu.php",
-		"/F/WAMPP/htdocs/bojonegoros/kecamatan/verifikasi.php",
-		"/F/WAMPP/htdocs/bojonegoros/skpd/renja12_diterima_xls.php",
-		"/F/WAMPP/htdocs/v4/static/js/jquery.easyui.min.js",
-		"/F/WAMPP/htdocs/v4/store/tahun.php",
-		"/F/WAMPP/htdocs/v4/boot.php",
-		"/F/WAMPP/apache/logs/agc.log",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DR01.984/jquery.easyui.min.js",
-		"/C/Users/coding/AppData/Local/Temp/scp52332/var/www/html/bojonegoro/skpd/usulanKecamatan.php",
-		"/F/WAMPP/htdocs/cek/component/dashboard.php",
-		"/F/WAMPP/htdocs/cek/dom.php",
-		"/F/WAMPP/htdocs/bot/index.php",
-		"/F/WAMPP/htdocs/v4/core/Common.php",
-		"/F/WAMPP/htdocs/cek/component/menu.json",
-		"/F/WAMPP/htdocs/cek/app.js",
-		"/F/WAMPP/htdocs/v4/store/urusan/view_create.php",
-		"/F/WAMPP/htdocs/v4/store/urusan/view_edit.php",
-		"/F/WAMPP/htdocs/disposisi/component/form-disposisi.html",
-		"/F/WAMPP/htdocs/disposisi/component/spm-masuk.html",
-		"/F/WAMPP/htdocs/cek/assets/demo.css",
-		"/F/WAMPP/htdocs/cek/index.php",
-		"/C/Users/coding/AppData/Local/Temp/scp58520/var/www/html/bojonegoro/admin/md_program.php"
+		"/F/WAMPP/htdocs/bojonegoros/config/conf16.php"
 	],
 	"find":
 	{
@@ -843,6 +826,27 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"\"",
+			"('enable')",
+			"('disable')",
+			"= 'x",
+			"alert",
+			"xkegiatan",
+			"urusan",
+			"bidang",
+			"_urusan",
+			"nm_program",
+			"kd_program",
+			"kd_bidang",
+			"linkbutton",
+			"href=\"#\" ",
+			"urusan",
+			"'",
+			"xtab",
+			"data-options=\"disabled:1\"",
+			"program",
+			"Program",
+			"program",
 			"nm",
 			"urusan",
 			"Urusan",
@@ -949,28 +953,7 @@
 			"store/bidang",
 			"Bidang",
 			"primagroup",
-			"developer",
-			"sampang123",
-			";-",
-			";=",
-			"Urusan :",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst.....",
-			"dst.....",
-			"Dst....."
+			"developer"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1011,127 +994,64 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "views/sumber_dana.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5281,
+						"buffer_size": 23,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4175,
-								4175
+								23,
+								23
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"auto_name": "eselon 4 melekat output",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "store/sumber_dana/view_edit.php",
+					"file": "/F/WAMPP/htdocs/beta/index.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1154,
+						"buffer_size": 3525,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								954,
-								954
+								690,
+								690
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 66.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "store/sumber_dana/edit.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								183,
-								183
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "core/DB.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5065,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4056,
-								4056
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 2838.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]

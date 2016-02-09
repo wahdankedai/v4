@@ -17,6 +17,7 @@ class Request
 
     public static function all($arr)
     {
+        $arr = empty($arr) ? $_REQUEST : $arr;
         foreach($arr as $key=>$value)
         {
            if(is_array($value)) $arr[$key] = self::all($value);

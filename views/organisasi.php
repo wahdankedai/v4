@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    var rekening, state;
+    var rekening, state, xUrusan, xBidang, xUnit,xSubUnit;
 </script>
 <div class="easyui-layout" data-options="fit:true">
         <div data-options="region:'south',split:true" style="height:150px;">
@@ -39,27 +39,46 @@
                 </div>
             </div>
         </div>
-        <div data-options="region:'center',title:'Data Master Program Kegiatan'">
+        <div data-options="region:'center',title:'Data Master Unit & Sub Unit Organisasi'">
             <div class="easyui-tabs xtab" data-options="fit:true,
                 border:false,
                 plain:true,
                 tabPosition:'left',
                 onSelect: function(t,i) {
+                    $('#kode').numberbox('setValue', '');
+                    $('#nama').textbox('setValue', '');
+                    $('.x-edit,.x-save, .x-del,.x-add').linkbutton({disabled:true});
+                    var kd = $('#kode');
+                    var nm = $('#nama');     
+
+                    kd.numberbox({
+                        readonly : true
+                    });    
+                    nm.textbox({
+                        readonly : true
+                    });
                     if (i==0) {
                         $('.xtab').tabs('disableTab', 1);
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
                         rekening = 'urusan';
+                        xUrusan = undefined;
                     } else if (i == 1) {
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
                         rekening = 'bidang';
+                        xBidang = undefined;
                     } else if (i == 2) {
+                        $('.x-add').linkbutton({disabled:false});
                         $('.xtab').tabs('disableTab', 3);
-                        rekening = 'program';
+                        rekening = 'unit';
+                        xUnit = undefined;
                     } else {
-                        rekening = 'kegiatan';
+                        $('.x-add').linkbutton({disabled:false});
+                        rekening = 'subunit';
+                        xSubUnit = undefined;
                     }
+
             }">
                 <div title="Urusan">                    
                     <table class="easyui-datagrid xurusan"
@@ -70,10 +89,6 @@
                                 fitColumns:true,
                                 idField:'kd_urusan',
                                 onSelect : function (i,r) {
-                                    $('#kode').numberbox('setValue', r.kd_urusan);
-                                    $('#nama').textbox('setValue', r.nm_urusan);
-                                    $('.x-edit,.x-add, .x-del').linkbutton({disabled:false});
-                                    $('.x-save').linkbutton({disabled:true});
                                     var kd = $('#kode');
                                     var nm = $('#nama');     
 
@@ -83,8 +98,12 @@
                                     nm.textbox({
                                         readonly : true
                                     });
+
+                                    $('#kode').numberbox('setValue', '');
+                                    $('#nama').textbox('setValue', '');
                                 },
                                 onDblClickRow: function(i,r) {
+                                     xUrusan = r.kd_urusan;
                                      $('.xtab').tabs('enableTab', 1);
                                      $('.xbidang').datagrid({
                                         queryParams:{
@@ -114,11 +133,7 @@
                                 fit:true,
                                 fitColumns:true,
                                 onSelect : function (i,r) {
-                                    $('#kode').numberbox('setValue', r.kd_bidang);
-                                    $('#nama').textbox('setValue', r.nm_bidang);
-                                     $('.x-edit,.x-add, .x-del').linkbutton({disabled:false});
-                                     $('.x-save').linkbutton({disabled:true});
-                                     var kd = $('#kode');
+                                    var kd = $('#kode');
                                     var nm = $('#nama');     
 
                                     kd.numberbox({
@@ -127,10 +142,15 @@
                                     nm.textbox({
                                         readonly : true
                                     });
+
+                                    $('#kode').numberbox('setValue', '');
+                                    $('#nama').textbox('setValue', '');
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 2);
-                                     $('.xprogram').datagrid({
+                                     xUrusan = r.kd_urusan;
+                                     xBidang = r.kd_bidang;
+                                     $('.xunit').datagrid({
                                         queryParams:{
                                             kd_urusan : r.kd_urusan,
                                             kd_bidang : r.kd_bidang
@@ -147,9 +167,9 @@
                         </thead>
                     </table>
                 </div>
-                <div title="Program">
-                    <table class="easyui-datagrid xprogram"
-                            data-options="url:'store/program/list.php',
+                <div title="Unit">
+                    <table class="easyui-datagrid xunit"
+                            data-options="url:'store/unit/list.php',
                                 method:'post',
                                 queryParams:{
                                     kd_urusan : 0,
@@ -158,12 +178,12 @@
                                 singleSelect:true,
                                 fit:true,
                                 fitColumns:true,
-                                idField:'kd_program',
+                                idField:'kd_unit',
                                 onSelect : function (i,r) {
                                     var kd = $('#kode');
                                     var nm = $('#nama');     
-                                    kd.textbox('setValue', r.kd_program);
-                                    nm.textbox('setValue', r.nm_program);
+                                    kd.numberbox('setValue', r.kd_unit);
+                                    nm.textbox('setValue', r.nm_unit);
                                     $('.x-edit,.x-add, .x-del').linkbutton({disabled:false});
                                     $('.x-save').linkbutton({disabled:true});
 
@@ -176,10 +196,13 @@
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 3);
-                                     $('.xkegiatan').datagrid({
+                                     xUrusan = r.kd_urusan;
+                                     xBidang = r.kd_bidang;
+                                     xUnit = r.kd_unit;
+                                     $('.xsubunit').datagrid({
                                         queryParams:{
                                             kd_urusan : r.kd_urusan,
-                                            kd_program : r.kd_program,
+                                            kd_unit : r.kd_unit,
                                             kd_bidang : r.kd_bidang
                                         }
                                      });
@@ -189,28 +212,28 @@
                             <tr>
                                 <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
                                 <th data-options="field:'kd_bidang',align:'center'" width="80">Bidang</th>
-                                <th data-options="field:'kd_program',align:'center'" width="80">Program</th>
-                                <th data-options="field:'nm_program'" width="500">Uraian Nama Program</th>
+                                <th data-options="field:'kd_unit',align:'center'" width="80">Unit</th>
+                                <th data-options="field:'nm_unit'" width="500">Uraian Nama Unit</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-                <div title="Kegiatan">
-                    <table class="easyui-datagrid xkegiatan"
-                            data-options="url:'store/kegiatan/list.php',
+                <div title="Sub Unit">
+                    <table class="easyui-datagrid xsubunit"
+                            data-options="url:'store/sub_unit/list.php',
                                 queryParams:{
                                     kd_urusan : 0,
                                     kd_bidang : 0,
-                                    kd_program : 0
+                                    kd_unit : 0
                                 },
                                 method:'post',
                                 singleSelect:true,
-                                idField:'kd_kegiatan',
+                                idField:'kd_subunit',
                                 fit:true,
                                 fitColumns:true,
                                 onSelect : function (i,r) {
-                                    $('#kode').numberbox('setValue', r.kd_kegiatan);
-                                    $('#nama').textbox('setValue', r.nm_kegiatan);
+                                    $('#kode').numberbox('setValue', r.kd_subunit);
+                                    $('#nama').textbox('setValue', r.nm_subunit);
                                     var kd = $('#kode');
                                     var nm = $('#nama');     
 
@@ -227,9 +250,9 @@
                             <tr>
                                 <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
                                 <th data-options="field:'kd_bidang',align:'center'" width="80">Bidang</th>
-                                <th data-options="field:'kd_program',align:'center'" width="80">Program</th>
-                                <th data-options="field:'kd_kegiatan',align:'center'" width="80">Kegiatan</th>
-                                <th data-options="field:'nm_kegiatan'" width="500">Uraian Nama Kegiatan</th>
+                                <th data-options="field:'kd_unit',align:'center'" width="80">Unit</th>
+                                <th data-options="field:'kd_subunit',align:'center'" width="80">Sub Unit</th>
+                                <th data-options="field:'nm_subunit'" width="500">Uraian Nama Sub Unit</th>
                             </tr>
                         </thead>
                     </table>
@@ -303,7 +326,7 @@
             var nm = $("#nama");
             var row = $('.x'+rekening).datagrid('getSelected');
             row.tipe = rekening;
-            $.post('store/rekening/delete.php', row)
+            $.post('store/program_kegiatan/delete.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){
@@ -360,8 +383,7 @@
             }
 
             if ( state == "add") {
-                var a = $('.x'+rekening).datagrid('getRowIndex', KD);
-                //console.log(a);
+                var a = $('.x'+rekening).datagrid('getRowIndex', parseInt(KD));
                 if (a != "-1") {
                     $.messager.alert('Warning', "Kode Rekening " + KD + " Sudah Ada!",'', function(){
                         kd.numberbox('textbox').focus(); 
@@ -373,13 +395,25 @@
             }
 
             var rows = $('.x'+rekening).datagrid('getRows');
-            var row = rows[0];
-
+            if (rows.length === 0 ) {
+                // console.log('masuk trigger');
+                var row = {};
+                row.kd_urusan = xUrusan;
+                row.kd_bidang = xBidang;
+                if(rekening == 'subunit') {
+                    row.kd_unit = xUnit;
+                }
+                // console.log(row);
+            }
+            else {
+                var row = rows[0];
+            }
+                 // console.log('abis itu ' +row);
             row.tipe = rekening;
             row.kode = KD;
             row.nama = NM;
             
-            $.post('store/rekening/save.php', row)
+            $.post('store/organisasi/save.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){

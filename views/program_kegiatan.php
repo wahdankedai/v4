@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    var rekening, state;
+    var rekening, state, xUrusan, xBidang, xProgram, xKegiatan;
 </script>
 <div class="easyui-layout" data-options="fit:true">
         <div data-options="region:'south',split:true" style="height:150px;">
@@ -50,16 +50,34 @@
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
                         rekening = 'urusan';
+                         xUrusan = undefined;
                     } else if (i == 1) {
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
                         rekening = 'bidang';
+                         xBidang = undefined;
                     } else if (i == 2) {
                         $('.xtab').tabs('disableTab', 3);
                         rekening = 'program';
+                         xProgram = undefined;
                     } else {
                         rekening = 'kegiatan';
+                         xKegiatan = undefined;
                     }
+                    $('#kode').numberbox('setValue', '');
+                    $('#nama').textbox('setValue', '');
+                    $('.x-add').linkbutton({disabled:false});
+                    $('.x-edit,.x-save, .x-del').linkbutton({disabled:true});
+                    var kd = $('#kode');
+                    var nm = $('#nama');     
+
+                    kd.numberbox({
+                        readonly : true
+                    });    
+                    nm.textbox({
+                        readonly : true
+                    });
+
             }">
                 <div title="Urusan">                    
                     <table class="easyui-datagrid xurusan"
@@ -86,6 +104,7 @@
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 1);
+                                     xUrusan = r.kd_urusan;
                                      $('.xbidang').datagrid({
                                         queryParams:{
                                             kd_urusan : r.kd_urusan
@@ -130,6 +149,8 @@
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 2);
+                                     xUrusan = r.kd_urusan;
+                                     xBidang = r.kd_bidang;
                                      $('.xprogram').datagrid({
                                         queryParams:{
                                             kd_urusan : r.kd_urusan,
@@ -176,6 +197,9 @@
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 3);
+                                     xUrusan = r.kd_urusan;
+                                     xBidang = r.kd_bidang;
+                                     xProgram = r.kd_program;
                                      $('.xkegiatan').datagrid({
                                         queryParams:{
                                             kd_urusan : r.kd_urusan,
@@ -303,7 +327,7 @@
             var nm = $("#nama");
             var row = $('.x'+rekening).datagrid('getSelected');
             row.tipe = rekening;
-            $.post('store/rekening/delete.php', row)
+            $.post('store/program_kegiatan/delete.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){
@@ -360,8 +384,8 @@
             }
 
             if ( state == "add") {
-                var a = $('.x'+rekening).datagrid('getRowIndex', KD);
-                //console.log(a);
+                var a = $('.x'+rekening).datagrid('getRowIndex', parseInt(KD));
+                // console.log(a);
                 if (a != "-1") {
                     $.messager.alert('Warning', "Kode Rekening " + KD + " Sudah Ada!",'', function(){
                         kd.numberbox('textbox').focus(); 
@@ -373,13 +397,25 @@
             }
 
             var rows = $('.x'+rekening).datagrid('getRows');
-            var row = rows[0];
+            if (rows.length === 0 ) {
+                // console.log('masuk trigger');
+                var row = {};
+                row.kd_urusan = xUrusan;
+                row.kd_bidang = xBidang;
+                if(rekening == 'kegiatabn') {
+                    row.kd_program = xProgram;
+                }
+                console.log(row);
+            }
+            else {
+                var row = rows[0];
+            }
 
             row.tipe = rekening;
             row.kode = KD;
             row.nama = NM;
             
-            $.post('store/rekening/save.php', row)
+            $.post('store/program_kegiatan/save.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){

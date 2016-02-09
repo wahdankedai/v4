@@ -31,4 +31,27 @@ class Common
 
        include $fileTarget;
    }
+
+   public static function obj(array $dt)
+   {
+     return json_decode(json_encode($dt));
+   }
+
+   public static function trickRequest(array $req)
+   {
+      if (isset($req["kode"]) && isset($req["tipe"]) && isset($req["nama"])) {
+        $kode = 'kd_' .$req['tipe'];
+        $nama = 'nm_' .$req['tipe'];
+
+        $req[$kode] = $req["kode"];
+        $req[$nama] = $req["nama"];
+
+        unset($req["kode"]);
+        unset($req["nama"]);
+
+      }
+      
+      return $req;
+    
+   }
 }

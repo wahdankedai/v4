@@ -166,6 +166,56 @@ class DB
         
     }
 
+    public static function addOrNewRekening($table='', array $param)
+    {
+        if (count($param) == 0) {
+            return false;
+        }
+        
+        $q = "insert into $table ";
+        
+
+        if (count($param) > 0) {
+            $k = '('; 
+            $v = "";
+            $w = " ON DUPLICATE KEY UPDATE ";
+            $i = 0;
+
+
+            foreach ($param as $key => $value) {
+
+                if ($key == "nm_$table") {
+                      $w .=  '`' . $key . '` =  VALUES(' . $key . ')';
+                }
+
+
+                if(++$i === count($param)) {
+                    $k .= '`' . $key . '`) VALUES (';
+                    $v .=  "'$value' )";
+                    break;
+                }
+                    $k .= '`' . $key . '`, ';
+                    $v .=  "'$value', ";
+
+            }
+
+        }
+
+
+
+        $q .= $k . $v . $w;
+        // return $q;
+        try {
+            $dt = self::instance()->query($q);
+            return true;
+            
+        } catch (Exception $e) {
+            return false;
+        }
+    }
+
+
+
     public static function delete($table='', $param)
     {
         if (count($param) == 0) {
