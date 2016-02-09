@@ -3,7 +3,9 @@
 require '../../boot.php';
 $req = Common::obj(Request::all($_REQUEST));
 // print_r($req);
-$q = "SELECT concat(bidang.kd_urusan,bidang.kd_bidang) as kd_bidang,
+$q = "SELECT 
+        unit_tupoksi.kd_unit,
+        concat(bidang.kd_urusan,bidang.kd_bidang) as kd_bidang,
         bidang.nm_bidang
         FROM
         unit

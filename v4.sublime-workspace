@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"pri",
+				"print_r"
+			],
+			[
+				"le",
+				"length	String"
+			],
+			[
+				"unse",
+				"unset"
+			],
+			[
+				"strto",
+				"strtoupper"
+			],
+			[
+				"fun",
+				"fun	function …"
+			],
+			[
 				"Json",
 				"json_encode"
 			],
@@ -26,10 +46,6 @@
 			[
 				"pen",
 				"pengusul2"
-			],
-			[
-				"fun",
-				"function_exists"
 			],
 			[
 				"pass",
@@ -498,44 +514,11 @@
 			[
 				"par",
 				"parent_id"
-			],
-			[
-				"sort",
-				"sort_id"
-			],
-			[
-				"ti",
-				"titleData"
-			],
-			[
-				"titl",
-				"titleData"
-			],
-			[
-				"hand",
-				"handlerData"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"contents": "eselon 4 melekat output",
-			"settings":
-			{
-				"buffer_size": 23,
-				"line_ending": "Windows",
-				"name": "eselon 4 melekat output"
-			}
-		},
-		{
-			"file": "/F/WAMPP/htdocs/beta/index.php",
-			"settings":
-			{
-				"buffer_size": 3525,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -661,11 +644,50 @@
 	},
 	"expanded_folders":
 	[
-		"/F/WAMPP/htdocs/v4",
+		"/F/WAMPP/htdocs/v4/store/menu",
+		"/F/WAMPP/htdocs/v4/store/modul",
+		"/F/WAMPP/htdocs/v4/store/organisasi",
 		"/F/WAMPP/htdocs/v4/views"
 	],
 	"file_history":
 	[
+		"/F/WAMPP/htdocs/v4/views/tabel_dpa.php",
+		"//PROGRAMMER/xx/2016/sampang/sampang123_09_02_2016_12_23.sql",
+		"/F/WAMPP/htdocs/v4/views/unit_tupoksi.php",
+		"/F/WAMPP/htdocs/v4/views/satuan.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/add.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/delete.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/edit.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/list.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/view_create.php",
+		"/F/WAMPP/htdocs/v4/store/satuan/view_edit.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/add_tupoksi.php",
+		"/F/WAMPP/htdocs/v4/store/bidang/list_tupoksi.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/delete_tupoksi.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/list_bidang.php",
+		"/F/WAMPP/htdocs/v4/store/menu/list.php",
+		"/F/WAMPP/htdocs/v4/views/program_kegiatan.php",
+		"/F/WAMPP/htdocs/v4/views/organisasi.php",
+		"/F/WAMPP/htdocs/v4/store/unit/list.php",
+		"/F/WAMPP/htdocs/v4/store/sub_unit/list.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/delete.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/save.php",
+		"/F/WAMPP/htdocs/v4/core/DB.php",
+		"/F/WAMPP/htdocs/v4/core/Common.php",
+		"/F/WAMPP/htdocs/v4/core/Request.php",
+		"/F/WAMPP/htdocs/beta/index.php",
+		"/F/WAMPP/htdocs/v4/store/rekening/save.php",
+		"/F/WAMPP/htdocs/v4/store/rekening/delete.php",
+		"/F/WAMPP/htdocs/v4/views/rekening_program_kegiatan.php",
+		"/F/WAMPP/htdocs/v4/boot.php",
+		"/F/WAMPP/php/php.ini",
+		"/F/WAMPP/php/logs/php_error_log",
+		"/F/WAMPP/apache/logs/error.log",
+		"/F/WAMPP/apache/logs/dummy-host2.example.com-error.log",
+		"/F/WAMPP/apache/logs/dummy-host2.example.com-access.log",
+		"/F/WAMPP/apache/logs/agc.log",
+		"/F/WAMPP/apache/logs/access.log",
+		"/F/WAMPP/apache/logs/sipmonev.log",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR02.485/Renja KL 2018 Update 28042015/renja/datarenjaupdate.sql",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR24.203/Renja KL 2018 Update 28042015/renja/assets/assets.bat",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR21.157/Renja KL 2018 Update 28042015/renja/tinybox/ajax.html",
@@ -679,14 +701,10 @@
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI04.563/rka_model.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI11.563/master.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI17.594/template_login.php",
-		"/F/WAMPP/htdocs/v4/store/rekening/delete.php",
 		"/F/WAMPP/htdocs/v4/static/css/foundation.css",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.125/jquery.easyui.patch.js",
 		"/F/WAMPP/htdocs/v4/store/sumber_dana/view_edit.php",
 		"/F/WAMPP/htdocs/v4/store/sumber_dana/edit.php",
-		"/F/WAMPP/htdocs/v4/core/DB.php",
-		"/F/WAMPP/htdocs/v4/core/Common.php",
-		"/F/WAMPP/htdocs/v4/core/Request.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI18.969/cetak_ref.php",
 		"/F/WAMPP/htdocs/v4/store/rekening/api.php",
 		"/F/WAMPP/htdocs/v4/static/js/jquery.easyui.min.js",
@@ -760,40 +778,7 @@
 		"/F/WAMPP/htdocs/bojon/skpd/usulanPrioritas15_add.php",
 		"/F/WAMPP/htdocs/bojon/config/conf16.php",
 		"/F/WAMPP/htdocs/bojon/css/layout.css",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanKecamatan.php",
-		"/F/WAMPP/htdocs/bojon/admin/md_program.php",
-		"/F/WAMPP/htdocs/bojon/admin/md_kelurahan.php",
-		"/F/WAMPP/htdocs/bojon/admin/md_bidang.php",
-		"/F/WAMPP/htdocs/bojon/admin/user.php",
-		"/F/WAMPP/htdocs/bojon/ErrorReporting.txt",
-		"/F/WAMPP/apache/logs/error.log",
-		"/F/WAMPP/htdocs/bojon/head_edit_prioritas.html",
-		"/F/WAMPP/htdocs/bojon/head_edit_prioritas.php",
-		"/F/WAMPP/htdocs/bojon/head_kegiatan.html",
-		"/F/WAMPP/htdocs/bojon/head_kegiatan.php",
-		"/F/WAMPP/htdocs/bojon/head_opsi.html",
-		"/F/WAMPP/htdocs/bojon/head_opsi.php",
-		"/F/WAMPP/htdocs/bojon/head_opsi_edit.php",
-		"/F/WAMPP/htdocs/bojon/template.html",
-		"/F/WAMPP/htdocs/bojon/template_header.php",
-		"/F/WAMPP/htdocs/bojon/admin/renja15_print.php",
-		"/F/WAMPP/htdocs/bojon/admin/renja15_xls.php",
-		"/F/WAMPP/htdocs/bojon/config/konfigurasi.php",
-		"/F/WAMPP/htdocs/bojon/kecamatan/usulanPrioritas15_print.php",
-		"/F/WAMPP/htdocs/bojon/kecamatan/usulanPrioritas15_xls.php",
-		"/F/WAMPP/htdocs/bojon/kecamatan/usulanRutin15_print.php",
-		"/F/WAMPP/htdocs/bojon/kecamatan/usulanRutin15_xls.php",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanPrioritas15_xls.php",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanRutin15_print.php",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanRutin15_xls.php",
-		"/F/WAMPP/htdocs/bojon/footer.php",
-		"/F/WAMPP/htdocs/bojon/include/class_admin.php",
-		"/F/WAMPP/htdocs/bojonegoros/include/class_skpd.php",
-		"/F/WAMPP/htdocs/bojonegoros/skpd/usulanPrioritas15.php",
-		"/F/WAMPP/htdocs/bojonegoros/kecamatan/usulanPrioritas15.php",
-		"/F/WAMPP/htdocs/bojonegoros/skpd/multi_indikator_3.php",
-		"/F/WAMPP/htdocs/bojonegoros/kecamatan/laporanEksport.php",
-		"/F/WAMPP/htdocs/bojonegoros/config/conf16.php"
+		"/F/WAMPP/htdocs/bojon/skpd/usulanKecamatan.php"
 	],
 	"find":
 	{
@@ -826,6 +811,36 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Sumber Dana",
+			"sumber_dana",
+			"pilihBidang",
+			"unit_tupoksi",
+			"program",
+			"nama",
+			"Unit",
+			"sub_unit",
+			"nm_kegiatan",
+			"kd_kegiatan",
+			"nm_program",
+			"kd_program",
+			"program",
+			"kegiatan",
+			"program",
+			"kegiatan",
+			"rekening_program_kegiatan",
+			"store/rekening",
+			"rekening",
+			"false",
+			"});\n",
+			"$('.x-edit, .x-del').linkbutton({disabled:false});",
+			"$('#kode').textbox",
+			"false",
+			"\"",
+			"Penyimpanan",
+			"Data keselarasan {$nm_keselarasan}",
+			"nm_keselarasan",
+			"error",
+			"$('.x-edit, .x-del').linkbutton({disabled:true});",
 			"\"",
 			"('enable')",
 			"('disable')",
@@ -923,37 +938,7 @@
 			"kd_program",
 			"bidang",
 			"Bidang",
-			"program",
-			"Program",
-			"program",
-			"Program",
-			"program",
-			"n",
-			"nm_bidang",
-			"Bidang",
-			"bidang",
-			"Bidang",
-			"bidang",
-			"kd_bidang",
-			"kd_urusan",
-			"pilihUrusan",
-			"Bidang",
-			"bidang",
-			"Bidang",
-			"bidang",
-			"nm_bidang",
-			"bidang",
-			"kd_urusan",
-			"store/bidang",
-			"Urusan",
-			"Bidang",
-			"bidang",
-			"Bidang",
-			"bidang",
-			"store/bidang",
-			"Bidang",
-			"primagroup",
-			"developer"
+			"program"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -994,66 +979,8 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 23,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23,
-								23
-							]
-						],
-						"settings":
-						{
-							"auto_name": "eselon 4 melekat output",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/F/WAMPP/htdocs/beta/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3525,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								690,
-								690
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2838.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				}
 			]
 		}
 	],
