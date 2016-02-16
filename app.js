@@ -2,6 +2,36 @@ function deleteUnnecesaryDiv () {
 	var d = document.getElementsByClassName('')
 }
 
+idleTimer = null;
+idleState = false;
+idleWait = 15000;
+
+(function ($) {
+
+    $(document).ready(function () {
+    
+        $('*').bind('mousemove keydown scroll', function () {
+        
+            clearTimeout(idleTimer);
+                    
+            if (idleState == true) {             
+            }
+            
+            idleState = false;
+            
+            idleTimer = setTimeout(function () { 
+                
+                $.post("logout.php").done(function() {
+                   window.location.reload();
+                });
+
+                idleState = true; }, idleWait);
+        });
+        
+        $("body").trigger("mousemove");
+    
+    });
+}) (jQuery)
 
 $(document).ready(function(){
 

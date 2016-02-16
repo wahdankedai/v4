@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"unit",
+				"unit_organisasi"
+			],
+			[
 				"pri",
 				"print_r"
 			],
@@ -510,10 +514,6 @@
 			[
 				"tre",
 				"mTree"
-			],
-			[
-				"par",
-				"parent_id"
 			]
 		]
 	},
@@ -644,13 +644,22 @@
 	},
 	"expanded_folders":
 	[
-		"/F/WAMPP/htdocs/v4/store/menu",
-		"/F/WAMPP/htdocs/v4/store/modul",
+		"/F/WAMPP/htdocs/v4",
+		"/F/WAMPP/htdocs/v4/store",
+		"/F/WAMPP/htdocs/v4/store/keselarasan",
 		"/F/WAMPP/htdocs/v4/store/organisasi",
+		"/F/WAMPP/htdocs/v4/store/unit_eselon",
 		"/F/WAMPP/htdocs/v4/views"
 	],
 	"file_history":
 	[
+		"/F/WAMPP/htdocs/beta/include/database.php",
+		"/F/WAMPP/htdocs/v4/views/unit_eselon.php",
+		"/F/WAMPP/htdocs/v4/store/unit_eselon/delete.php",
+		"/F/WAMPP/htdocs/v4/store/unit_eselon/save.php",
+		"/F/WAMPP/htdocs/v4/store/unit_eselon/list.php",
+		"/F/WAMPP/apache/logs/dummy-host2.example.com-error.log",
+		"/F/WAMPP/apache/logs/error.log",
 		"/F/WAMPP/htdocs/v4/views/tabel_dpa.php",
 		"//PROGRAMMER/xx/2016/sampang/sampang123_09_02_2016_12_23.sql",
 		"/F/WAMPP/htdocs/v4/views/unit_tupoksi.php",
@@ -682,8 +691,6 @@
 		"/F/WAMPP/htdocs/v4/boot.php",
 		"/F/WAMPP/php/php.ini",
 		"/F/WAMPP/php/logs/php_error_log",
-		"/F/WAMPP/apache/logs/error.log",
-		"/F/WAMPP/apache/logs/dummy-host2.example.com-error.log",
 		"/F/WAMPP/apache/logs/dummy-host2.example.com-access.log",
 		"/F/WAMPP/apache/logs/agc.log",
 		"/F/WAMPP/apache/logs/access.log",
@@ -773,12 +780,7 @@
 		"/F/WAMPP/htdocs/bojon/skpd/skpd.php",
 		"/F/WAMPP/htdocs/bojon/kecamatan/usulanRutin15_add.php",
 		"/F/WAMPP/htdocs/bojon/skpd/usulanPrioritas15.php",
-		"/F/WAMPP/htdocs/bojon/admin/topmenu.php",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanRutin15_add.php",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanPrioritas15_add.php",
-		"/F/WAMPP/htdocs/bojon/config/conf16.php",
-		"/F/WAMPP/htdocs/bojon/css/layout.css",
-		"/F/WAMPP/htdocs/bojon/skpd/usulanKecamatan.php"
+		"/F/WAMPP/htdocs/bojon/admin/topmenu.php"
 	],
 	"find":
 	{
@@ -811,6 +813,25 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"keselarasan {$nm_keselarasan}",
+			"dimasukkan",
+			"unit_eselon",
+			"'.x'+",
+			"parents :",
+			"parent : r.id",
+			", x-del",
+			"center",
+			"unit_tupoksi",
+			"numberbox",
+			"#nama",
+			"#kode",
+			"kode",
+			"Kode",
+			"kode",
+			"II",
+			"kd_bidang",
+			"nama",
+			"kode",
 			"Sumber Dana",
 			"sumber_dana",
 			"pilihBidang",
@@ -919,26 +940,7 @@
 			"kegiatan",
 			"Kegiatan",
 			"store/kegiatan",
-			",",
-			"program",
-			"Program",
-			"program",
-			"Program",
-			"program",
-			"nm_program",
-			"kd_program",
-			"bidang",
-			"rowProgram",
-			"program",
-			"Program",
-			"program",
-			"Program",
-			"program",
-			"kd_bidang",
-			"kd_program",
-			"bidang",
-			"Bidang",
-			"program"
+			","
 		],
 		"highlight": true,
 		"in_selection": false,

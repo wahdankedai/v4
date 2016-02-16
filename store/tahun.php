@@ -2,8 +2,8 @@
 
 require '../boot.php';
 
-$ok = DB::findAll("tahun", ["active" => 1]);
+$tahun = DB::findAll("tahun", ["active" => 1]);
 
-echo json_encode($ok);
+echo json_encode($tahun);
 
 exit;

@@ -14,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="static/css/easyui.css">
     <script type="text/javascript" src="static/js/jquery.min.js"></script>
     <script type="text/javascript" src="static/js/jquery.easyui.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript">
         var BASE_URL = "<?php echo BASE_URL; ?>"; 
     </script>

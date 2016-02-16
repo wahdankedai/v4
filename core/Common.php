@@ -31,6 +31,12 @@ class Common
 
        include $fileTarget;
    }
+   public static function Error($file = "")
+   {
+       $fileTarget = ROOT . DS . 'views' . DS . 'error' . DS . $file . EXT; 
+
+       include $fileTarget;
+   }
 
    public static function obj(array $dt)
    {

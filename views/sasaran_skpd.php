@@ -1,43 +1,73 @@
 <script type="text/javascript">
-    var rekening, state, eselon, parents, kd_unit, kd_subunit;
+    var rekening, state, parents, kd_unit;
 </script>
 <div class="easyui-layout" data-options="fit:true">
-        <div data-options="region:'center',title:'Data Master Unit Eselon Organisasi'">
+        <div data-options="region:'south',split:true" style="height:150px;">
+            <div class="row p10">
+                <div class="row mb20">
+                    <div class="small-3 columns">
+                        <label for="organisasi" class="left inline">Unit Organisasi</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <input  type="text" 
+                                id="organisasi" 
+                                name="organisasi" 
+                                class="form-control easyui-textbox">
+                    </div>
+                </div>
+                <div class="row mb20">
+                    <div class="small-3 columns">
+                        <label for="person" class="left inline">Satuan</label>
+                    </div>
+                    <div class="small-9 columns">
+                        <input id="xSatuan" class="easyui-combobox" name="satuan"
+                            data-options="valueField:'id',textField:'nm_satuan',url:'store/satuan/list.php'">
+                    </div>
+                </div>
+                <div class="row p10 mb20">
+                    <a class="easyui-linkbutton x-add" data-options="iconCls:'icon-add'">Add</a>
+                    <a class="easyui-linkbutton x-edit" data-options="iconCls:'icon-edit',disabled:true">Edit</a>
+                    <a class="easyui-linkbutton x-del" data-options="iconCls:'icon-remove',disabled:true">Delete</a>
+                    <a class="easyui-linkbutton x-save" data-options="iconCls:'icon-save',disabled:true">Save</a>
+                </div>
+            </div>
+        </div>
+        <div data-options="region:'center',title:'Data Master Sasaran Organisasi'">
             <div class="easyui-tabs xtab" data-options="fit:true,
                 border:false,
                 plain:true,
                 tabPosition:'left',
                 onSelect: function(t,i) {
+                    $('#organisasi').textbox('setValue', '');
+                    $('.x-edit,.x-save, .x-del,.x-add').linkbutton({disabled:true});
+                    var kd = $('#organisasi');
+                    var nm = $('#xSatuan');     
+
+                    kd.textbox({
+                        readonly : true
+                    });    
+                    nm.combobox({
+                        readonly : true
+                    });
                     if (i==0) {
                         $('.xtab').tabs('disableTab', 1);
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
-                        $('.xtab').tabs('disableTab', 4);
-                        $('.xtab').tabs('disableTab', 5);
                         rekening = 'organisasi';
                     } else if (i==1) {
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
-                        $('.xtab').tabs('disableTab', 4);
-                        $('.xtab').tabs('disableTab', 5);
                         rekening = 'unit';
                     } else if (i == 2) {
                         $('.xtab').tabs('disableTab', 3);
-                        $('.xtab').tabs('disableTab', 4);
-                        $('.xtab').tabs('disableTab', 5);
-                        rekening = 'urusan';
+                        $('.x-add').linkbutton({disabled:false});
+                        rekening = 'eselon2';
+                        parents = 0;
                     } else if (i == 3) {
                         $('.x-add').linkbutton({disabled:false});
-                        $('.xtab').tabs('disableTab', 4);
-                        $('.xtab').tabs('disableTab', 5);
-                        rekening = 'bidang';
-
-                    } else if (i == 4) {
-                        $('.xtab').tabs('disableTab', 5);
-                        rekening = 'program';
-                    } else if (i == 5) {
-                        $('.x-add').linkbutton({disabled:false});
-                        rekening = 'kegiatan';
+                        rekening = 'eselon3';
+                        var cc = $('.eselon2').datagrid('getSelected');
+                        parents = cc.id;
                     }
 
             }">
@@ -59,7 +89,6 @@
                                      });
                                      parents = 0;
                                      kd_unit = r.kode;
-                                     kd_subunit = 1;
                                      $('.xtab').tabs('select', 1);
                                 }"
                                 >
@@ -80,15 +109,15 @@
                                 fitColumns:true,
                                 idField:'kd_urusan',
                                 onDblClickRow: function(i,r) {
+                                     xUrusan = r.kd_urusan;
                                      $('.xtab').tabs('enableTab', 2);
-                                     $('.xurusan').datagrid({
+                                     $('.sasaran').datagrid({
                                         queryParams:{
-                                            kode : r.kode,
-                                            kd_subunit : r.kd_subunit
+                                            kode : r.kode + r.kd_subunit
                                         }
                                      });
-                                     kd_unit = r.kode;
-                                     kd_subunit = r.kd_subunit;
+                                     parents = 0;
+                                     kd_unit =r.kode + r.kd_subunit;
                                      $('.xtab').tabs('select', 2);
                                 }"
                                 >
@@ -101,132 +130,102 @@
                         </thead>
                     </table>
                 </div>
-                <div title="Urusan">                    
-                    <table class="easyui-datagrid xurusan"
-                            data-options="url:'store/evaluasi/list_urusan.php',
+                <div title="Sasaran">
+                    <table class="easyui-datagrid sasaran"
+                            data-options="url:'store/sasaran_skpd/list.php',
                                 method:'post',
+                                queryParams:{
+                                    kode : 0,
+                                    parent_id :0
+                                },
+                                idField:'id',
                                 singleSelect:true,
                                 fit:true,
                                 fitColumns:true,
-                                idField:'kd_urusan',
                                 onSelect : function (i,r) {
+                                    var kd = $('#organisasi');
+                                    var nm = $('#xSatuan');     
+
+                                    kd.textbox({
+                                        readonly : true
+                                    });    
+                                    nm.combobox({
+                                        readonly : true
+                                    });
+
+                                    $('.x-add, .x-edit, .x-del').linkbutton({disabled:false});
+                                    $('.x-save').linkbutton({disabled:true});
+
+                                    $('#organisasi').textbox('setValue', r.unit_organisasi);
+                                    $('#xSatuan').textbox('setValue', r.person);
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 3);
-                                     $('.xbidang').datagrid({
+                                     $('.eselon3').datagrid({
                                         queryParams:{
-                                            kode : kd_unit,
+                                            kode : r.kd_unit,
                                             kd_subunit : kd_subunit,
-                                            kd_urusan : r.kd_urusan
+                                            parent_id : r.id
                                         }
                                      });
+                                     parents = r.id;
                                      $('.xtab').tabs('select', 3);
-                                }"
-                                >
+                                }">
                         <thead>
                             <tr>
-                                <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
-                                <th data-options="field:'nm_urusan'" width="500">Uraian Nama Urusan</th>
+                                <th data-options="field:'id',hidden:true" width="200">Unit Organisasi</th>
+                                <th data-options="field:'unit_organisasi',align:'left'" width="200">Unit Organisasi</th>
+                                <th data-options="field:'person',align:'left'" width="200">Penanggung Jawab</th>
+                                <th data-options="field:'eselon'" width="60">Eselon</th>
                             </tr>
                         </thead>
                     </table>
                 </div>
-                <div title="Bidang">
-                    <table class="easyui-datagrid xbidang"
-                            data-options="url:'store/evaluasi/list_bidang.php',
+                <div title="Indikator">
+                    <table class="easyui-datagrid indikator"
+                            data-options="url:'store/sasaran_skpd/list.php',
                                 method:'post',
                                 queryParams:{
-                                    kd_urusan : 0
+                                    parent_id : 0,
+                                    kode : 0
                                 },
-                                idField:'kd_bidang',
                                 singleSelect:true,
                                 fit:true,
                                 fitColumns:true,
+                                idField:'id',
                                 onSelect : function (i,r) {
-                                    
+                                    var kd = $('#organisasi');
+                                    var nm = $('#xSatuan');     
+
+                                    kd.textbox({
+                                        readonly : true
+                                    });    
+                                    nm.combobox({
+                                        readonly : true
+                                    });
+                                    $('.x-add, .x-edit, .x-del').linkbutton({disabled:false});
+                                    $('.x-save').linkbutton({disabled:true});
+                                    $('#organisasi').textbox('setValue', r.unit_organisasi);
+                                    $('#xSatuan').textbox('setValue', r.person);
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 4);
-                                     $('.xprogram').datagrid({
+                                     $('.eselon4').datagrid({
                                         queryParams:{
-                                            kode : kd_unit,
-                                            kd_subunit : kd_subunit,
-                                            kd_urusan : r.kd_urusan,
-                                            kd_bidang : r.kd_bidang,
+                                            kode : r.kd_unit,
+                                            kd_subunit : r.kd_subunit,
+                                            parent_id : r.id
                                         }
                                      });
+                                     parents = r.id;
                                      $('.xtab').tabs('select', 4);
                                 }">
                         <thead>
                             <tr>
-                                <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
-                                <th data-options="field:'kd_bidang',align:'center'" width="80">Bidang</th>
-                                <th data-options="field:'nm_bidang'" width="500">Uraian Nama Bidang</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div title="Program">
-                    <table class="easyui-datagrid xprogram"
-                            data-options="url:'store/evaluasi/list_program.php',
-                                method:'post',
-                                queryParams:{
-                                    kd_urusan : 0,
-                                    kd_bidang : 0
-                                },
-                                singleSelect:true,
-                                fit:true,
-                                fitColumns:true,
-                                idField:'kd_program',
-                                onSelect : function (i,r) {
-                                 
-                                },
-                                onDblClickRow: function(i,r) {
-                                     $('.xtab').tabs('enableTab', 5);
-                                     $('.xkegiatan').datagrid({
-                                        queryParams:{
-                                            kode : kd_unit,
-                                            kd_subunit : kd_subunit,
-                                            kd_urusan : r.kd_urusan,
-                                            kd_bidang : r.kd_bidang,
-                                            kd_program : r.kd_program
-                                        }
-                                     });
-                                     $('.xtab').tabs('select', 5);
-                                }">
-                        <thead>
-                            <tr>
-                                <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
-                                <th data-options="field:'kd_bidang',align:'center'" width="80">Bidang</th>
-                                <th data-options="field:'kd_program',align:'center'" width="80">Program</th>
-                                <th data-options="field:'nm_program'" width="500">Uraian Nama Program</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-                <div title="Kegiatan">
-                    <table class="easyui-datagrid xkegiatan"
-                            data-options="url:'store/evaluasi/list_kegiatan.php',
-                                queryParams:{
-                                    kd_urusan : 0,
-                                    kd_bidang : 0,
-                                    kd_program : 0
-                                },
-                                method:'post',
-                                singleSelect:true,
-                                idField:'kd_kegiatan',
-                                fit:true,
-                                fitColumns:true,
-                                onSelect : function (i,r) {
-                                  
-                                },">
-                        <thead>
-                            <tr>
-                                <th data-options="field:'kd_urusan',align:'center'" width="80">Urusan</th>
-                                <th data-options="field:'kd_bidang',align:'center'" width="80">Bidang</th>
-                                <th data-options="field:'kd_program',align:'center'" width="80">Program</th>
-                                <th data-options="field:'kd_kegiatan',align:'center'" width="80">Kegiatan</th>
-                                <th data-options="field:'nm_kegiatan'" width="500">Uraian Nama Kegiatan</th>
+                                <th data-options="field:'id',hidden:true" width="200">Unit Organisasi</th>
+                                <th data-options="field:'unit_organisasi',align:'left'" width="200">Unit Organisasi</th>
+                                <th data-options="field:'person',align:'left'" width="200">Penanggung Jawab</th>
+                                <th data-options="field:'eselon'" width="60">Eselon</th>
                             </tr>
                         </thead>
                     </table>
@@ -245,17 +244,17 @@
             };
 
             var kd = $("#organisasi");
-            var nm = $("#person");     
+            var nm = $("#xSatuan");     
 
             kd.textbox({
                 readonly : false
             });    
-            nm.textbox({
+            nm.combobox({
                 readonly : false
             });
 
             kd.textbox('clear');
-            nm.textbox('clear');
+            nm.combobox('clear');
             kd.textbox('textbox').focus();
 
 
@@ -273,12 +272,12 @@
                 return;
             };
             var kd = $("#organisasi");
-            var nm = $("#person");     
+            var nm = $("#xSatuan");     
    
             kd.textbox({
                 readonly : false
             });    
-            nm.textbox({
+            nm.combobox({
                 readonly : false
             });
 
@@ -301,9 +300,9 @@
                 return;
             };
             var kd = $("#organisasi");
-            var nm = $("#person");
+            var nm = $("#xSatuan");
             var row = $('.'+rekening).datagrid('getSelected');
-            $.post('store/unit_eselon/delete.php', row)
+            $.post('store/sasaran_skpd/delete.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){
@@ -321,9 +320,8 @@
                             readonly : true,
                             value:""
                         });    
-                        nm.textbox({
-                            readonly : true,
-                            value:""
+                        nm.combobox({
+                            readonly : true
                         });
 
                     }
@@ -346,15 +344,15 @@
 
 
             var kd = $("#organisasi");
-            var nm = $("#person");
+            var nm = $("#xSatuan");
 
             var KD = kd.textbox('getValue');
-            var NM = nm.textbox('getValue');
+            var NM = nm.combobox('getValue');
 
             // validasi inputan
             if (KD == "" || NM == "" || KD == 0 || NM == 0){
                 $.messager.alert('Warning', "Harap di isi data Uraian " + rekening.toUpperCase(),'', function(){
-                    nm.textbox('textbox').focus(); 
+                    nm.combobox('textbox').focus(); 
                 });
                 return;
             }
@@ -362,8 +360,7 @@
             
             if (state == "add" ) {
                 var row = {};
-                row.parent_id = parents;
-                row.eselon = eselon;
+                row.parent_id = parents
             }
             else {
                 var row = $('.'+rekening).datagrid('getSelected');
@@ -374,7 +371,7 @@
             row.kd_subunit = kd_subunit;
             row.state = state;
             
-            $.post('store/unit_eselon/save.php', row)
+            $.post('store/sasaran_skpd/save.php', row)
                 .done(function(data) {
                     var data = eval('(' + data + ')');
                     if (data.success){
@@ -392,9 +389,8 @@
                             readonly : true,
                             value:""
                         });    
-                        nm.textbox({
-                            readonly : true,
-                            value:""
+                        nm.combobox({
+                            readonly : true
                         });
 
                     }

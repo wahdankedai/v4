@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php require 'boot.php'; ?>
 <?php $aplikasi =  Config::get('aplikasi'); ?>
-
 <?php 
     if (! isset($_SESSION[$aplikasi->name]) || $_SESSION[$aplikasi->name]['auth'] == "") {
         App::redirectTo('login');

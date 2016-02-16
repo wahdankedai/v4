@@ -183,7 +183,7 @@
                                 onSelect : function (i,r) {
                                     var kd = $('#kode');
                                     var nm = $('#nama');     
-                                    kd.textbox('setValue', r.kd_program);
+                                    kd.numberbox('setValue', r.kd_program);
                                     nm.textbox('setValue', r.nm_program);
                                     $('.x-edit,.x-add, .x-del').linkbutton({disabled:false});
                                     $('.x-save').linkbutton({disabled:true});
