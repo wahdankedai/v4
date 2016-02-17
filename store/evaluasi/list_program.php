@@ -1,6 +1,11 @@
 <?php 
 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+} 
 
 $req = Common::obj(Request::all());
 
@@ -16,6 +21,7 @@ $q = "SELECT
             AND a.kd_sub_unit = {$req->kd_subunit}
             AND a.kd_urusan = {$req->kd_urusan}
             AND a.kd_bidang = {$req->kd_bidang}
+            AND a.tahun = {$session->tahun}
     GROUP BY
             b.kd_urusan,
             b.kd_bidang,

@@ -1,13 +1,29 @@
 <script type="text/javascript">
     var rekening, state, eselon, parents, kd_unit, kd_subunit;
-</script>
-<div class="easyui-layout" data-options="fit:true">
+</script>   
+<div class="easyui-layout main" data-options="fit:true">
+
+        <!-- Panel untuk Indikator -->
+        <div data-options="region:'east',split:true,collapsible:false" title="Indikator" style="width:450px;">
+            <div class="easyui-layout main-indikator" data-options="fit:true">
+                <div data-options="region:'north',split:false,collapsible:false"style="height:400px;">
+                    <table class="xindikator">
+                    </table>
+                </div>
+                <div data-options="region:'center',title:'Target dan Realiasasi'">
+                    <table class="xtarget">
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- Main Content -->
         <div data-options="region:'center',title:'Data Master Unit Eselon Organisasi'">
             <div class="easyui-tabs xtab" data-options="fit:true,
                 border:false,
                 plain:true,
                 tabPosition:'left',
                 onSelect: function(t,i) {
+                    var panelEast = $('.main').layout('panel', 'east');
                     if (i==0) {
                         $('.xtab').tabs('disableTab', 1);
                         $('.xtab').tabs('disableTab', 2);
@@ -15,32 +31,73 @@
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
                         rekening = 'organisasi';
+                        $('.main').layout('collapse', 'east');
                     } else if (i==1) {
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
                         rekening = 'unit';
+                        $('.main').layout('collapse', 'east');
                     } else if (i == 2) {
                         $('.xtab').tabs('disableTab', 3);
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
                         rekening = 'urusan';
+                        $('.main').layout('collapse', 'east');
                     } else if (i == 3) {
-                        $('.x-add').linkbutton({disabled:false});
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
+                        $('.main').layout('collapse', 'east');
                         rekening = 'bidang';
 
                     } else if (i == 4) {
                         $('.xtab').tabs('disableTab', 5);
+                        panelEast.panel('setTitle', 'Indokator Outcome')
+                        $('.main').layout('expand', 'east');
+                        $('.xindikator').datagrid({
+                            fit:true,
+                            url:'store/evaluasi/list_indikator_outcome.php',
+                            queryParams : {
+                                kd_unit : 0,
+                                kd_subunit : 0,
+                                kd_program : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true },
+                                {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
+                                {field:'kd_program',title:'kd_program',width:100,hidden:true },
+                                {field:'indikator',title:'Indikator',width:350},
+                                {field:'satuan',title:'Satuan',width:100}
+                            ]]
+                        });
                         rekening = 'program';
                     } else if (i == 5) {
-                        $('.x-add').linkbutton({disabled:false});
+                        panelEast.panel('setTitle', 'Indokator Output')
+                        $('.main').layout('expand', 'east');
                         rekening = 'kegiatan';
+                        $('.xindikator').datagrid({
+                            fit:true,
+                            url:'store/evaluasi/list_indikator_output.php',
+                            queryParams : {
+                                kd_unit : 0,
+                                kd_subunit : 0,
+                                kd_kegiatan : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true },
+                                {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
+                                {field:'kd_program',title:'kd_kegiatan',width:100,hidden:true },
+                                {field:'indikator',title:'Indikator',width:350},
+                                {field:'satuan',title:'Satuan',width:100}
+                            ]]
+                        });
                     }
 
             }">
+                <!-- Tab Organisasi / SKPD -->
                 <div title="Organisasi">                    
                     <table class="easyui-datagrid organisasi"
                             data-options="url:'store/organisasi/list.php',
@@ -71,6 +128,7 @@
                         </thead>
                     </table>
                 </div>
+                <!-- End Tab Organisasi -->
                 <div title="Unit Organisasi">                    
                     <table class="easyui-datagrid unit"
                             data-options="url:'store/organisasi/list.php',
@@ -179,7 +237,20 @@
                                 fitColumns:true,
                                 idField:'kd_program',
                                 onSelect : function (i,r) {
-                                 
+                                     $('.xindikator').datagrid({
+                                        toolbar : [{
+                                            iconCls: 'icon-edit',
+                                            handler: function(){alert('edit')}
+                                        },'-',{
+                                            iconCls: 'icon-help',
+                                            handler: function(){alert('help')}
+                                        }],
+                                        queryParams : {
+                                            kd_unit : kd_unit,
+                                            kd_subunit : kd_subunit,
+                                            kd_program : r.kd_urusan + r.kd_bidang +r.kd_program
+                                        }
+                                    });
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 5);
@@ -218,7 +289,20 @@
                                 fit:true,
                                 fitColumns:true,
                                 onSelect : function (i,r) {
-                                  
+                                  $('.xindikator').datagrid({
+                                        toolbar : [{
+                                            iconCls: 'icon-edit',
+                                            handler: function(){alert('edit')}
+                                        },'-',{
+                                            iconCls: 'icon-help',
+                                            handler: function(){alert('help')}
+                                        }],
+                                        queryParams : {
+                                            kd_unit : kd_unit,
+                                            kd_subunit : kd_subunit,
+                                            kd_program : r.kd_urusan + r.kd_bidang +r.kd_program + r.kd_kegiatan
+                                        }
+                                    });
                                 },">
                         <thead>
                             <tr>
@@ -236,174 +320,8 @@
     </div>
 
     <script type="text/javascript">
-        
-        $(".x-add").bind('click', function () {
-            var me =  $(".x-add").linkbutton('options');
-            state = "add";
-            if (me.disabled) {
-                return;
-            };
+        var gridIndikator = $(".xindikator");
+        var mainTab = $(".xtab");
+        var mainContent = $(".main");
 
-            var kd = $("#organisasi");
-            var nm = $("#person");     
-
-            kd.textbox({
-                readonly : false
-            });    
-            nm.textbox({
-                readonly : false
-            });
-
-            kd.textbox('clear');
-            nm.textbox('clear');
-            kd.textbox('textbox').focus();
-
-
-            $('.x-edit').linkbutton({disabled:true});
-            $('.x-add').linkbutton({disabled:true});
-            $('.x-del').linkbutton({disabled:true});
-            $('.x-save').linkbutton({disabled:false});
-
-        });   
-
-        $(".x-edit").bind('click', function () {
-            var me =  $(".x-edit").linkbutton('options');
-            state = "edit";
-            if (me.disabled) {
-                return;
-            };
-            var kd = $("#organisasi");
-            var nm = $("#person");     
-   
-            kd.textbox({
-                readonly : false
-            });    
-            nm.textbox({
-                readonly : false
-            });
-
-            kd.textbox('textbox').focus();
-
-
-            $('.x-edit').linkbutton({disabled:true});
-            $('.x-add').linkbutton({disabled:true});
-            $('.x-del').linkbutton({disabled:true});
-            $('.x-save').linkbutton({disabled:false});
-
-        });
-
-
-        $(".x-del").bind('click', function () {
-
-            var me =  $(".x-del").linkbutton('options');
-
-            if (me.disabled) {
-                return;
-            };
-            var kd = $("#organisasi");
-            var nm = $("#person");
-            var row = $('.'+rekening).datagrid('getSelected');
-            $.post('store/unit_eselon/delete.php', row)
-                .done(function(data) {
-                    var data = eval('(' + data + ')');
-                    if (data.success){
-                        $.messager.show({  
-                            title: 'Status',  
-                            msg: data.message  
-                        });
-                        $('.'+rekening).datagrid('reload');
-                        $('.x-edit').linkbutton({disabled:true});
-                        $('.x-add').linkbutton({disabled:false});
-                        $('.x-del').linkbutton({disabled:true});
-                        $('.x-save').linkbutton({disabled:true});
-
-                        kd.textbox({
-                            readonly : true,
-                            value:""
-                        });    
-                        nm.textbox({
-                            readonly : true,
-                            value:""
-                        });
-
-                    }
-                    else {
-                        $.messager.alert('Warning', data.message);
-                    }
-                })
-                .fail(function() {
-                    console.log(data);
-                });
-        });
-
-        $(".x-save").bind('click', function () {
-
-            var me =  $(".x-save").linkbutton('options');
-
-            if (me.disabled) {
-                return;
-            };
-
-
-            var kd = $("#organisasi");
-            var nm = $("#person");
-
-            var KD = kd.textbox('getValue');
-            var NM = nm.textbox('getValue');
-
-            // validasi inputan
-            if (KD == "" || NM == "" || KD == 0 || NM == 0){
-                $.messager.alert('Warning', "Harap di isi data Uraian " + rekening.toUpperCase(),'', function(){
-                    nm.textbox('textbox').focus(); 
-                });
-                return;
-            }
-
-            
-            if (state == "add" ) {
-                var row = {};
-                row.parent_id = parents;
-                row.eselon = eselon;
-            }
-            else {
-                var row = $('.'+rekening).datagrid('getSelected');
-            }
-            row.unit_organisasi = KD;
-            row.person = NM;
-            row.kd_unit = kd_unit;
-            row.kd_subunit = kd_subunit;
-            row.state = state;
-            
-            $.post('store/unit_eselon/save.php', row)
-                .done(function(data) {
-                    var data = eval('(' + data + ')');
-                    if (data.success){
-                        $.messager.show({  
-                            title: 'Status',  
-                            msg: data.message  
-                        });
-                        $('.'+rekening).datagrid('reload');
-                        $('.x-edit').linkbutton({disabled:true});
-                        $('.x-add').linkbutton({disabled:false});
-                        $('.x-del').linkbutton({disabled:true});
-                        $('.x-save').linkbutton({disabled:true});
-
-                        kd.textbox({
-                            readonly : true,
-                            value:""
-                        });    
-                        nm.textbox({
-                            readonly : true,
-                            value:""
-                        });
-
-                    }
-                    else {
-                        $.messager.alert('Warning', data.message);
-                    }
-                })
-                .fail(function() {
-                    console.log(data);
-                });
-        });
     </script>

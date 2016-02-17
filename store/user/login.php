@@ -2,8 +2,12 @@
 
 require '../../boot.php';
 
-$req = $_REQUEST;
-$d = Request::all($req);
+
+$d = Request::all();
+
+if (intval($d["tahun"]) <2001) {
+    http_response_code(401);exit;
+}
 $session = $d;
 $param = $d;
 unset($param["tahun"]);

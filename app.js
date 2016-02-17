@@ -4,7 +4,7 @@ function deleteUnnecesaryDiv () {
 
 idleTimer = null;
 idleState = false;
-idleWait = 15000;
+idleWait = 5 * 60 * 1000; // 5 menit non aktif = logout
 
 (function ($) {
 

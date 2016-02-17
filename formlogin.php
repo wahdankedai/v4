@@ -5,7 +5,7 @@
             <label for="username" class="left inline">Username</label>
         </div>
         <div class="small-9 columns">
-            <input type="text" id="username" name="username" class="form-control">
+            <input type="text" id="username" placeholder="username" name="username" class="form-control">
         </div>
     </div>
 

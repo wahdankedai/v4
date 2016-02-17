@@ -17,6 +17,7 @@ $q = "SELECT
         INNER JOIN urusan b ON b.kd_urusan = a.kd_urusan
         WHERE a.kd_unit = {$req->kode} 
             AND a.kd_sub_unit = {$req->kd_subunit}
+            AND a.tahun = {$session->tahun}
         GROUP BY
             b.kd_urusan
         ORDER BY

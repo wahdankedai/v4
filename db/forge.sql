@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-16 15:12:44
+Date: 2016-02-17 15:49:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -7464,6 +7464,44 @@ INSERT INTO `dpa` VALUES ('3432', '2', 'Urusan Wajib', '206', 'Ekonomi', '19', '
 INSERT INTO `dpa` VALUES ('3433', '2', 'Urusan Wajib', '206', 'Ekonomi', '18', 'Program peningkatan efisiensi perdagangan dalam negeri', 'Pengembangan pasar dan distribusi barang/produk', '', '206115011803', '1150102', 'UPT Pasar', '0', '2015', '1', '1115745000', null, 'DATA PAK');
 
 -- ----------------------------
+-- Table structure for `indikator_outcome_program`
+-- ----------------------------
+DROP TABLE IF EXISTS `indikator_outcome_program`;
+CREATE TABLE `indikator_outcome_program` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `kd_unit` int(5) unsigned NOT NULL,
+  `kd_subunit` tinyint(2) NOT NULL,
+  `kd_program` int(5) unsigned NOT NULL,
+  `indikator` varchar(255) NOT NULL,
+  `satuan` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_program`,`satuan`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of indikator_outcome_program
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `indikator_output_kegiatan`
+-- ----------------------------
+DROP TABLE IF EXISTS `indikator_output_kegiatan`;
+CREATE TABLE `indikator_output_kegiatan` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `kd_unit` int(5) unsigned NOT NULL,
+  `kd_subunit` tinyint(2) NOT NULL,
+  `kd_kegiatan` int(7) unsigned NOT NULL,
+  `indikator` varchar(255) NOT NULL,
+  `satuan` int(11) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_kegiatan`,`satuan`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+
+-- ----------------------------
+-- Records of indikator_output_kegiatan
+-- ----------------------------
+
+-- ----------------------------
 -- Table structure for `indikator_sasaran_renstra`
 -- ----------------------------
 DROP TABLE IF EXISTS `indikator_sasaran_renstra`;
@@ -13302,10 +13340,58 @@ CREATE TABLE `tahun` (
 -- ----------------------------
 -- Records of tahun
 -- ----------------------------
-INSERT INTO `tahun` VALUES ('2016', '0');
+INSERT INTO `tahun` VALUES ('2016', '1');
 INSERT INTO `tahun` VALUES ('2017', '0');
 INSERT INTO `tahun` VALUES ('2018', '0');
 INSERT INTO `tahun` VALUES ('2015', '1');
+
+-- ----------------------------
+-- Table structure for `target_indikator_outcome`
+-- ----------------------------
+DROP TABLE IF EXISTS `target_indikator_outcome`;
+CREATE TABLE `target_indikator_outcome` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_indikator` int(11) unsigned NOT NULL,
+  `tahun` int(4) unsigned NOT NULL,
+  `target_triwulan_1` decimal(20,2) NOT NULL,
+  `target_triwulan_2` decimal(20,2) NOT NULL,
+  `target_triwulan_3` decimal(20,2) NOT NULL,
+  `target_triwulan_4` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_1` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_2` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_3` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_4` decimal(20,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_indikator` (`id_indikator`,`tahun`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of target_indikator_outcome
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `target_indikator_output`
+-- ----------------------------
+DROP TABLE IF EXISTS `target_indikator_output`;
+CREATE TABLE `target_indikator_output` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id_indikator` int(11) unsigned NOT NULL,
+  `tahun` int(4) unsigned NOT NULL,
+  `target_triwulan_1` decimal(20,2) NOT NULL,
+  `target_triwulan_2` decimal(20,2) NOT NULL,
+  `target_triwulan_3` decimal(20,2) NOT NULL,
+  `target_triwulan_4` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_1` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_2` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_3` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_4` decimal(20,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_indikator` (`id_indikator`,`tahun`) USING BTREE
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=FIXED;
+
+-- ----------------------------
+-- Records of target_indikator_output
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `unit`
