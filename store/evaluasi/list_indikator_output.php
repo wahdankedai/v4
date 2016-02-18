@@ -15,7 +15,8 @@ $q = "SELECT
         a.kd_subunit,
         a.kd_kegiatan,
         a.indikator,
-        b.nm_satuan AS satuan
+        a.satuan,
+        b.nm_satuan
         FROM
         indikator_output_kegiatan AS a
         INNER JOIN satuan AS b ON b.id = a.satuan

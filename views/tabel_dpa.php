@@ -67,10 +67,11 @@
                             columns:[[
                                 {field:'id',title:'id',width:100,hidden:true },
                                 {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {field:'satuan',title:'satuan',width:100,hidden:true },
                                 {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
                                 {field:'kd_program',title:'kd_program',width:100,hidden:true },
                                 {field:'indikator',title:'Indikator',width:350},
-                                {field:'satuan',title:'Satuan',width:100}
+                                {field:'nm_satuan',title:'Satuan',width:100}
                             ]]
                         });
                         rekening = 'program';
@@ -90,10 +91,11 @@
                             columns:[[
                                 {field:'id',title:'id',width:100,hidden:true },
                                 {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {field:'satuan',title:'satuan',width:100,hidden:true },
                                 {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
                                 {field:'kd_program',title:'kd_kegiatan',width:100,hidden:true },
                                 {field:'indikator',title:'Indikator',width:350},
-                                {field:'satuan',title:'Satuan',width:100}
+                                {field:'nm_satuan',title:'Satuan',width:100}
                             ]]
                         });
                     }
@@ -283,7 +285,7 @@
                                                         }
                                                     }],
                                                     onLoad: function() {
-                                                        $('#indikator').numberbox('textbox').focus(); 
+                                                        $('#indikator').combobox('textbox').focus(); 
                                                     }
                                                 });
                                             }
@@ -291,7 +293,84 @@
                                             text:'Edit',
                                             iconCls: 'icon-edit',
                                             handler: function(){
+                                                var row = $('.xindikator').datagrid('getSelected');
+                                                if(! row) {
+                                                    console.log('Harap Pilih data yang akan di edit');
+                                                    return;
+                                                }
 
+                                                $('#x-dialog').dialog({
+                                                    title: 'Edit Indikator',
+                                                    width: 450,
+                                                    height: 180,
+                                                    modal:true,
+                                                    method:'post',
+                                                    href: BASE_URL+ 'store/evaluasi/form/edit_outcome.php',
+                                                    queryParams: row,
+                                                    buttons:[{
+                                                        text:'Save',
+                                                        handler:function (){                            
+                                                            $('#fm').form('submit',{  
+                                                                success: function(data){
+                                                                    var data = eval('(' + data + ')');
+                                                                    if (data.success){
+                                                                        $.messager.show({  
+                                                                            title: 'Status',  
+                                                                            msg: data.message  
+                                                                        });
+                                                                        $('.xindikator').datagrid('reload');
+                                                                        $('#x-dialog').dialog('close')
+                                                                    }
+                                                                    else {
+                                                                        $.messager.alert('Warning', data.message);
+                                                                    } 
+                                                                } 
+                                                            });
+                                                            }
+                                                        },{
+                                                        text:'Close',
+                                                        handler:function(){
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                    }],
+                                                    onLoad: function() {
+                                                        $('#indikator').combobox('textbox').focus(); 
+                                                        $('#indikator').combobox('setValue', row.indikator); 
+                                                        $('#satuan').combobox('setValue', row.satuan); 
+                                                    }
+                                                });
+                                                
+                                            }
+                                        },'-',{
+                                            text:'Hapus',
+                                            iconCls: 'icon-remove',
+                                            handler: function(){
+                                                var row = $('.xindikator').datagrid('getSelected');
+                                                if(! row) {
+                                                    console.log('Harap Pilih data yang akan di hapus');
+                                                    return;
+                                                }
+                                                $.messager.confirm('Hapus data Indikator', 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
+                                                    if (r)
+                                                    {
+                                                        $.post(BASE_URL + 'store/evaluasi/delete_outcome.php', {
+                                                            id : row.id
+                                                        },
+                                                        function (d) {
+                                                            var data = eval('(' + d + ')');
+                                                                if (data.success) {
+                                                                    $.messager.show({  
+                                                                        title: 'Status',  
+                                                                        msg: data.message  
+                                                                    });
+                                                                    $('.xindikator').datagrid('reload');
+                                                                }
+                                                                else {
+                                                                    $.messager.alert('Warning', data.message);
+                                                                } 
+                                                        });
+                                                    }
+                                                });
                                             }
                                         }],
                                         queryParams : {
@@ -369,8 +448,5 @@
     </div>
 
     <script type="text/javascript">
-        var gridIndikator = $(".xindikator");
-        var mainTab = $(".xtab");
-        var mainContent = $(".main");
 
     </script>

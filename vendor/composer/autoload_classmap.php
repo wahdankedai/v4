@@ -11,4 +11,5 @@ return array(
     'Config' => $baseDir . '/core/Config.php',
     'DB' => $baseDir . '/core/DB.php',
     'Request' => $baseDir . '/core/Request.php',
+    'Suggest' => $baseDir . '/core/Suggest.php',
 );

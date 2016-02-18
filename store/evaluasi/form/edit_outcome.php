@@ -2,12 +2,13 @@
 require '../../../boot.php';
 $req = Common::obj(Request::all());
 
+
 ?>
 <form id="fm" method="post" 
     class="easyui-form" 
     method="post" 
     data-options="novalidate:true" 
-    action="<?php echo BASE_URL; ?>store/evaluasi/add_outcome.php"
+    action="<?php echo BASE_URL; ?>store/evaluasi/edit_outcome.php"
 >
     <div class="row p10">
         <div class="row mb20">
@@ -41,13 +42,12 @@ $req = Common::obj(Request::all());
             </div>
         </div>
     </div>
-        <input type="hidden" name="kd_program" value="<?php echo $req->kd_program; ?>">
-        <input type="hidden" name="kd_unit" value="<?php echo $req->kd_unit; ?>">
-        <input type="hidden" name="kd_subunit" value="<?php echo $req->kd_subunit; ?>">
+        <input type="hidden" name="id" value="<?php echo $req->id; ?>">
 </form>
 
 <script type="text/javascript">
-    
+    // $("#satuan").combobox('setValue', <?php echo $req->satuan; ?>);
+    // $("#indikator").combobox('setValue', '<?php echo $req->indikator; ?>');
 </script>
 
 <?php 
