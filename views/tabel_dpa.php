@@ -57,6 +57,7 @@
                         $('.main').layout('expand', 'east');
                         $('.xindikator').datagrid({
                             fit:true,
+                            singleSelect:true,
                             url:'store/evaluasi/list_indikator_outcome.php',
                             queryParams : {
                                 kd_unit : 0,
@@ -79,6 +80,7 @@
                         rekening = 'kegiatan';
                         $('.xindikator').datagrid({
                             fit:true,
+                            singleSelect:true,
                             url:'store/evaluasi/list_indikator_output.php',
                             queryParams : {
                                 kd_unit : 0,
@@ -239,11 +241,58 @@
                                 onSelect : function (i,r) {
                                      $('.xindikator').datagrid({
                                         toolbar : [{
-                                            iconCls: 'icon-edit',
-                                            handler: function(){alert('edit')}
+                                            text:'Tambah',
+                                            iconCls: 'icon-add',
+                                            handler: function(){
+                                                $('#x-dialog').dialog({
+                                                    title: 'Tambah Indikator',
+                                                    width: 450,
+                                                    height: 180,
+                                                    modal:true,
+                                                    method:'post',
+                                                    href: BASE_URL+ 'store/evaluasi/form/add_outcome.php',
+                                                    queryParams: {
+                                                        kd_unit : kd_unit,
+                                                        kd_subunit : kd_subunit,
+                                                        kd_program : r.kd_urusan + r.kd_bidang +r.kd_program
+                                                    },
+                                                    buttons:[{
+                                                        text:'Save',
+                                                        handler:function (){                            
+                                                            $('#fm').form('submit',{  
+                                                                success: function(data){
+                                                                    var data = eval('(' + data + ')');
+                                                                    if (data.success){
+                                                                        $.messager.show({  
+                                                                            title: 'Status',  
+                                                                            msg: data.message  
+                                                                        });
+                                                                        $('.xindikator').datagrid('reload');
+                                                                        $('#x-dialog').dialog('close')
+                                                                    }
+                                                                    else {
+                                                                        $.messager.alert('Warning', data.message);
+                                                                    } 
+                                                                } 
+                                                            });
+                                                            }
+                                                        },{
+                                                        text:'Close',
+                                                        handler:function(){
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                    }],
+                                                    onLoad: function() {
+                                                        $('#indikator').numberbox('textbox').focus(); 
+                                                    }
+                                                });
+                                            }
                                         },'-',{
-                                            iconCls: 'icon-help',
-                                            handler: function(){alert('help')}
+                                            text:'Edit',
+                                            iconCls: 'icon-edit',
+                                            handler: function(){
+
+                                            }
                                         }],
                                         queryParams : {
                                             kd_unit : kd_unit,
