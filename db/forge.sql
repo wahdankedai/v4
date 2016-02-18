@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-17 15:49:47
+Date: 2016-02-18 15:23:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -7476,11 +7476,12 @@ CREATE TABLE `indikator_outcome_program` (
   `satuan` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_program`,`satuan`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of indikator_outcome_program
 -- ----------------------------
+INSERT INTO `indikator_outcome_program` VALUES ('10', '10101', '1', '10115', 'Oke Ini Indikator', '3');
 
 -- ----------------------------
 -- Table structure for `indikator_output_kegiatan`
@@ -9791,11 +9792,13 @@ CREATE TABLE `refrensi_indikator_outcome` (
   `indikator` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_program` (`kd_program`,`satuan`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of refrensi_indikator_outcome
 -- ----------------------------
+INSERT INTO `refrensi_indikator_outcome` VALUES ('1', '10115', '2', 'Test Indikator iki');
+INSERT INTO `refrensi_indikator_outcome` VALUES ('2', '10115', '3', 'Oke Ini Indikator');
 
 -- ----------------------------
 -- Table structure for `refrensi_indikator_output`
