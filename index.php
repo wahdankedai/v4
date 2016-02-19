@@ -17,6 +17,15 @@
     <script type="text/javascript">
         var BASE_URL = "<?php echo BASE_URL; ?>"; 
     </script>
+    <script type="text/javascript">
+        var configApp = {};
+
+        $.post('store/config.php')
+            .done( function (data) {
+                configApp = JSON.parse(data);
+            });
+
+    </script>
 </head>
 <body class="easyui-layout">
 

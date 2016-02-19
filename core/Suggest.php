@@ -17,5 +17,46 @@ class Suggest
         $result = $qry->fetchAll();
         
         return $result;
+    }
+
+    public function targetOutcome($id='')
+    {
+        $res = [
+            "id" => "",
+            "target_triwulan_1" => "",
+            "target_triwulan_2" => "",
+            "target_triwulan_3" => "",
+            "target_triwulan_4" => "",
+            "realisasi_triwulan_1" => "",
+            "realisasi_triwulan_2" => "",
+            "realisasi_triwulan_3" => "",
+            "realisasi_triwulan_4" => ""
+        ];
+
+        if ($id == '') {
+            return Common::obj($res);
+        }
+
+        $q = "SELECT * from target_indikator_outcome WHERE id = {$id}";
+
+        $qry = DB::query($q);
+
+        $res = $qry->fetchAll();
+
+        return $res[0];
+    }
+
+    public static function checkTargetOutcome($id='')
+    {
+        if ($id == '' || intval($id) < 1) {
+            return true;
+        }
+
+        $q = "SELECT count(id) as jml from target_indikator_outcome where id_indikator = {$id}";
+        $qry = DB::query($q);
+
+        $res = $qry->fetchAll();
+        return $res[0]->jml > 0 ? true : false;
+        
     }    
 }

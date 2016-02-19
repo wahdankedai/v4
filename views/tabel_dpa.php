@@ -57,6 +57,7 @@
                         $('.main').layout('expand', 'east');
                         $('.xindikator').datagrid({
                             fit:true,
+                            rownumbers:true,
                             singleSelect:true,
                             url:'store/evaluasi/list_indikator_outcome.php',
                             queryParams : {
@@ -72,7 +73,89 @@
                                 {field:'kd_program',title:'kd_program',width:100,hidden:true },
                                 {field:'indikator',title:'Indikator',width:350},
                                 {field:'nm_satuan',title:'Satuan',width:100}
-                            ]]
+                            ]],
+                            onSelect : function(i,r) {
+                                $('.xtarget').datagrid({
+                                    queryParams: {
+                                        id : r.id
+                                    }
+                                });
+                            }
+                        });
+                        $('.xtarget').datagrid({
+                            fit:true,
+                            singleSelect:true,
+                            url:'store/evaluasi/list_target_outcome.php',
+                            queryParams : {
+                                id : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
+                                {title:'Target',colspan:4},
+                                {title:'Realisasi',colspan:4}
+                            ],[
+                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'},
+                                {field:'realisasi_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'realisasi_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'realisasi_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'realisasi_triwulan_4',title:'IV',width:50,align:'center'}
+                            ]],
+                            onSelect : function(i,r) {
+                                console.log(i);
+                            },
+                            onDblClickRow : function(i,r) {
+                                var indikator = $('.xindikator').datagrid('getSelected');
+
+                                if(indikator) {
+                                    $('#x-dialog').dialog({
+                                        title : 'Target dan Realisasi ' + indikator.indikator,
+                                        href : 'store/evaluasi/form/target_outcome.php',
+                                        method: 'post',
+                                        width: 500,
+                                        height:300,
+                                        modal:true,
+                                        queryParams : {
+                                            id : r.id,
+                                            id_indikator : indikator.id,
+                                            nm_satuan : indikator.nm_satuan
+                                        },
+                                        buttons:[{
+                                            text:'Save',
+                                            handler:function (){                            
+                                                $('#fm').form('submit',{  
+                                                    success: function(data){
+                                                        var data = eval('(' + data + ')');
+                                                        if (data.success){
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.xtarget').datagrid('reload');
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                    } 
+                                                });
+                                                }
+                                            },{
+                                            text:'Close',
+                                            handler:function(){
+                                                $('#x-dialog').dialog('close')
+                                            }
+                                        }],
+                                        onLoad : function() {
+
+                                        }
+                                    });
+                                }
+                            }
                         });
                         rekening = 'program';
                     } else if (i == 5) {
@@ -270,6 +353,9 @@
                                                                             msg: data.message  
                                                                         });
                                                                         $('.xindikator').datagrid('reload');
+                                                                        $('.xtarget').datagrid({
+                                                                            queryParams : {id:0}
+                                                                        });
                                                                         $('#x-dialog').dialog('close')
                                                                     }
                                                                     else {

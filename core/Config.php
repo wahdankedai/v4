@@ -17,4 +17,11 @@ class Config {
 
         return json_decode(json_encode(self::$config));
     }
+
+    public static function put($config = NULL, array $data)
+    {
+        $filename = ROOT . DS . 'config' . DS . $config . EXT;
+        $data = var_export($data, true);
+        file_put_contents($filename, "<?php return $data;");
+    }
 }

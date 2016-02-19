@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-18 15:23:38
+Date: 2016-02-19 15:39:38
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -7476,12 +7476,14 @@ CREATE TABLE `indikator_outcome_program` (
   `satuan` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_program`,`satuan`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of indikator_outcome_program
 -- ----------------------------
-INSERT INTO `indikator_outcome_program` VALUES ('10', '10101', '1', '10115', 'Oke Ini Indikator', '3');
+INSERT INTO `indikator_outcome_program` VALUES ('15', '10101', '1', '10621', 'aaaa', '3');
+INSERT INTO `indikator_outcome_program` VALUES ('16', '10101', '1', '10115', 'Test Indikator iki', '2');
+INSERT INTO `indikator_outcome_program` VALUES ('11', '12009', '1', '12001', 'Persentase pelayanan administrasi perkantoran', '2');
 
 -- ----------------------------
 -- Table structure for `indikator_output_kegiatan`
@@ -9845,12 +9847,14 @@ CREATE TABLE `renstra` (
   `uraian` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `kd_unit` (`kd_unit`,`kd_subunit`,`renstra`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of renstra
 -- ----------------------------
 INSERT INTO `renstra` VALUES ('1', '10601', '1', '2014-2019', 'Terwujudnya Perencanaan Pembangunan Daerah yang Partisipatif, Integratif dan Akuntabel');
+INSERT INTO `renstra` VALUES ('2', '10601', '2', '2014-2015', '');
+INSERT INTO `renstra` VALUES ('3', '10602', '1', '2014-2019', '');
 
 -- ----------------------------
 -- Table structure for `renstra_misi`
@@ -13360,17 +13364,18 @@ CREATE TABLE `target_indikator_outcome` (
   `target_triwulan_2` decimal(20,2) NOT NULL,
   `target_triwulan_3` decimal(20,2) NOT NULL,
   `target_triwulan_4` decimal(20,2) NOT NULL,
-  `realisasi_triwulan_1` decimal(20,2) NOT NULL,
-  `realisasi_triwulan_2` decimal(20,2) NOT NULL,
-  `realisasi_triwulan_3` decimal(20,2) NOT NULL,
-  `realisasi_triwulan_4` decimal(20,2) NOT NULL,
+  `realisasi_triwulan_1` decimal(20,2) DEFAULT NULL,
+  `realisasi_triwulan_2` decimal(20,2) DEFAULT NULL,
+  `realisasi_triwulan_3` decimal(20,2) DEFAULT NULL,
+  `realisasi_triwulan_4` decimal(20,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `id_indikator` (`id_indikator`,`tahun`) USING BTREE
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of target_indikator_outcome
 -- ----------------------------
+INSERT INTO `target_indikator_outcome` VALUES ('3', '10', '2015', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00');
 
 -- ----------------------------
 -- Table structure for `target_indikator_output`

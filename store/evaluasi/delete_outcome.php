@@ -5,10 +5,20 @@ require '../../boot.php';
 $id = Request::post('id');
 
 /**
- * anggap saja gapapa delete meski data urusan punya children
+ * anggap saja gapapa delete meski data punya children
  *
  * nanti kalo ngga boleh baru ditambahi
  */
+
+
+if (Suggest::checkTargetOutcome($id)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Data tidak bisa dihapus"
+    ]);
+    exit;
+ };
+
 
 $delete = DB::delete('indikator_outcome_program', [
     'id' => $id
