@@ -22,7 +22,7 @@ if (    $req->id != '' &&
         $req->target_triwulan_4 == ''
     ) {
 
-    DB::query("DELETE FROM target_indikator_outcome where id={$req->id}");
+    DB::query("DELETE FROM target_indikator_output where id={$req->id}");
     
     echo json_encode([
         "success" => true,
@@ -62,7 +62,7 @@ if(  $req->id == '' &&
         $req->target_triwulan_4 != '' 
     ) {
 
-    $q = "INSERT INTO target_indikator_outcome (
+    $q = "INSERT INTO target_indikator_output (
             `id`,
             `id_indikator`,
             `tahun`,
@@ -96,7 +96,7 @@ if(  $req->id != '' &&
         $req->target_triwulan_4 != '' 
     ) {
 
-    $q = "UPDATE target_indikator_outcome SET 
+    $q = "UPDATE target_indikator_output SET 
             `unit_eselon_id` = $req->unit_eselon_id,
             `target_triwulan_1` = $req->target_triwulan_1,
             `target_triwulan_2` = $req->target_triwulan_2,

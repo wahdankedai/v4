@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"r",
+				"req"
+			],
+			[
+				"tar",
+				"target_indikator_outcome"
+			],
+			[
+				"req",
+				"Request"
+			],
+			[
+				"target",
+				"target_triwulan_1"
+			],
+			[
 				"fun",
 				"function_exists"
 			],
@@ -232,10 +248,6 @@
 				"def	define(…, …)"
 			],
 			[
-				"req",
-				"request"
-			],
-			[
 				"ex",
 				"exit"
 			],
@@ -376,10 +388,6 @@
 				"arr"
 			],
 			[
-				"tar",
-				"Target"
-			],
-			[
 				"Targ",
 				"Target_Uraian"
 			],
@@ -506,33 +514,50 @@
 			[
 				"remov",
 				"removeMenu"
-			],
-			[
-				"che",
-				"checked"
-			],
-			[
-				"tex",
-				"text"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "/C/Users/coding/AppData/Local/Temp/scp07856/var/www/html/bojonegoro/config/conf16.php",
+			"file": "views/tabel_anggaran.php",
 			"settings":
 			{
-				"buffer_size": 2267,
+				"buffer_size": 15592,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/coding/AppData/Local/Temp/scp16573/var/www/html/bojonegoro/kecamatan/usulanMusrenbang.php",
+			"file": "store/evaluasi_anggaran/list_organisasi.php",
 			"settings":
 			{
-				"buffer_size": 10028,
+				"buffer_size": 2276,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/kegiatan.php",
+			"settings":
+			{
+				"buffer_size": 8632,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/Users/coding/AppData/Local/Temp/scp40572/opt/lampp/htdocs/beta/core/progres-anggaran.php",
+			"settings":
+			{
+				"buffer_size": 16344,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_1,\nsum(c.realisasi_triwulan_2) as realisasi_triwulan_2,\nsum(c.realisasi_triwulan_3) as realisasi_triwulan_3,\nsum(c.realisasi_triwulan_4) as realisasi_triwulan_4",
+			"settings":
+			{
+				"buffer_size": 210,
+				"line_ending": "Windows",
+				"name": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_"
 			}
 		}
 	],
@@ -661,20 +686,59 @@
 	"expanded_folders":
 	[
 		"/F/WAMPP/htdocs/v4",
+		"/F/WAMPP/htdocs/v4/config",
 		"/F/WAMPP/htdocs/v4/core",
 		"/F/WAMPP/htdocs/v4/static",
+		"/F/WAMPP/htdocs/v4/static/js",
 		"/F/WAMPP/htdocs/v4/store",
-		"/F/WAMPP/htdocs/v4/store/evaluasi",
-		"/F/WAMPP/htdocs/v4/store/urusan",
-		"/F/WAMPP/htdocs/v4/store/user",
+		"/F/WAMPP/htdocs/v4/vendor/composer",
 		"/F/WAMPP/htdocs/v4/views"
 	],
 	"file_history":
 	[
-		"/C/Users/coding/AppData/Local/Temp/scp06003/var/www/html/bojonegoro/admin/user.php",
+		"/F/WAMPP/htdocs/v4/index.php",
+		"/C/Users/coding/AppData/Local/Temp/scp40027/opt/lampp/htdocs/beta/assets/js/accounting.js",
+		"/F/WAMPP/htdocs/v4/static/js/accounting.js",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/add_target_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/realisasi_target_output.php",
+		"/F/WAMPP/htdocs/v4/config/evaluasi.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/add_realisasi_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/target_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/target_outcome.php",
+		"/F/WAMPP/htdocs/v4/core/Suggest.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/suggest/unit_eselon.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/add_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/suggest/output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/edit_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/edit_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/add_realisasi_outcome.php",
+		"/F/WAMPP/htdocs/v4/core/Common.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/realisasi_target_outcome.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/add_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/list_target_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/realisasi_outcome.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/add_outcome.php",
+		"/F/WAMPP/htdocs/v4/store/user/list.php",
+		"/F/WAMPP/htdocs/v4/views/users.php",
+		"/F/WAMPP/htdocs/v4/views/tabel_dpa.php",
+		"/F/WAMPP/htdocs/v4/app.js",
+		"/F/WAMPP/htdocs/v4/formlogin.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/delete_outcome.php",
+		"/F/WAMPP/htdocs/v4/store/config.php",
+		"/F/WAMPP/htdocs/v4/oke.php",
+		"/F/WAMPP/htdocs/v4/core/Config.php",
+		"/F/WAMPP/htdocs/v4/boot.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/add_target_outcome.php",
+		"/F/WAMPP/htdocs/v4/config.php",
+		"/F/WAMPP/htdocs/v4/config/oke.php",
+		"/F/WAMPP/apache/logs/sipmonev.log",
+		"/F/WAMPP/apache/logs/dummy-host2.example.com-error.log",
+		"/F/WAMPP/apache/logs/agc.log",
+		"/F/WAMPP/apache/logs/error.log",
 		"/C/Users/coding/AppData/Local/Temp/scp07856/var/www/html/bojonegoro/config/conf16.php",
-		"/C/Users/coding/AppData/Local/Temp/scp10738/var/www/html/bojonegoro/admin/topmenu.php",
 		"/C/Users/coding/AppData/Local/Temp/scp16573/var/www/html/bojonegoro/kecamatan/usulanMusrenbang.php",
+		"/C/Users/coding/AppData/Local/Temp/scp06003/var/www/html/bojonegoro/admin/user.php",
+		"/C/Users/coding/AppData/Local/Temp/scp10738/var/www/html/bojonegoro/admin/topmenu.php",
 		"/F/WAMPP/htdocs/bojonegoros/config/conf16.php",
 		"/F/WAMPP/htdocs/bojonegoros/config/dbfunctions.php",
 		"/F/WAMPP/htdocs/bojonegoros/config/konfigurasi.php",
@@ -691,13 +755,11 @@
 		"/C/Users/coding/AppData/Local/Temp/scp57604/var/www/html/bojonegoro/kecamatan/matriks15_xls.php",
 		"/C/Users/coding/AppData/Local/Temp/scp30510/var/www/html/bojonegoro/kecamatan/editProfil.php",
 		"/C/Users/coding/AppData/Local/Temp/scp30544/var/www/html/bojonegoro/skpd/verifikasi.php",
-		"/F/WAMPP/htdocs/v4/views/tabel_dpa.php",
 		"/F/WAMPP/htdocs/bappeko/core/progress.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/form/edit_outcome.php",
 		"/F/WAMPP/htdocs/v4/core/DB.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/edit_outcome.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_target_outcome.php",
-		"/F/WAMPP/htdocs/v4/store/evaluasi/delete_outcome.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_indikator_output.php",
 		"/F/WAMPP/htdocs/v4/views/urusan.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_indikator_outcome.php",
@@ -706,15 +768,12 @@
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR16.015/awesomplete-gh-pages/awesomplete.js",
 		"/F/WAMPP/htdocs/v4/static/css/awesomplete.css",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR01.594/awesomplete-gh-pages/test/helpers/bindSpec.js",
-		"/F/WAMPP/htdocs/v4/core/Suggest.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/suggest/outcome.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/add_outcome.php",
-		"/F/WAMPP/htdocs/v4/index.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR04.329/awesomplete-gh-pages/test/events/inputSpec.js",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR01.406/awesomplete-gh-pages/index.html",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DR04.297/awesomplete-gh-pages/awesomplete.css",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI10.953/README.md",
-		"/F/WAMPP/htdocs/v4/store/evaluasi/form/add_outcome.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI03.782/jquery-ui.js",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI06.438/jquery-ui.css",
 		"/F/WAMPP/htdocs/v4/static/js/jquery-ui.js",
@@ -722,20 +781,14 @@
 		"/F/WAMPP/htdocs/v4/.htaccess",
 		"/F/WAMPP/htdocs/v4/static/js/test/index.html",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI02.219/jquery-ui.structure.css",
-		"/F/WAMPP/htdocs/v4/formlogin.php",
 		"/F/WAMPP/htdocs/v4/static/js/jquery.easyui.min.js",
-		"/F/WAMPP/htdocs/v4/boot.php",
 		"/F/WAMPP/htdocs/v4/static/css/datagrid.css",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_kegiatan.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_program.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_bidang.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list_urusan.php",
-		"/F/WAMPP/htdocs/v4/core/Common.php",
 		"/F/WAMPP/htdocs/v4/core/Request.php",
 		"/F/WAMPP/htdocs/v4/store/user/login.php",
-		"/F/WAMPP/apache/logs/sipmonev.log",
-		"/F/WAMPP/apache/logs/error.log",
-		"/F/WAMPP/htdocs/v4/app.js",
 		"/F/WAMPP/htdocs/v4/session.php",
 		"/F/WAMPP/htdocs/v4/store/tahun.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/list.php",
@@ -751,7 +804,6 @@
 		"/F/WAMPP/htdocs/v4/store/unit_eselon/list.php",
 		"/F/WAMPP/htdocs/beta/include/database.php",
 		"/F/WAMPP/htdocs/v4/store/unit_eselon/delete.php",
-		"/F/WAMPP/apache/logs/dummy-host2.example.com-error.log",
 		"//PROGRAMMER/xx/2016/sampang/sampang123_09_02_2016_12_23.sql",
 		"/F/WAMPP/htdocs/v4/views/unit_tupoksi.php",
 		"/F/WAMPP/htdocs/v4/views/satuan.php",
@@ -771,34 +823,7 @@
 		"/F/WAMPP/htdocs/v4/store/sub_unit/list.php",
 		"/F/WAMPP/htdocs/v4/store/organisasi/delete.php",
 		"/F/WAMPP/htdocs/v4/store/organisasi/save.php",
-		"/F/WAMPP/htdocs/beta/index.php",
-		"/F/WAMPP/htdocs/v4/store/rekening/save.php",
-		"/F/WAMPP/htdocs/v4/store/rekening/delete.php",
-		"/F/WAMPP/htdocs/v4/views/rekening_program_kegiatan.php",
-		"/F/WAMPP/php/php.ini",
-		"/F/WAMPP/php/logs/php_error_log",
-		"/F/WAMPP/apache/logs/dummy-host2.example.com-access.log",
-		"/F/WAMPP/apache/logs/agc.log",
-		"/F/WAMPP/apache/logs/access.log",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DR02.485/Renja KL 2018 Update 28042015/renja/datarenjaupdate.sql",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DR24.203/Renja KL 2018 Update 28042015/renja/assets/assets.bat",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DR21.157/Renja KL 2018 Update 28042015/renja/tinybox/ajax.html",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DR20.047/Renja KL 2018 Update 28042015/renja/script/script.pif",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.594/index.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI23.281/mskpd.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI28.609/sasaran_kl.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI16.219/template_db.php",
-		"/F/WAMPP/htdocs/v4/views/sumber_dana.php",
-		"/F/WAMPP/htdocs/v4/views/beranda.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI04.563/rka_model.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI11.563/master.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI17.594/template_login.php",
-		"/F/WAMPP/htdocs/v4/static/css/foundation.css",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI00.125/jquery.easyui.patch.js",
-		"/F/WAMPP/htdocs/v4/store/sumber_dana/view_edit.php",
-		"/F/WAMPP/htdocs/v4/store/sumber_dana/edit.php",
-		"/C/Users/coding/AppData/Local/Temp/Rar$DI18.969/cetak_ref.php",
-		"/F/WAMPP/htdocs/v4/store/rekening/api.php"
+		"/F/WAMPP/htdocs/beta/index.php"
 	],
 	"find":
 	{
@@ -831,6 +856,85 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"thousand: '.'",
+			"decimal : ','",
+			"field",
+			"Field",
+			"field",
+			"realisasi_triwulan_1",
+			"field:",
+			"pagu_anggaran",
+			"c.",
+			"target1",
+			"b.thn",
+			"LEFT(",
+			"dpa",
+			"jml_pagu",
+			"b.tahun",
+			"tahun",
+			"$('.main').layout('collapse', 'east');",
+			"outcome",
+			"Outcome",
+			"program",
+			"outcome",
+			"program",
+			"Outcome",
+			"program",
+			"outcome",
+			"Common",
+			"$req->",
+			"target",
+			"edit_realisasi_indikator_outcome",
+			"target",
+			"realisasi",
+			"target",
+			"NULL",
+			"$req->realisasi_triwulan",
+			"edit_indikator_outcome",
+			"small-6 columns",
+			"small-3 columns",
+			"target_triwulan_1",
+			"indikatorTarget",
+			"xrealisasi",
+			"xtarget",
+			"hidden:true,",
+			"unit_eselon",
+			"onSe",
+			"satker",
+			"outcome",
+			",",
+			"==",
+			"&&",
+			"||",
+			",",
+			"$req",
+			"$req->",
+			",",
+			"`",
+			",",
+			"`",
+			"\n",
+			"` decimal(20,2) NOT NULL,",
+			"target",
+			"precision=\"2\"",
+			"234.56",
+			"` decimal(20,2) NOT NULL,",
+			"<div class=\"small-6 columns\">",
+			"'100%'",
+			"small-5",
+			"small-4",
+			"small-5",
+			"precision=\"2\"",
+			"small-1",
+			"small-4",
+			"small-5",
+			"small-6",
+			"small-9 columns",
+			"1",
+			"indikator",
+			"'100%'",
+			"width:'100%'",
+			"width: '100%',",
 			"get_nama_perangkat",
 			"usulanKecamatan.php?id=$id&skpd2=$skpdTujuan",
 			" AND skpdTujuan='$sessionSKPD'",
@@ -879,86 +983,7 @@
 			" x",
 			"$('#organisasi').textbox('setValue', '');",
 			"eselon =",
-			"nm.combobox({\n                            readonly : true,\n                            value:\"\"\n                        });",
-			"nm.textbox",
-			"#person",
-			"\"Organisasi\"",
-			"\"organisasi\"",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"Organisasi",
-			"organisasi",
-			"unit_eselon",
-			"program",
-			"3",
-			"2",
-			"parents",
-			"unit_eselon",
-			"keselarasan {$nm_keselarasan}",
-			"dimasukkan",
-			"unit_eselon",
-			"'.x'+",
-			"parents :",
-			"parent : r.id",
-			", x-del",
-			"center",
-			"unit_tupoksi",
-			"numberbox",
-			"#nama",
-			"#kode",
-			"kode",
-			"Kode",
-			"kode",
-			"II",
-			"kd_bidang",
-			"nama",
-			"kode",
-			"Sumber Dana",
-			"sumber_dana",
-			"pilihBidang",
-			"unit_tupoksi",
-			"program",
-			"nama",
-			"Unit",
-			"sub_unit",
-			"nm_kegiatan",
-			"kd_kegiatan",
-			"nm_program",
-			"kd_program",
-			"program",
-			"kegiatan",
-			"program",
-			"kegiatan",
-			"rekening_program_kegiatan",
-			"store/rekening",
-			"rekening",
-			"false",
-			"});\n",
-			"$('.x-edit, .x-del').linkbutton({disabled:false});",
-			"$('#kode').textbox",
-			"false",
-			"\"",
-			"Penyimpanan",
-			"Data keselarasan {$nm_keselarasan}",
-			"nm_keselarasan",
-			"error",
-			"$('.x-edit, .x-del').linkbutton({disabled:true});",
-			"\"",
-			"('enable')",
-			"('disable')",
-			"= 'x",
-			"alert"
+			"nm.combobox({\n                            readonly : true,\n                            value:\"\"\n                        });"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -999,24 +1024,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/C/Users/coding/AppData/Local/Temp/scp07856/var/www/html/bojonegoro/config/conf16.php",
+					"file": "views/tabel_anggaran.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2267,
+						"buffer_size": 15592,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1676,
-								1694
+								4079,
+								4079
 							]
 						],
 						"settings":
@@ -1026,27 +1051,55 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1056.0,
+						"translation.y": 1346.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "store/evaluasi_anggaran/list_organisasi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2276,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1731,
+								1731
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "/C/Users/coding/AppData/Local/Temp/scp16573/var/www/html/bojonegoro/kecamatan/usulanMusrenbang.php",
-					"semi_transient": false,
+					"buffer": 2,
+					"file": "views/kegiatan.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 10028,
+						"buffer_size": 8632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1355,
-								1355
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1056,10 +1109,67 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 990.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/coding/AppData/Local/Temp/scp40572/opt/lampp/htdocs/beta/core/progres-anggaran.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16344,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4853,
+								4853
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2838.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 210,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								210,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -1113,6 +1223,14 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"form",
+				"formlogin.php"
+			],
+			[
+				"tabe",
+				"views\\tabel_dpa.php"
+			],
 			[
 				"datagr",
 				"static\\css\\datagrid.css"

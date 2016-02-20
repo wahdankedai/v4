@@ -2,7 +2,7 @@
 require '../../../boot.php';
 $req = Common::obj(Request::all());
 
-$data = Suggest::targetOutcome($req->id);
+$data = Suggest::targetOutput($req->id);
 
 ?>
 <form id="fm" method="post" 
@@ -11,7 +11,7 @@ $data = Suggest::targetOutcome($req->id);
     style="height: 100%;
             width: 100%;" 
     data-options="novalidate:true" 
-    action="<?php echo BASE_URL; ?>store/evaluasi/add_target_outcome.php"
+    action="<?php echo BASE_URL; ?>store/evaluasi/add_target_output.php"
 >
         <div title="Target" style="padding:10px;">
             <div class="row mb20">
@@ -27,12 +27,12 @@ $data = Suggest::targetOutcome($req->id);
                             panelWidth:450,
                             value:'<?php echo $req->unit_eselon_id; ?>',
                             idField:'id',
-                            readonly : ! configApp.evaluasi.edit_target_indikator_outcome,
+                            readonly : ! configApp.evaluasi.edit_target_indikator_output,
                             textField:'person',
                             url:'store/evaluasi/suggest/unit_eselon.php',
                             queryParams : {
                                 id : '<?php echo $req->id_indikator; ?>',
-                                eselon : 'III'
+                                eselon : 'IV'
                             },
                             columns:[[
                                 {field:'id',title:'ID',hidden:true,width:60},
@@ -52,7 +52,7 @@ $data = Suggest::targetOutcome($req->id);
                             data-options="precision:2,
                                 groupSeparator:'.',
                                 decimalSeparator:',',
-                                readonly : ! configApp.evaluasi.edit_target_indikator_outcome" 
+                                readonly : ! configApp.evaluasi.edit_target_indikator_output" 
                             style="width:100%" 
                             value="<?php echo $data->target_triwulan_1; ?>"></input>
                 </div>
@@ -70,7 +70,7 @@ $data = Suggest::targetOutcome($req->id);
                             data-options="precision:2,
                                 groupSeparator:'.',
                                 decimalSeparator:',',
-                                readonly : ! configApp.evaluasi.edit_target_indikator_outcome" 
+                                readonly : ! configApp.evaluasi.edit_target_indikator_output" 
                                 style="width:100%" 
                                 value="<?php echo $data->target_triwulan_2; ?>"></input>
                 </div>
@@ -88,7 +88,7 @@ $data = Suggest::targetOutcome($req->id);
                         data-options="precision:2,
                             groupSeparator:'.',
                             decimalSeparator:',',
-                            readonly : ! configApp.evaluasi.edit_target_indikator_outcome" 
+                            readonly : ! configApp.evaluasi.edit_target_indikator_output" 
                         style="width:100%" 
                         value="<?php echo $data->target_triwulan_3; ?>"></input>
                 </div>
@@ -106,7 +106,7 @@ $data = Suggest::targetOutcome($req->id);
                         data-options="precision:2,
                             groupSeparator:'.',
                             decimalSeparator:',',
-                            readonly : ! configApp.evaluasi.edit_target_indikator_outcome" 
+                            readonly : ! configApp.evaluasi.edit_target_indikator_output" 
                         style="width:100%" 
                         value="<?php echo $data->target_triwulan_4; ?>"></input>
                 </div>

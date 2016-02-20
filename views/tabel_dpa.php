@@ -4,20 +4,28 @@
 <div class="easyui-layout main" data-options="fit:true">
 
         <!-- Panel untuk Indikator -->
-        <div data-options="region:'east',split:true,collapsible:false" title="Indikator" style="width:450px;">
+        <div data-options="region:'east',split:true,collapsible:false" title="Indikator" style="width:55%;">
             <div class="easyui-layout main-indikator" data-options="fit:true">
-                <div data-options="region:'north',split:false,collapsible:false"style="height:400px;">
+                <div data-options="region:'north',split:false,collapsible:false"style="height:410px;">
                     <table class="xindikator">
                     </table>
                 </div>
-                <div data-options="region:'center',title:'Target dan Realiasasi'">
-                    <table class="xtarget">
-                    </table>
+                <div data-options="region:'center',title:'Target dan Realiasasi Outcome'">
+                    <div class="layoutIndikator easyui-accordion" data-options="fit:true">
+                        <div title="Target">
+                            <table class="indikatorTarget">
+                            </table>
+                        </div>
+                        <div title="Realisasi">
+                            <table class="indikatorRealisasi">
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
         <!-- Main Content -->
-        <div data-options="region:'center',title:'Data Master Unit Eselon Organisasi'">
+        <div data-options="region:'center',title:'Data Master Evaluasi Kinerja'">
             <div class="easyui-tabs xtab" data-options="fit:true,
                 border:false,
                 plain:true,
@@ -59,6 +67,7 @@
                             fit:true,
                             rownumbers:true,
                             singleSelect:true,
+                            toolbar: '',
                             url:'store/evaluasi/list_indikator_outcome.php',
                             queryParams : {
                                 kd_unit : 0,
@@ -75,14 +84,14 @@
                                 {field:'nm_satuan',title:'Satuan',width:100}
                             ]],
                             onSelect : function(i,r) {
-                                $('.xtarget').datagrid({
+                                $('.indikatorTarget,.indikatorRealisasi').datagrid({
                                     queryParams: {
                                         id : r.id
                                     }
                                 });
                             }
                         });
-                        $('.xtarget').datagrid({
+                        $('.indikatorTarget').datagrid({
                             fit:true,
                             singleSelect:true,
                             url:'store/evaluasi/list_target_outcome.php',
@@ -91,6 +100,81 @@
                             },
                             columns:[[
                                 {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
+                                {title:'Target',colspan:4},
+                                {field:'unit_organisasi',title:'Organisasi',width:120,rowspan:2 },
+                                {field:'person',title:'Penanggungjawab',width:120,rowspan:2 },
+                            ],[
+                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'}
+                            ]],
+                            onSelect : function(i,r) {
+                                console.log(i);
+                            },
+                            onDblClickRow : function(i,r) {
+                                var indikator = $('.xindikator').datagrid('getSelected');
+
+                                if(indikator) {
+                                    $('#x-dialog').dialog({
+                                        title : 'Target dan Penanggungjawab ' + indikator.indikator,
+                                        href : 'store/evaluasi/form/target_outcome.php',
+                                        method: 'post',
+                                        width: 500,
+                                        height:300,
+                                        modal:true,
+                                        queryParams : {
+                                            id : r.id,
+                                            id_indikator : indikator.id,
+                                            unit_eselon_id : r.unit_eselon_id,
+                                            nm_satuan : indikator.nm_satuan
+                                        },
+                                        buttons:[{
+                                            text:'Save',
+                                            handler:function (){                            
+                                                $('#fm').form('submit',{  
+                                                    success: function(data){
+                                                        var data = eval('(' + data + ')');
+                                                        if (data.success){
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.indikatorTarget').datagrid('reload');
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                    } 
+                                                });
+                                                }
+                                            },{
+                                            text:'Close',
+                                            handler:function(){
+                                                $('#x-dialog').dialog('close')
+                                            }
+                                        }],
+                                        onLoad : function() {
+
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                        $('.indikatorRealisasi').datagrid({
+                            fit:true,
+                            singleSelect:true,
+                            url:'store/evaluasi/list_target_outcome.php',
+                            queryParams : {
+                                id : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
                                 {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
                                 {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
                                 {title:'Target',colspan:4},
@@ -109,12 +193,15 @@
                                 console.log(i);
                             },
                             onDblClickRow : function(i,r) {
+                                if (r.id == '') {
+                                    $.messager.alert('Warning', 'Harap Isi Target terlebih dahulu!');
+                                    return;
+                                }
                                 var indikator = $('.xindikator').datagrid('getSelected');
-
                                 if(indikator) {
                                     $('#x-dialog').dialog({
-                                        title : 'Target dan Realisasi ' + indikator.indikator,
-                                        href : 'store/evaluasi/form/target_outcome.php',
+                                        title : 'Realisasi ' + indikator.indikator,
+                                        href : 'store/evaluasi/form/realisasi_target_outcome.php',
                                         method: 'post',
                                         width: 500,
                                         height:300,
@@ -122,6 +209,7 @@
                                         queryParams : {
                                             id : r.id,
                                             id_indikator : indikator.id,
+                                            unit_eselon_id : r.unit_eselon_id,
                                             nm_satuan : indikator.nm_satuan
                                         },
                                         buttons:[{
@@ -135,7 +223,7 @@
                                                                 title: 'Status',  
                                                                 msg: data.message  
                                                             });
-                                                            $('.xtarget').datagrid('reload');
+                                                            $('.indikatorRealisasi').datagrid('reload');
                                                             $('#x-dialog').dialog('close')
                                                         }
                                                         else {
@@ -164,6 +252,7 @@
                         rekening = 'kegiatan';
                         $('.xindikator').datagrid({
                             fit:true,
+                            toolbar: '',
                             singleSelect:true,
                             url:'store/evaluasi/list_indikator_output.php',
                             queryParams : {
@@ -181,6 +270,155 @@
                                 {field:'nm_satuan',title:'Satuan',width:100}
                             ]]
                         });
+                        $('.indikatorTarget').datagrid({
+                            fit:true,
+                            singleSelect:true,
+                            url:'store/evaluasi/list_target_output.php',
+                            queryParams : {
+                                id : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
+                                {title:'Target',colspan:4},
+                                {field:'unit_organisasi',title:'Organisasi',width:120,rowspan:2 },
+                                {field:'person',title:'Penanggungjawab',width:120,rowspan:2 },
+                            ],[
+                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'}
+                            ]],
+                            onDblClickRow : function(i,r) {
+                                var indikator = $('.xindikator').datagrid('getSelected');
+
+                                if(indikator) {
+                                    $('#x-dialog').dialog({
+                                        title : 'Target dan Penanggungjawab ' + indikator.indikator,
+                                        href : 'store/evaluasi/form/target_output.php',
+                                        method: 'post',
+                                        width: 500,
+                                        height:300,
+                                        modal:true,
+                                        queryParams : {
+                                            id : r.id,
+                                            id_indikator : indikator.id,
+                                            unit_eselon_id : r.unit_eselon_id,
+                                            nm_satuan : indikator.nm_satuan
+                                        },
+                                        buttons:[{
+                                            text:'Save',
+                                            handler:function (){                            
+                                                $('#fm').form('submit',{  
+                                                    success: function(data){
+                                                        var data = eval('(' + data + ')');
+                                                        if (data.success){
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.indikatorTarget').datagrid('reload');
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                    } 
+                                                });
+                                                }
+                                            },{
+                                            text:'Close',
+                                            handler:function(){
+                                                $('#x-dialog').dialog('close')
+                                            }
+                                        }],
+                                        onLoad : function() {
+
+                                        }
+                                    });
+                                }
+                            }
+                        });
+                        $('.indikatorRealisasi').datagrid({
+                            fit:true,
+                            singleSelect:true,
+                            url:'store/evaluasi/list_target_output.php',
+                            queryParams : {
+                                id : 0
+                            },
+                            columns:[[
+                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
+                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
+                                {title:'Target',colspan:4},
+                                {title:'Realisasi',colspan:4}
+                            ],[
+                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'},
+                                {field:'realisasi_triwulan_1',title:'I',width:50,align:'center'},
+                                {field:'realisasi_triwulan_2',title:'II',width:50,align:'center'},
+                                {field:'realisasi_triwulan_3',title:'III',width:50,align:'center'},
+                                {field:'realisasi_triwulan_4',title:'IV',width:50,align:'center'}
+                            ]],
+                            onDblClickRow : function(i,r) {
+                                var indikator = $('.xindikator').datagrid('getSelected');
+                                if (r.id == '') {
+                                    $.messager.alert('Warning', 'Harap Isi Target terlebih dahulu!');
+                                    return;
+                                }
+                                if(indikator) {
+                                    $('#x-dialog').dialog({
+                                        title : 'Realisasi ' + indikator.indikator,
+                                        href : 'store/evaluasi/form/realisasi_target_output.php',
+                                        method: 'post',
+                                        width: 500,
+                                        height:300,
+                                        modal:true,
+                                        queryParams : {
+                                            id : r.id,
+                                            id_indikator : indikator.id,
+                                            unit_eselon_id : r.unit_eselon_id,
+                                            nm_satuan : indikator.nm_satuan
+                                        },
+                                        buttons:[{
+                                            text:'Save',
+                                            handler:function (){                            
+                                                $('#fm').form('submit',{  
+                                                    success: function(data){
+                                                        var data = eval('(' + data + ')');
+                                                        if (data.success){
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.indikatorRealisasi').datagrid('reload');
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                    } 
+                                                });
+                                                }
+                                            },{
+                                            text:'Close',
+                                            handler:function(){
+                                                $('#x-dialog').dialog('close')
+                                            }
+                                        }],
+                                        onLoad : function() {
+
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
                     }
 
             }">
@@ -324,9 +562,15 @@
                                 fitColumns:true,
                                 idField:'kd_program',
                                 onSelect : function (i,r) {
+                                    $('.indikatorTarget,.indikatorRealisasi').datagrid({
+                                        queryParams: {
+                                            id : 0
+                                        }
+                                    });
                                      $('.xindikator').datagrid({
                                         toolbar : [{
                                             text:'Tambah',
+                                            disabled: ! configApp.evaluasi.add_indikator_outcome,
                                             iconCls: 'icon-add',
                                             handler: function(){
                                                 $('#x-dialog').dialog({
@@ -353,7 +597,7 @@
                                                                             msg: data.message  
                                                                         });
                                                                         $('.xindikator').datagrid('reload');
-                                                                        $('.xtarget').datagrid({
+                                                                        $('.indikatorTarget').datagrid({
                                                                             queryParams : {id:0}
                                                                         });
                                                                         $('#x-dialog').dialog('close')
@@ -377,6 +621,7 @@
                                             }
                                         },'-',{
                                             text:'Edit',
+                                            disabled : ! configApp.evaluasi.edit_indikator_outcome,
                                             iconCls: 'icon-edit',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');
@@ -429,6 +674,7 @@
                                             }
                                         },'-',{
                                             text:'Hapus',
+                                            disabled : ! configApp.evaluasi.delete_indikator_outcome,
                                             iconCls: 'icon-remove',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');
@@ -503,18 +749,153 @@
                                 fit:true,
                                 fitColumns:true,
                                 onSelect : function (i,r) {
-                                  $('.xindikator').datagrid({
+                                    $('.indikatorTarget,.indikatorRealisasi').datagrid({
+                                        queryParams: {
+                                            id : 0
+                                        }
+                                    });
+                                     $('.xindikator').datagrid({
                                         toolbar : [{
-                                            iconCls: 'icon-edit',
-                                            handler: function(){alert('edit')}
+                                            text:'Tambah',
+                                            disabled: ! configApp.evaluasi.add_indikator_output,
+                                            iconCls: 'icon-add',
+                                            handler: function(){
+                                                $('#x-dialog').dialog({
+                                                    title: 'Tambah Indikator',
+                                                    width: 450,
+                                                    height: 180,
+                                                    modal:true,
+                                                    method:'post',
+                                                    href: BASE_URL+ 'store/evaluasi/form/add_output.php',
+                                                    queryParams: {
+                                                        kd_unit : kd_unit,
+                                                        kd_subunit : kd_subunit,
+                                                        kd_kegiatan : r.kd_urusan + r.kd_bidang +r.kd_program + r.kd_kegiatan
+                                                    },
+                                                    buttons:[{
+                                                        text:'Save',
+                                                        handler:function (){                            
+                                                            $('#fm').form('submit',{  
+                                                                success: function(data){
+                                                                    var data = eval('(' + data + ')');
+                                                                    if (data.success){
+                                                                        $.messager.show({  
+                                                                            title: 'Status',  
+                                                                            msg: data.message  
+                                                                        });
+                                                                        $('.xindikator').datagrid('reload');
+                                                                        $('.indikatorTarget').datagrid({
+                                                                            queryParams : {id:0}
+                                                                        });
+                                                                        $('#x-dialog').dialog('close')
+                                                                    }
+                                                                    else {
+                                                                        $.messager.alert('Warning', data.message);
+                                                                    } 
+                                                                } 
+                                                            });
+                                                            }
+                                                        },{
+                                                        text:'Close',
+                                                        handler:function(){
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                    }],
+                                                    onLoad: function() {
+                                                        $('#indikator').combobox('textbox').focus(); 
+                                                    }
+                                                });
+                                            }
                                         },'-',{
-                                            iconCls: 'icon-help',
-                                            handler: function(){alert('help')}
+                                            text:'Edit',
+                                            disabled : ! configApp.evaluasi.edit_indikator_output,
+                                            iconCls: 'icon-edit',
+                                            handler: function(){
+                                                var row = $('.xindikator').datagrid('getSelected');
+                                                if(! row) {
+                                                    console.log('Harap Pilih data yang akan di edit');
+                                                    return;
+                                                }
+
+                                                $('#x-dialog').dialog({
+                                                    title: 'Edit Indikator',
+                                                    width: 450,
+                                                    height: 180,
+                                                    modal:true,
+                                                    method:'post',
+                                                    href: BASE_URL+ 'store/evaluasi/form/edit_output.php',
+                                                    queryParams: row,
+                                                    buttons:[{
+                                                        text:'Save',
+                                                        handler:function (){                            
+                                                            $('#fm').form('submit',{  
+                                                                success: function(data){
+                                                                    var data = eval('(' + data + ')');
+                                                                    if (data.success){
+                                                                        $.messager.show({  
+                                                                            title: 'Status',  
+                                                                            msg: data.message  
+                                                                        });
+                                                                        $('.xindikator').datagrid('reload');
+                                                                        $('#x-dialog').dialog('close')
+                                                                    }
+                                                                    else {
+                                                                        $.messager.alert('Warning', data.message);
+                                                                    } 
+                                                                } 
+                                                            });
+                                                            }
+                                                        },{
+                                                        text:'Close',
+                                                        handler:function(){
+                                                            $('#x-dialog').dialog('close')
+                                                        }
+                                                    }],
+                                                    onLoad: function() {
+                                                        $('#indikator').combobox('textbox').focus(); 
+                                                        $('#indikator').combobox('setValue', row.indikator); 
+                                                        $('#satuan').combobox('setValue', row.satuan); 
+                                                    }
+                                                });
+                                                
+                                            }
+                                        },'-',{
+                                            text:'Hapus',
+                                            disabled : ! configApp.evaluasi.delete_indikator_output,
+                                            iconCls: 'icon-remove',
+                                            handler: function(){
+                                                var row = $('.xindikator').datagrid('getSelected');
+                                                if(! row) {
+                                                    console.log('Harap Pilih data yang akan di hapus');
+                                                    return;
+                                                }
+                                                $.messager.confirm('Hapus data Indikator', 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
+                                                    if (r)
+                                                    {
+                                                        $.post(BASE_URL + 'store/evaluasi/delete_output.php', {
+                                                            id : row.id
+                                                        },
+                                                        function (d) {
+                                                            var data = eval('(' + d + ')');
+                                                                if (data.success) {
+                                                                    $.messager.show({  
+                                                                        title: 'Status',  
+                                                                        msg: data.message  
+                                                                    });
+                                                                    $('.xindikator').datagrid('reload');
+                                                                }
+                                                                else {
+                                                                    $.messager.alert('Warning', data.message);
+                                                                } 
+                                                        });
+                                                    }
+                                                });
+                                            }
                                         }],
                                         queryParams : {
                                             kd_unit : kd_unit,
                                             kd_subunit : kd_subunit,
-                                            kd_program : r.kd_urusan + r.kd_bidang +r.kd_program + r.kd_kegiatan
+                                            kd_kegiatan : r.kd_urusan + r.kd_bidang +r.kd_program + r.kd_kegiatan
                                         }
                                     });
                                 },">

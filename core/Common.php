@@ -60,4 +60,9 @@ class Common
       return $req;
     
    }
+
+   public static function toNULL($value ='')
+   {
+      return $value == '' ? 'NULL' : $value;
+   }
 }

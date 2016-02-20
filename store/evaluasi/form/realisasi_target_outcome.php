@@ -1,0 +1,99 @@
+<?php 
+require '../../../boot.php';
+$req = Common::obj(Request::all());
+
+$data = Suggest::targetOutcome($req->id);
+
+?>
+<form id="fm" method="post" 
+    class="easyui-form" 
+    method="post"
+    style="height: 100%;
+            width: 100%;" 
+    data-options="novalidate:true" 
+    action="<?php echo BASE_URL; ?>store/evaluasi/add_realisasi_outcome.php"
+>
+        <div title="realisasi" style="padding:10px;">
+            <div class="row mb20">
+                <div class="small-4 columns">
+                    <label for="realisasi_triwulan_1" class="left inline">Triwulan I</label>
+                </div>
+                <div class="small-3 columns">
+                    <input name="realisasi_triwulan_1" 
+                            class="easyui-numberbox" 
+                            data-options="precision:2,
+                                groupSeparator:'.',
+                                decimalSeparator:',',
+                                readonly : ! configApp.evaluasi.realisasi_outcome.triwulan_1" 
+                            style="width:100%" 
+                            value="<?php echo $data->realisasi_triwulan_1; ?>"></input>
+                </div>
+                <div class="small-5 columns">
+                    <label>&nbsp;&nbsp;&nbsp;<?php echo $req->nm_satuan; ?></label>
+                </div>
+            </div>
+            <div class="row mb20">
+                <div class="small-4 columns">
+                    <label for="realisasi_triwulan_2" class="left inline">Triwulan II</label>
+                </div>
+                <div class="small-3 columns">
+                    <input name="realisasi_triwulan_2" 
+                            class="easyui-numberbox" 
+                            data-options="precision:2,
+                                groupSeparator:'.',
+                                decimalSeparator:',',
+                                readonly : ! configApp.evaluasi.realisasi_outcome.triwulan_2" 
+                                style="width:100%" 
+                                value="<?php echo $data->realisasi_triwulan_2; ?>"></input>
+                </div>
+                <div class="small-5 columns">
+                    <label>&nbsp;&nbsp;&nbsp;<?php echo $req->nm_satuan; ?></label>
+                </div>
+            </div>
+            <div class="row mb20">
+                <div class="small-4 columns">
+                    <label for="realisasi_triwulan_3" class="left inline">Triwulan III</label>
+                </div>
+                <div class="small-3 columns">
+                    <input name="realisasi_triwulan_3" 
+                        class="easyui-numberbox" 
+                        data-options="precision:2,
+                            groupSeparator:'.',
+                            decimalSeparator:',',
+                            readonly : ! configApp.evaluasi.realisasi_outcome.triwulan_3" 
+                        style="width:100%" 
+                        value="<?php echo $data->realisasi_triwulan_3; ?>"></input>
+                </div>
+                <div class="small-5 columns">
+                    <label>&nbsp;&nbsp;&nbsp;<?php echo $req->nm_satuan; ?></label>
+                </div>
+            </div>
+            <div class="row mb20">
+                <div class="small-4 columns">
+                    <label for="realisasi_triwulan_4" class="left inline">Triwulan IV</label>
+                </div>
+                <div class="small-3 columns">
+                    <input name="realisasi_triwulan_4" 
+                        class="easyui-numberbox" 
+                        data-options="precision:2,
+                            groupSeparator:'.',
+                            decimalSeparator:',',
+                            readonly : ! configApp.evaluasi.realisasi_outcome.triwulan_4" 
+                        style="width:100%" 
+                        value="<?php echo $data->realisasi_triwulan_4; ?>"></input>
+                </div>
+                <div class="small-5 columns">
+                    <label>&nbsp;&nbsp;&nbsp;<?php echo $req->nm_satuan; ?></label>
+                </div>
+            </div>
+        </div>
+    
+    <input type="hidden" name="id" value="<?php echo $data->id; ?>">
+</form>
+
+<script type="text/javascript">
+    
+</script>
+
+<?php 
+exit;

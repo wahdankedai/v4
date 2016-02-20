@@ -40,8 +40,8 @@ $q = "SELECT
         c.unit_organisasi,
         c.person
     FROM
-    indikator_outcome_program AS a
-    INNER JOIN target_indikator_outcome AS b ON b.id_indikator = a.id
+    indikator_output_kegiatan AS a
+    INNER JOIN target_indikator_output AS b ON b.id_indikator = a.id
     INNER JOIN unit_eselon c ON c.id = b.unit_eselon_id
     WHERE a.id = {$req->id} 
             AND b.tahun = {$session->tahun}";
