@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"kd_sub",
+				"kd_sub_unit"
+			],
+			[
 				"r",
 				"req"
 			],
@@ -510,10 +514,6 @@
 			[
 				"PA",
 				"PARAM_INT"
-			],
-			[
-				"remov",
-				"removeMenu"
 			]
 		]
 	},
@@ -523,41 +523,80 @@
 			"file": "views/tabel_anggaran.php",
 			"settings":
 			{
-				"buffer_size": 15592,
+				"buffer_size": 39762,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "store/evaluasi_anggaran/list_organisasi.php",
+			"file": "/C/Users/coding/AppData/Local/Temp/scp43407/opt/lampp/htdocs/beta/v4/boot.php",
 			"settings":
 			{
-				"buffer_size": 2276,
+				"buffer_size": 353,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "views/kegiatan.php",
+			"file": "/C/Users/coding/AppData/Local/Temp/scp43105/opt/lampp/htdocs/beta/v4/.htaccess",
 			"settings":
 			{
-				"buffer_size": 8632,
+				"buffer_size": 18,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "/C/Users/coding/AppData/Local/Temp/scp40572/opt/lampp/htdocs/beta/core/progres-anggaran.php",
+			"file": "store/evaluasi_anggaran/form_anggaran.php",
 			"settings":
 			{
-				"buffer_size": 16344,
+				"buffer_size": 6807,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_1,\nsum(c.realisasi_triwulan_2) as realisasi_triwulan_2,\nsum(c.realisasi_triwulan_3) as realisasi_triwulan_3,\nsum(c.realisasi_triwulan_4) as realisasi_triwulan_4",
+			"file": "core/Common.php",
 			"settings":
 			{
-				"buffer_size": 210,
-				"line_ending": "Windows",
-				"name": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_"
+				"buffer_size": 1537,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Suggest.php",
+			"settings":
+			{
+				"buffer_size": 3942,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "config/evaluasi.php",
+			"settings":
+			{
+				"buffer_size": 1289,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "$req->tahun,\n$req->kd_urusan,\n$req->kd_bidang,\n$req->kd_program,\n$req->kd_kegiatan,\n$req->kd_unit,\n$req->kd_sub_unit,\n$req->target_triwulan_1,\n$req->target_triwulan_2,\n$req->target_triwulan_3,\n$req->target_triwulan_4,\n$req->realisasi_triwulan_1,\n$req->realisasi_triwulan_2,\n$req->realisasi_triwulan_3,\n$req->realisasi_triwulan_4",
+			"settings":
+			{
+				"buffer_size": 328,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "INSERT INTO target_anggaran (\n`tahun`,\n`kd_urusan`,\n`kd_bidang`,\n`kd_program`,\n`kd_kegiatan`,\n`kd_unit`,\n`kd_sub_unit`,\n`target_triwulan_1`,\n`target_triwulan_2`,\n`target_triwulan_3`,\n`target_triwulan_4`,\n`realisasi_triwulan_1`,\n`realisasi_triwulan_2`,\n`realisasi_triwulan_3`,\n`realisasi_triwulan_4` )\nVALUES (\n    \n)\nON DUPLICATE KEY UPDATE (\n    `target_triwulan_1` = VALUES (`target_triwulan_1`),\n    `target_triwulan_2` = VALUES (`target_triwulan_2`),\n    `target_triwulan_3` = VALUES (`target_triwulan_3`),\n    `target_triwulan_4` = VALUES (`target_triwulan_4`),\n    `realisasi_triwulan_1` = VALUES (`realisasi_triwulan_1`),\n    `realisasi_triwulan_2` = VALUES (`realisasi_triwulan_2`),\n    `realisasi_triwulan_3` = VALUES (`realisasi_triwulan_3`),\n    `realisasi_triwulan_4` = VALUES (`realisasi_triwulan_4`)\n)\n",
+			"settings":
+			{
+				"buffer_size": 816,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "store/evaluasi_anggaran/proses_anggaran.php",
+			"settings":
+			{
+				"buffer_size": 2244,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -688,19 +727,29 @@
 		"/F/WAMPP/htdocs/v4",
 		"/F/WAMPP/htdocs/v4/config",
 		"/F/WAMPP/htdocs/v4/core",
-		"/F/WAMPP/htdocs/v4/static",
+		"/F/WAMPP/htdocs/v4/db",
 		"/F/WAMPP/htdocs/v4/static/js",
 		"/F/WAMPP/htdocs/v4/store",
-		"/F/WAMPP/htdocs/v4/vendor/composer",
-		"/F/WAMPP/htdocs/v4/views"
+		"/F/WAMPP/htdocs/v4/store/evaluasi",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran"
 	],
 	"file_history":
 	[
+		"/C/Users/coding/AppData/Local/Temp/scp53311/var/www/html/beta/config/aplikasi.php",
+		"/C/Users/coding/AppData/Local/Temp/scp42881/opt/lampp/htdocs/beta/v4/config/database.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi/form/realisasi_target_output.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_kegiatan.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_bidang.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_subunit.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_urusan.php",
+		"/C/Users/coding/AppData/Local/Temp/scp42301/var/www/link_download_mojokerto/index.html",
+		"/C/Users/coding/AppData/Local/Temp/scp40120/etc/httpd/conf/httpd.conf",
+		"/C/Users/coding/AppData/Local/Temp/scp40572/opt/lampp/htdocs/beta/core/progres-anggaran.php",
 		"/F/WAMPP/htdocs/v4/index.php",
 		"/C/Users/coding/AppData/Local/Temp/scp40027/opt/lampp/htdocs/beta/assets/js/accounting.js",
 		"/F/WAMPP/htdocs/v4/static/js/accounting.js",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/add_target_output.php",
-		"/F/WAMPP/htdocs/v4/store/evaluasi/form/realisasi_target_output.php",
 		"/F/WAMPP/htdocs/v4/config/evaluasi.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/add_realisasi_output.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi/form/target_output.php",
@@ -814,16 +863,7 @@
 		"/F/WAMPP/htdocs/v4/store/satuan/view_create.php",
 		"/F/WAMPP/htdocs/v4/store/satuan/view_edit.php",
 		"/F/WAMPP/htdocs/v4/store/organisasi/add_tupoksi.php",
-		"/F/WAMPP/htdocs/v4/store/bidang/list_tupoksi.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/delete_tupoksi.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/list_bidang.php",
-		"/F/WAMPP/htdocs/v4/store/menu/list.php",
-		"/F/WAMPP/htdocs/v4/views/organisasi.php",
-		"/F/WAMPP/htdocs/v4/store/unit/list.php",
-		"/F/WAMPP/htdocs/v4/store/sub_unit/list.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/delete.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/save.php",
-		"/F/WAMPP/htdocs/beta/index.php"
+		"/F/WAMPP/htdocs/v4/store/bidang/list_tupoksi.php"
 	],
 	"find":
 	{
@@ -856,6 +896,46 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" Common::toNULL(",
+			"Common::toNULL",
+			"$req-",
+			"[",
+			"triwulan",
+			"a.",
+			"program",
+			"bidang",
+			"urusan",
+			"unit",
+			"`",
+			"$",
+			",",
+			"{",
+			"||",
+			",",
+			"a.",
+			"$req->",
+			"small-9",
+			"small-3",
+			"target",
+			"target_triwulan_3",
+			"target_triwulan_2",
+			"target_triwulan_1",
+			"target",
+			"triwulan",
+			"realisasi",
+			"{",
+			"$req->",
+			"Sum(",
+			"realisasi",
+			"kd_program",
+			"bidang",
+			"urusan",
+			"realisasi_triwulan_4",
+			"realisasi_triwulan",
+			"b.",
+			"sippbaru",
+			"nm_unit",
+			"unit",
 			"thousand: '.'",
 			"decimal : ','",
 			"field",
@@ -943,47 +1023,7 @@
 			"bidang",
 			"b.",
 			"60",
-			"100",
-			"target",
-			",hidden:true",
-			"xindikator",
-			"kd_unit",
-			"xindikator",
-			"gIndikator",
-			"satuan",
-			"kd_subunit",
-			"nm_urusan",
-			"kd_urusan",
-			"indikator",
-			"nm_urusan",
-			"unit",
-			"urusan",
-			"unit",
-			"program",
-			"kd_bidang",
-			"nm_keselarasan",
-			"kd_keselarasan",
-			"bidang",
-			"program",
-			"  ",
-			"`",
-			"target",
-			"$('.x-add').linkbutton({disabled:false});",
-			"pp.panel(\"",
-			"layout-split",
-			"layout-expand",
-			"layou",
-			"ok",
-			"bidang",
-			"urusan",
-			"xurusan",
-			"xUrusan",
-			"urusan",
-			"program",
-			" x",
-			"$('#organisasi').textbox('setValue', '');",
-			"eselon =",
-			"nm.combobox({\n                            readonly : true,\n                            value:\"\"\n                        });"
+			"100"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1024,7 +1064,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1033,15 +1073,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15592,
+						"buffer_size": 39762,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4079,
-								4079
+								31215,
+								31215
 							]
 						],
 						"settings":
@@ -1051,27 +1091,27 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1346.0,
+						"translation.y": 11032.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "store/evaluasi_anggaran/list_organisasi.php",
+					"file": "/C/Users/coding/AppData/Local/Temp/scp43407/opt/lampp/htdocs/beta/v4/boot.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2276,
+						"buffer_size": 353,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1731,
-								1731
+								194,
+								194
 							]
 						],
 						"settings":
@@ -1079,27 +1119,55 @@
 							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 330.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "views/kegiatan.php",
-					"semi_transient": true,
+					"file": "/C/Users/coding/AppData/Local/Temp/scp43105/opt/lampp/htdocs/beta/v4/.htaccess",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8632,
+						"buffer_size": 18,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								18,
+								18
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "store/evaluasi_anggaran/form_anggaran.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5694,
+								5714
 							]
 						],
 						"settings":
@@ -1109,67 +1177,186 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2376.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "/C/Users/coding/AppData/Local/Temp/scp40572/opt/lampp/htdocs/beta/core/progres-anggaran.php",
-					"semi_transient": false,
+					"buffer": 4,
+					"file": "core/Common.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 16344,
+						"buffer_size": 1537,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4853,
-								4853
+								1462,
+								1468
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 2838.0,
+						"translation.y": 924.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
+					"file": "core/Suggest.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 210,
+						"buffer_size": 3942,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								210,
+								3932,
+								3932
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2605.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "config/evaluasi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1289,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								842,
+								842
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 328,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								328,
 								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "sum(c.realisasi_triwulan_1) as realisasi_triwulan_",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								778,
+								758
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "store/evaluasi_anggaran/proses_anggaran.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2244,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1958,
+								1958
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 990.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
 					"type": "text"
 				}
 			]

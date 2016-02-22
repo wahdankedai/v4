@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-20 15:40:07
+Date: 2016-02-22 14:00:43
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -9435,6 +9435,8 @@ CREATE TABLE `target_anggaran` (
 -- ----------------------------
 -- Records of target_anggaran
 -- ----------------------------
+INSERT INTO `target_anggaran` VALUES ('2015', '1', '01', '15', '03', '10101', '01', '100.00', '100.00', '100.00', '100.00', '100.00', '100.00', '100.00', null);
+INSERT INTO `target_anggaran` VALUES ('2015', '1', '01', '15', '15', '10101', '01', '110.00', '110.00', null, null, null, '550.00', null, null);
 
 -- ----------------------------
 -- Table structure for `target_indikator_outcome`

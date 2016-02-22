@@ -13,6 +13,7 @@ $data = Suggest::targetOutput($req->id);
     data-options="novalidate:true" 
     action="<?php echo BASE_URL; ?>store/evaluasi/add_realisasi_output.php"
 >
+    <div class="easyui-accordion" data-options="fit:true">
         <div title="realisasi" style="padding:10px;">
             <div class="row mb20">
                 <div class="small-4 columns">
@@ -87,6 +88,7 @@ $data = Suggest::targetOutput($req->id);
                 </div>
             </div>
         </div>
+    </div>
     
     <input type="hidden" name="id" value="<?php echo $data->id; ?>">
 </form>

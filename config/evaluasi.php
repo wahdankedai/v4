@@ -33,6 +33,21 @@ return [
             "triwulan_3" => true,
             "triwulan_4" => true,
         ],
+
+        /**
+         * anggaran
+         */
+        'anggaran' => [
+            "target_triwulan_1" => true,
+            "target_triwulan_2" => true,
+            "target_triwulan_3" => true,
+            "target_triwulan_4" => true,
+            "realisasi_triwulan_1" => true,
+            "realisasi_triwulan_2" => true,
+            "realisasi_triwulan_3" => true,
+            "realisasi_triwulan_4" => true,
+        ],
+
     ]
 
     

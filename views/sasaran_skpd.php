@@ -135,9 +135,9 @@
                             data-options="url:'store/sasaran_skpd/list.php',
                                 method:'post',
                                 queryParams:{
-                                    kode : 0,
-                                    parent_id :0
+                                    kode : 0
                                 },
+                                rownumbers:true,
                                 idField:'id',
                                 singleSelect:true,
                                 fit:true,
@@ -174,9 +174,8 @@
                         <thead>
                             <tr>
                                 <th data-options="field:'id',hidden:true" width="200">Unit Organisasi</th>
-                                <th data-options="field:'unit_organisasi',align:'left'" width="200">Unit Organisasi</th>
-                                <th data-options="field:'person',align:'left'" width="200">Penanggung Jawab</th>
-                                <th data-options="field:'eselon'" width="60">Eselon</th>
+                                <th data-options="field:'kd_subunit',hidden:true" width="200">Unit Organisasi</th>
+                                <th data-options="field:'sasaran',align:'left'" width="500">Sasaran</th>
                             </tr>
                         </thead>
                     </table>
