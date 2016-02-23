@@ -6,12 +6,12 @@
             <div class="row p10">
                 <div class="row mb20">
                     <div class="small-3 columns">
-                        <label for="organisasi" class="left inline">Unit Organisasi</label>
+                        <label for="xSasaran" class="left inline">Sasaran</label>
                     </div>
                     <div class="small-9 columns">
                         <input  type="text" 
-                                id="organisasi" 
-                                name="organisasi" 
+                                id="xSasaran" 
+                                name="xSasaran" 
                                 class="form-control easyui-textbox">
                     </div>
                 </div>
@@ -38,16 +38,16 @@
                 plain:true,
                 tabPosition:'left',
                 onSelect: function(t,i) {
-                    $('#organisasi').textbox('setValue', '');
+                    $('#xSasaran').textbox('setValue', '');
                     $('.x-edit,.x-save, .x-del,.x-add').linkbutton({disabled:true});
-                    var kd = $('#organisasi');
+                    var kd = $('#xSasaran');
                     var nm = $('#xSatuan');     
 
                     kd.textbox({
-                        readonly : true
+                        disabled : true
                     });    
                     nm.combobox({
-                        readonly : true
+                        disabled : true
                     });
                     if (i==0) {
                         $('.xtab').tabs('disableTab', 1);
@@ -61,13 +61,11 @@
                     } else if (i == 2) {
                         $('.xtab').tabs('disableTab', 3);
                         $('.x-add').linkbutton({disabled:false});
-                        rekening = 'eselon2';
+                        rekening = 'sasaran';
                         parents = 0;
                     } else if (i == 3) {
                         $('.x-add').linkbutton({disabled:false});
-                        rekening = 'eselon3';
-                        var cc = $('.eselon2').datagrid('getSelected');
-                        parents = cc.id;
+                        rekening = 'indikator';
                     }
 
             }">
@@ -116,7 +114,6 @@
                                             kode : r.kode + r.kd_subunit
                                         }
                                      });
-                                     parents = 0;
                                      kd_unit =r.kode + r.kd_subunit;
                                      $('.xtab').tabs('select', 2);
                                 }"
@@ -143,32 +140,26 @@
                                 fit:true,
                                 fitColumns:true,
                                 onSelect : function (i,r) {
-                                    var kd = $('#organisasi');
+                                    var kd = $('#xSasaran');
                                     var nm = $('#xSatuan');     
 
                                     kd.textbox({
-                                        readonly : true
-                                    });    
-                                    nm.combobox({
-                                        readonly : true
+                                        disabled : false,
+                                        readonly:true
                                     });
+
+                                    kd.textbox('setValue', r.sasaran);    
 
                                     $('.x-add, .x-edit, .x-del').linkbutton({disabled:false});
                                     $('.x-save').linkbutton({disabled:true});
-
-                                    $('#organisasi').textbox('setValue', r.unit_organisasi);
-                                    $('#xSatuan').textbox('setValue', r.person);
                                 },
                                 onDblClickRow: function(i,r) {
                                      $('.xtab').tabs('enableTab', 3);
-                                     $('.eselon3').datagrid({
+                                     $('.indikator').datagrid({
                                         queryParams:{
-                                            kode : r.kd_unit,
-                                            kd_subunit : kd_subunit,
-                                            parent_id : r.id
+                                            sasaran_id : r.id
                                         }
                                      });
-                                     parents = r.id;
                                      $('.xtab').tabs('select', 3);
                                 }">
                         <thead>
@@ -182,10 +173,10 @@
                 </div>
                 <div title="Indikator">
                     <table class="easyui-datagrid indikator"
-                            data-options="url:'store/sasaran_skpd/list.php',
+                            data-options="url:'store/sasaran_skpd/list_indikator.php',
                                 method:'post',
                                 queryParams:{
-                                    parent_id : 0,
+                                    sasarn_id : 0,
                                     kode : 0
                                 },
                                 singleSelect:true,
@@ -193,38 +184,30 @@
                                 fitColumns:true,
                                 idField:'id',
                                 onSelect : function (i,r) {
-                                    var kd = $('#organisasi');
+                                    var kd = $('#xSasaran');
                                     var nm = $('#xSatuan');     
 
                                     kd.textbox({
-                                        readonly : true
+                                        readonly : true,
+                                        disabled : false
                                     });    
                                     nm.combobox({
-                                        readonly : true
+                                        readonly : true,
+                                        disabled : false
                                     });
+
+                                    kd.textbox('setValue', r.indikator);    
+                                    nm.combobox('setValue', r.satuan_id);
+
                                     $('.x-add, .x-edit, .x-del').linkbutton({disabled:false});
                                     $('.x-save').linkbutton({disabled:true});
-                                    $('#organisasi').textbox('setValue', r.unit_organisasi);
-                                    $('#xSatuan').textbox('setValue', r.person);
-                                },
-                                onDblClickRow: function(i,r) {
-                                     $('.xtab').tabs('enableTab', 4);
-                                     $('.eselon4').datagrid({
-                                        queryParams:{
-                                            kode : r.kd_unit,
-                                            kd_subunit : r.kd_subunit,
-                                            parent_id : r.id
-                                        }
-                                     });
-                                     parents = r.id;
-                                     $('.xtab').tabs('select', 4);
                                 }">
                         <thead>
                             <tr>
                                 <th data-options="field:'id',hidden:true" width="200">Unit Organisasi</th>
-                                <th data-options="field:'unit_organisasi',align:'left'" width="200">Unit Organisasi</th>
-                                <th data-options="field:'person',align:'left'" width="200">Penanggung Jawab</th>
-                                <th data-options="field:'eselon'" width="60">Eselon</th>
+                                <th data-options="field:'indikator',align:'left'" width="400">Indikator</th>
+                                <th data-options="field:'satuan_id',hidden:true" width="200">satuan</th>
+                                <th data-options="field:'nm_satuan',align:'left'" width="200">satuan</th>
                             </tr>
                         </thead>
                     </table>
@@ -242,15 +225,24 @@
                 return;
             };
 
-            var kd = $("#organisasi");
+            var kd = $("#xSasaran");
             var nm = $("#xSatuan");     
 
             kd.textbox({
-                readonly : false
+                readonly : false,
+                disabled:false
             });    
             nm.combobox({
-                readonly : false
+                readonly : true,
+                disabled:true
             });
+
+            if (rekening == 'indikator') {
+                nm.combobox({
+                    readonly : false,
+                    disabled:false
+                });
+            };
 
             kd.textbox('clear');
             nm.combobox('clear');
@@ -265,20 +257,25 @@
         });   
 
         $(".x-edit").bind('click', function () {
+            var that = $("." + rekening).datagrid('getSelected');
             var me =  $(".x-edit").linkbutton('options');
             state = "edit";
             if (me.disabled) {
                 return;
             };
-            var kd = $("#organisasi");
+            var kd = $("#xSasaran");
             var nm = $("#xSatuan");     
    
             kd.textbox({
                 readonly : false
             });    
-            nm.combobox({
-                readonly : false
-            });
+            if (rekening == 'indikator') {
+                nm.combobox({
+                    readonly : false
+                });
+                nm.combobox('setValue', that.satuan_id);
+                
+            };
 
             kd.textbox('textbox').focus();
 
@@ -298,7 +295,7 @@
             if (me.disabled) {
                 return;
             };
-            var kd = $("#organisasi");
+            var kd = $("#xSasaran");
             var nm = $("#xSatuan");
             var row = $('.'+rekening).datagrid('getSelected');
             $.post('store/sasaran_skpd/delete.php', row)
@@ -341,19 +338,118 @@
                 return;
             };
 
-
-            var kd = $("#organisasi");
+            var kd = $("#xSasaran");
             var nm = $("#xSatuan");
 
             var KD = kd.textbox('getValue');
             var NM = nm.combobox('getValue');
+            // console.log(NM + KD);
 
+            if (rekening == 'sasaran') {
+                if (KD == "" || KD == 0) {
+                    $.messager.alert('Warning', "Harap di isi data Uraian " + rekening.toUpperCase(),'', function(){
+                        nm.combobox('textbox').focus(); 
+                    });
+                    return;
+
+               }; 
+               if (state == "add" ) {
+                    var row = {};
+                    row.kd_subunit = kd_unit;
+                }
+                else {
+                    var row = $('.'+rekening).datagrid('getSelected');
+                }
+                row.sasaran = KD;
+
+                $.post('store/sasaran_skpd/save.php', row)
+                    .done(function (data) {
+                        var data = eval('(' + data + ')');
+                        if (data.success){
+                            $.messager.show({  
+                                title: 'Status',  
+                                msg: data.message  
+                            });
+                            $('.'+rekening).datagrid('reload');
+                            $('.x-edit').linkbutton({disabled:true});
+                            $('.x-add').linkbutton({disabled:false});
+                            $('.x-del').linkbutton({disabled:true});
+                            $('.x-save').linkbutton({disabled:true});
+
+                            kd.textbox({
+                                readonly : true,
+                                value:""
+                            });    
+                            nm.combobox({
+                                readonly : true
+                            });
+
+                        return;
+                        }
+                        else {
+                            $.messager.alert('Warning', data.message);
+                            return;
+                        }
+                    });
+
+               return;
+            };
+
+            if (rekening == 'indikator') {
+                if (KD == "" || NM == "" || KD == 0 || NM == 0){
+                    $.messager.alert('Warning', "Harap di isi data Uraian " + rekening.toUpperCase(),'', function(){
+                        nm.combobox('textbox').focus(); 
+                    });
+                    return;
+                }
+
+                if (state == "add" ) {
+                    var Sasaran = $('.sasaran').datagrid('getSelected');
+                    var row = {};
+                    row.sasaran_id = Sasaran.id;
+                }
+                else {
+                    var row = $('.'+rekening).datagrid('getSelected');
+                }
+                row.satuan_id = NM;
+                row.indikator = KD;
+
+                $.post('store/sasaran_skpd/saveindikator.php', row)
+                    .done(function (data) {
+                        var data = eval('(' + data + ')');
+                        if (data.success){
+                            $.messager.show({  
+                                title: 'Status',  
+                                msg: data.message  
+                            });
+                            $('.'+rekening).datagrid('reload');
+                            $('.x-edit').linkbutton({disabled:true});
+                            $('.x-add').linkbutton({disabled:false});
+                            $('.x-del').linkbutton({disabled:true});
+                            $('.x-save').linkbutton({disabled:true});
+
+                            kd.textbox({
+                                readonly : true,
+                                value:""
+                            });    
+                            nm.combobox({
+                                readonly : true
+                            });
+
+                        }
+                        else {
+                            $.messager.alert('Warning', data.message);
+                        }
+                    });
+
+               return;
+
+
+            };
+
+            
             // validasi inputan
-            if (KD == "" || NM == "" || KD == 0 || NM == 0){
-                $.messager.alert('Warning', "Harap di isi data Uraian " + rekening.toUpperCase(),'', function(){
-                    nm.combobox('textbox').focus(); 
-                });
-                return;
+            if (rekening != 'sasaran' && (KD == "" || NM == "" || KD == 0 || NM == 0)){
             }
 
             

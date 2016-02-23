@@ -80,7 +80,7 @@
         $("#x-menu-tree").tree({
             url : BASE_URL + 'store/menu/list.php',
             lines : true,
-            onClick: function(node){
+            onSelect: function(node){
                 
                 if (node.component != "") {
 
