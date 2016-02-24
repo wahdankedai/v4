@@ -143,7 +143,8 @@
                                                     title: 'Status',  
                                                     msg: data.message  
                                                 });
-                                                $('.x'+rekening).datagrid('reload');
+                                                $('.xbidang').datagrid('reload');
+                                                $('#kd_bidang').combobox('reload');
 
                                             }
                                             else {

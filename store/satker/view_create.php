@@ -1,5 +1,10 @@
 <?php 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
 $kd_urusan = Request::get('kd_urusan');
 $kd_bidang = Request::get('kd_bidang');
 ?>

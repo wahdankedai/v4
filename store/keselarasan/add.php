@@ -1,6 +1,11 @@
 <?php 
 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
 
 $kd_keselarasan = Request::post('kd_keselarasan');
 $nm_keselarasan = Request::post('nm_keselarasan');

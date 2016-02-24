@@ -2,6 +2,7 @@
 
 require 'boot.php';
 
+
 $id = Request::post('view');
 
 if ($id == "") {

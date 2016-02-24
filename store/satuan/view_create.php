@@ -1,5 +1,10 @@
 <?php 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
 ?>
 <form id="fm" method="post" 
     class="easyui-form" 

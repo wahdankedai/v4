@@ -1,6 +1,11 @@
 <?php 
 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
 
 $id = Request::post('kd_urusan');
 $old_id = Request::post('old_kd_urusan');

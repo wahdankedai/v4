@@ -1,6 +1,7 @@
 <?php 
 
 return [
+    "renstra" => '2015-2019',
     "evaluasi" => [
         /**
          *  Outcome

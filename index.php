@@ -19,7 +19,9 @@
         var BASE_URL = "<?php echo BASE_URL; ?>"; 
     </script>
     <script type="text/javascript">
+
         var configApp = {};
+        var selectedModul = {};
 
         $.post('store/config.php')
             .done( function (data) {
@@ -63,7 +65,8 @@
 
     <script type="text/javascript">
 
-	    $(".modulSelector").combobox({
+        var me = $('.modulSelector');
+        $(".modulSelector").combobox({
 	    	url: BASE_URL + 'store/modul/list.php',
 		    valueField:'id',
 		    textField:'modul',
@@ -74,6 +77,10 @@
                         modul : n
                     }
                 })
+                selectedModul = {
+                    name : me.combobox('getText'), 
+                    id : me.combobox('getValue')
+                }
             } 
 	    });
 
@@ -96,7 +103,7 @@
                 }
 
             }
-        });
+        }); 
 
 
     </script>
