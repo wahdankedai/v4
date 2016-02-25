@@ -16,16 +16,16 @@ $id = Request::post('id');
  */
 
 
-// if (Suggest::checkTargetOutcome($id)) {
-//     echo json_encode([
-//         "success" => false,
-//         "message" => "Data tidak bisa dihapus"
-//     ]);
-//     exit;
-//  };
+if (Suggest::checkTargetOutput($id)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Data tidak bisa dihapus"
+    ]);
+    exit;
+ };
 
 
-$delete = DB::delete('indikator_outcome_renstra', [
+$delete = DB::delete('indikator_output_kegiatan', [
     'id' => $id
 ]);
 

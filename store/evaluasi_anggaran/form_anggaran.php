@@ -50,7 +50,7 @@ $data = Suggest::targetAnggaran($session->tahun,$req->kd_urusan,$req->kd_bidang,
         </div>
         <div class="row mb20">
             <div class="small-5 columns">
-                <label for="target_triwulan_3" class="left inline">Target Triwulan 2</label>
+                <label for="target_triwulan_3" class="left inline">Target Triwulan 3</label>
             </div>
             <div class="small-7 columns">
                 <input name="target_triwulan_3" 
@@ -65,7 +65,7 @@ $data = Suggest::targetAnggaran($session->tahun,$req->kd_urusan,$req->kd_bidang,
         </div>
         <div class="row mb20">
             <div class="small-5 columns">
-                <label for="target_triwulan_4" class="left inline">Target Triwulan 2</label>
+                <label for="target_triwulan_4" class="left inline">Target Triwulan 4</label>
             </div>
             <div class="small-7 columns">
                 <input name="target_triwulan_4" 
@@ -110,7 +110,7 @@ $data = Suggest::targetAnggaran($session->tahun,$req->kd_urusan,$req->kd_bidang,
         </div>
         <div class="row mb20">
             <div class="small-5 columns">
-                <label for="realisasi_triwulan_3" class="left inline">realisasi Triwulan 2</label>
+                <label for="realisasi_triwulan_3" class="left inline">realisasi Triwulan 3</label>
             </div>
             <div class="small-7 columns">
                 <input name="realisasi_triwulan_3" 
@@ -125,7 +125,7 @@ $data = Suggest::targetAnggaran($session->tahun,$req->kd_urusan,$req->kd_bidang,
         </div>
         <div class="row mb20">
             <div class="small-5 columns">
-                <label for="realisasi_triwulan_4" class="left inline">realisasi Triwulan 2</label>
+                <label for="realisasi_triwulan_4" class="left inline">realisasi Triwulan 4</label>
             </div>
             <div class="small-7 columns">
                 <input name="realisasi_triwulan_4" 

@@ -5,46 +5,29 @@
 
         <!-- Panel untuk Indikator -->
         <div data-options="region:'east',split:true,collapsible:false" title="Indikator" style="width:55%;">
-            <div class="easyui-layout main-indikator" data-options="fit:true">
-                <div data-options="region:'north',split:false,collapsible:false"style="height:410px;">
+            <div class="easyui-layout mainIndikator" data-options="fit:true">
+                <div data-options="region:'center'">
                     <table class="xindikator">
                     </table>
                 </div>
-                <div data-options="region:'center',title:'Target dan Realiasasi Outcome'">
-                    <div class="layoutIndikator easyui-accordion" data-options="fit:true">
-                        <div title="Target">
-                            <table class="indikatorTarget">
-                            </table>
-                        </div>
-                        <div title="Realisasi">
-                            <table class="indikatorRealisasi">
-                            </table>
-                        </div>
-                    </div>
+                <div data-options="region:'south',title:'Anggaran',split:true,collapsible:false" style="height:35%;">
+                    <table class="xAnggaran">
+                    
+                    </table>
                 </div>
             </div>
+
         </div>
 
-        <!-- Panel untuk Indikator -->
-        <div data-options="region:'south',split:true,collapsible:false" style="height:15%;">
-            <div class="row p10">
-                <div class="small-4 columns"> 
-                    Pilih Program
-                </div>
-                <div class="small-8 columns"> 
-                    <input class="pilihan easyui-combobox"
-                        data-options="valueField:'kode',textField:'oke',url:'store/evaluasi_renstra/combo.php'">
-                </div>
-            </div>
-        </div>
         <!-- Main Content -->
-        <div data-options="region:'center',title:'Data Master Evaluasi Kinerja'">
+        <div data-options="region:'center',title:'Data Master Renstra'">
             <div class="easyui-tabs xtab" data-options="fit:true,
                 border:false,
                 plain:true,
                 tabPosition:'left',
                 onSelect: function(t,i) {
                     var panelEast = $('.main').layout('panel', 'east');
+                    
                     if (i==0) {
                         $('.xtab').tabs('disableTab', 1);
                         $('.xtab').tabs('disableTab', 2);
@@ -53,6 +36,7 @@
                         $('.xtab').tabs('disableTab', 5);
                         rekening = 'organisasi';
                         $('.main').layout('collapse', 'east');
+                        $('.mainIndikator').layout('collapse', 'south');
                     } else if (i==1) {
                         $('.xtab').tabs('disableTab', 2);
                         $('.xtab').tabs('disableTab', 3);
@@ -65,19 +49,23 @@
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
                         rekening = 'urusan';
+                        $('.mainIndikator').layout('collapse', 'south');
                         $('.main').layout('collapse', 'east');
                     } else if (i == 3) {
                         $('.xtab').tabs('disableTab', 4);
                         $('.xtab').tabs('disableTab', 5);
                         $('.main').layout('collapse', 'east');
+                        $('.mainIndikator').layout('collapse', 'south');
                         rekening = 'bidang';
 
                     } else if (i == 4) {
                         $('.xtab').tabs('disableTab', 5);
                         panelEast.panel('setTitle', 'Indokator Outcome')
+                        $('.mainIndikator').layout('collapse', 'south');
                         $('.main').layout('expand', 'east');
                         $('.xindikator').datagrid({
                             fit:true,
+                            fitColumns:true,
                             rownumbers:true,
                             singleSelect:true,
                             toolbar: '',
@@ -88,183 +76,32 @@
                                 kd_program : 0
                             },
                             columns:[[
-                                {field:'id',title:'id',width:100,hidden:true },
-                                {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
-                                {field:'satuan',title:'satuan',width:100,hidden:true },
-                                {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
-                                {field:'kd_program',title:'kd_program',width:100,hidden:true },
-                                {field:'indikator',title:'Indikator',width:350},
-                                {field:'nm_satuan',title:'Satuan',width:100}
-                            ]],
-                            onSelect : function(i,r) {
-                                $('.indikatorTarget,.indikatorRealisasi').datagrid({
-                                    queryParams: {
-                                        id : r.id
-                                    }
-                                });
-                            }
-                        });
-                        $('.indikatorTarget').datagrid({
-                            fit:true,
-                            singleSelect:true,
-                            url:'store/evaluasi_renstra/list_target_outcome.php',
-                            queryParams : {
-                                id : 0
-                            },
-                            columns:[[
-                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
-                                {title:'Target',colspan:4},
-                                {field:'unit_organisasi',title:'Organisasi',width:120,rowspan:2 },
-                                {field:'person',title:'Penanggungjawab',width:120,rowspan:2 },
+                                {rowspan:2,field:'id',title:'id',width:100,hidden:true },
+                                {rowspan:2,field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {rowspan:2,field:'satuan',title:'satuan',width:100,hidden:true },
+                                {rowspan:2,field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
+                                {rowspan:2,field:'kd_program',title:'kd_program',width:100,hidden:true },
+                                {rowspan:2,field:'indikator',title:'Indikator',width:350},
+                                {rowspan:2,field:'nm_satuan',title:'Satuan',width:100},
+                                {colspan:6,title:'TARGET'} 
                             ],[
-                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'}
-                            ]],
-                            onSelect : function(i,r) {
-                                console.log(i);
-                            },
-                            onDblClickRow : function(i,r) {
-                                var indikator = $('.xindikator').datagrid('getSelected');
-
-                                if(indikator) {
-                                    $('#x-dialog').dialog({
-                                        title : 'Target dan Penanggungjawab ' + indikator.indikator,
-                                        href : 'store/evaluasi_renstra/form/target_outcome.php',
-                                        method: 'post',
-                                        width: 500,
-                                        height:300,
-                                        modal:true,
-                                        queryParams : {
-                                            id : r.id,
-                                            id_indikator : indikator.id,
-                                            unit_eselon_id : r.unit_eselon_id,
-                                            nm_satuan : indikator.nm_satuan
-                                        },
-                                        buttons:[{
-                                            text:'Save',
-                                            handler:function (){                            
-                                                $('#fm').form('submit',{  
-                                                    success: function(data){
-                                                        var data = eval('(' + data + ')');
-                                                        if (data.success){
-                                                            $.messager.show({  
-                                                                title: 'Status',  
-                                                                msg: data.message  
-                                                            });
-                                                            $('.indikatorTarget').datagrid('reload');
-                                                            $('#x-dialog').dialog('close')
-                                                        }
-                                                        else {
-                                                            $.messager.alert('Warning', data.message);
-                                                        } 
-                                                    } 
-                                                });
-                                                }
-                                            },{
-                                            text:'Close',
-                                            handler:function(){
-                                                $('#x-dialog').dialog('close')
-                                            }
-                                        }],
-                                        onLoad : function() {
-
-                                        }
-                                    });
-                                }
-                            }
-                        });
-                        $('.indikatorRealisasi').datagrid({
-                            fit:true,
-                            singleSelect:true,
-                            url:'store/evaluasi_renstra/list_target_outcome.php',
-                            queryParams : {
-                                id : 0
-                            },
-                            columns:[[
-                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
-                                {title:'Target',colspan:4},
-                                {title:'Realisasi',colspan:4}
-                            ],[
-                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'},
-                                {field:'realisasi_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'realisasi_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'realisasi_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'realisasi_triwulan_4',title:'IV',width:50,align:'center'}
-                            ]],
-                            onSelect : function(i,r) {
-                                console.log(i);
-                            },
-                            onDblClickRow : function(i,r) {
-                                if (r.id == '') {
-                                    $.messager.alert('Warning', 'Harap Isi Target terlebih dahulu!');
-                                    return;
-                                }
-                                var indikator = $('.xindikator').datagrid('getSelected');
-                                if(indikator) {
-                                    $('#x-dialog').dialog({
-                                        title : 'Realisasi ' + indikator.indikator,
-                                        href : 'store/evaluasi_renstra/form/realisasi_target_outcome.php',
-                                        method: 'post',
-                                        width: 500,
-                                        height:300,
-                                        modal:true,
-                                        queryParams : {
-                                            id : r.id,
-                                            id_indikator : indikator.id,
-                                            unit_eselon_id : r.unit_eselon_id,
-                                            nm_satuan : indikator.nm_satuan
-                                        },
-                                        buttons:[{
-                                            text:'Save',
-                                            handler:function (){                            
-                                                $('#fm').form('submit',{  
-                                                    success: function(data){
-                                                        var data = eval('(' + data + ')');
-                                                        if (data.success){
-                                                            $.messager.show({  
-                                                                title: 'Status',  
-                                                                msg: data.message  
-                                                            });
-                                                            $('.indikatorRealisasi').datagrid('reload');
-                                                            $('#x-dialog').dialog('close')
-                                                        }
-                                                        else {
-                                                            $.messager.alert('Warning', data.message);
-                                                        } 
-                                                    } 
-                                                });
-                                                }
-                                            },{
-                                            text:'Close',
-                                            handler:function(){
-                                                $('#x-dialog').dialog('close')
-                                            }
-                                        }],
-                                        onLoad : function() {
-
-                                        }
-                                    });
-                                }
-                            }
+                                {field:'awal',title:'Awal',width:80},
+                                {field:'tahun1',title:'I',width:80},
+                                {field:'tahun2',title:'II',width:80},
+                                {field:'tahun3',title:'III',width:80},
+                                {field:'tahun4',title:'IV',width:80},
+                                {field:'tahun5',title:'V',width:80}
+                            ]]
                         });
                         rekening = 'program';
                     } else if (i == 5) {
                         panelEast.panel('setTitle', 'Indokator Output')
                         $('.main').layout('expand', 'east');
+                        $('.mainIndikator').layout('expand', 'south');
                         rekening = 'kegiatan';
                         $('.xindikator').datagrid({
                             fit:true,
+                            fitColumns:true,
                             toolbar: '',
                             singleSelect:true,
                             url:'store/evaluasi_renstra/list_indikator_output.php',
@@ -274,162 +111,128 @@
                                 kd_kegiatan : 0
                             },
                             columns:[[
+                                {rowspan:2,field:'id',title:'id',width:100,hidden:true },
+                                {rowspan:2,field:'kd_unit',title:'kd_unit',width:100,hidden:true },
+                                {rowspan:2,field:'satuan',title:'satuan',width:100,hidden:true },
+                                {rowspan:2,field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
+                                {rowspan:2,field:'kd_kegiatan',title:'kd_kegiatan',width:100,hidden:true },
+                                {rowspan:2,field:'indikator',title:'Indikator',width:350},
+                                {rowspan:2,field:'nm_satuan',title:'Satuan',width:100},
+                                {colspan:6,title:'TARGET'} 
+                            ],[
+                                {field:'awal',title:'Awal',width:80},
+                                {field:'tahun1',title:'I',width:80},
+                                {field:'tahun2',title:'II',width:80},
+                                {field:'tahun3',title:'III',width:80},
+                                {field:'tahun4',title:'IV',width:80},
+                                {field:'tahun5',title:'V',width:80}
+                            ]]
+                        });
+                        $('.xAnggaran').datagrid({
+                            fit:true,
+                            fitColumns:true,
+                            toolbar: '',
+                            singleSelect:true,
+                            url:'store/evaluasi_renstra/list_anggaran.php',
+                            queryParams : {
+                                kd_unit : 0,
+                                kd_subunit : 0,
+                                kd_kegiatan : 0
+                            },
+                            onDblClickRow: function(i,r) {
+                                $('#x-dialog').dialog({
+                                    title : 'Edit Anggaran',
+                                    width : 450,
+                                    height : 300,
+                                    href : 'store/evaluasi_renstra/form_anggaran.php',
+                                    queryParams : r,
+                                    method: 'post',
+                                    buttons:[{
+                                        text:'Save',
+                                        handler:function (){                            
+                                            $('#fm').form('submit',{  
+                                                success: function(data){
+                                                    var data = eval('(' + data + ')');
+                                                    if (data.success){
+                                                        $.messager.show({  
+                                                            title: 'Status',  
+                                                            msg: data.message  
+                                                        });
+                                                        $('.xAnggaran').datagrid('reload');
+                                                        $('#x-dialog').dialog('close')
+                                                    }
+                                                    else {
+                                                        $.messager.alert('Warning', data.message);
+                                                    } 
+                                                } 
+                                            });
+                                            }
+                                        },{
+                                        text:'Close',
+                                        handler:function(){
+                                            $('#x-dialog').dialog('close')
+                                        }
+                                    }],
+                                    onLoad : function() {
+                                        $('.awals').numberbox('textbox').focus();
+                                    }
+                                });
+                            },
+                            columns:[[
                                 {field:'id',title:'id',width:100,hidden:true },
                                 {field:'kd_unit',title:'kd_unit',width:100,hidden:true },
                                 {field:'satuan',title:'satuan',width:100,hidden:true },
                                 {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
-                                {field:'kd_program',title:'kd_kegiatan',width:100,hidden:true },
-                                {field:'indikator',title:'Indikator',width:350},
-                                {field:'nm_satuan',title:'Satuan',width:100}
+                                {field:'kd_kegiatan',title:'kd_kegiatan',width:100,hidden:true },
+                                {field:'awal',title:'Awal',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.awal){
+                                            return accounting.formatNumber(row.awal,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }},
+                                {field:'tahun1',title:'I',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.tahun1){
+                                            return accounting.formatNumber(row.tahun1,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }},
+                                {field:'tahun2',title:'II',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.tahun2){
+                                            return accounting.formatNumber(row.tahun2,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }},
+                                {field:'tahun3',title:'III',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.tahun3){
+                                            return accounting.formatNumber(row.tahun3,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }},
+                                {field:'tahun4',title:'IV',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.tahun4){
+                                            return accounting.formatNumber(row.tahun4,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }},
+                                {field:'tahun5',title:'V',align:'right',width:80,
+                                    formatter: function(value,row,index){
+                                        if (row.tahun5){
+                                            return accounting.formatNumber(row.tahun5,{decimal : ',',  thousand: '.',  precision : 0});
+                                        } else {
+                                            return value;
+                                        }
+                                    }}
                             ]]
-                        });
-                        $('.indikatorTarget').datagrid({
-                            fit:true,
-                            singleSelect:true,
-                            url:'store/evaluasi_renstra/list_target_output.php',
-                            queryParams : {
-                                id : 0
-                            },
-                            columns:[[
-                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
-                                {title:'Target',colspan:4},
-                                {field:'unit_organisasi',title:'Organisasi',width:120,rowspan:2 },
-                                {field:'person',title:'Penanggungjawab',width:120,rowspan:2 },
-                            ],[
-                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'}
-                            ]],
-                            onDblClickRow : function(i,r) {
-                                var indikator = $('.xindikator').datagrid('getSelected');
-
-                                if(indikator) {
-                                    $('#x-dialog').dialog({
-                                        title : 'Target dan Penanggungjawab ' + indikator.indikator,
-                                        href : 'store/evaluasi_renstra/form/target_output.php',
-                                        method: 'post',
-                                        width: 500,
-                                        height:300,
-                                        modal:true,
-                                        queryParams : {
-                                            id : r.id,
-                                            id_indikator : indikator.id,
-                                            unit_eselon_id : r.unit_eselon_id,
-                                            nm_satuan : indikator.nm_satuan
-                                        },
-                                        buttons:[{
-                                            text:'Save',
-                                            handler:function (){                            
-                                                $('#fm').form('submit',{  
-                                                    success: function(data){
-                                                        var data = eval('(' + data + ')');
-                                                        if (data.success){
-                                                            $.messager.show({  
-                                                                title: 'Status',  
-                                                                msg: data.message  
-                                                            });
-                                                            $('.indikatorTarget').datagrid('reload');
-                                                            $('#x-dialog').dialog('close')
-                                                        }
-                                                        else {
-                                                            $.messager.alert('Warning', data.message);
-                                                        } 
-                                                    } 
-                                                });
-                                                }
-                                            },{
-                                            text:'Close',
-                                            handler:function(){
-                                                $('#x-dialog').dialog('close')
-                                            }
-                                        }],
-                                        onLoad : function() {
-
-                                        }
-                                    });
-                                }
-                            }
-                        });
-                        $('.indikatorRealisasi').datagrid({
-                            fit:true,
-                            singleSelect:true,
-                            url:'store/evaluasi_renstra/list_target_output.php',
-                            queryParams : {
-                                id : 0
-                            },
-                            columns:[[
-                                {field:'id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'unit_eselon_id',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'id_indikator',title:'id',width:100,hidden:true,rowspan:2 },
-                                {field:'tahun',title:'tahun',width:100,hidden:true,rowspan:2 },
-                                {title:'Target',colspan:4},
-                                {title:'Realisasi',colspan:4}
-                            ],[
-                                {field:'target_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'target_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'target_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'target_triwulan_4',title:'IV',width:50,align:'center'},
-                                {field:'realisasi_triwulan_1',title:'I',width:50,align:'center'},
-                                {field:'realisasi_triwulan_2',title:'II',width:50,align:'center'},
-                                {field:'realisasi_triwulan_3',title:'III',width:50,align:'center'},
-                                {field:'realisasi_triwulan_4',title:'IV',width:50,align:'center'}
-                            ]],
-                            onDblClickRow : function(i,r) {
-                                var indikator = $('.xindikator').datagrid('getSelected');
-                                if (r.id == '') {
-                                    $.messager.alert('Warning', 'Harap Isi Target terlebih dahulu!');
-                                    return;
-                                }
-                                if(indikator) {
-                                    $('#x-dialog').dialog({
-                                        title : 'Realisasi ' + indikator.indikator,
-                                        href : 'store/evaluasi_renstra/form/realisasi_target_output.php',
-                                        method: 'post',
-                                        width: 500,
-                                        height:300,
-                                        modal:true,
-                                        queryParams : {
-                                            id : r.id,
-                                            id_indikator : indikator.id,
-                                            unit_eselon_id : r.unit_eselon_id,
-                                            nm_satuan : indikator.nm_satuan
-                                        },
-                                        buttons:[{
-                                            text:'Save',
-                                            handler:function (){                            
-                                                $('#fm').form('submit',{  
-                                                    success: function(data){
-                                                        var data = eval('(' + data + ')');
-                                                        if (data.success){
-                                                            $.messager.show({  
-                                                                title: 'Status',  
-                                                                msg: data.message  
-                                                            });
-                                                            $('.indikatorRealisasi').datagrid('reload');
-                                                            $('#x-dialog').dialog('close')
-                                                        }
-                                                        else {
-                                                            $.messager.alert('Warning', data.message);
-                                                        } 
-                                                    } 
-                                                });
-                                                }
-                                            },{
-                                            text:'Close',
-                                            handler:function(){
-                                                $('#x-dialog').dialog('close')
-                                            }
-                                        }],
-                                        onLoad : function() {
-
-                                        }
-                                    });
-                                }
-                            }
                         });
 
                     }
@@ -574,22 +377,104 @@
                                 fit:true,
                                 fitColumns:true,
                                 idField:'kd_program',
-                                onSelect : function (i,r) {
-                                    $('.indikatorTarget,.indikatorRealisasi').datagrid({
-                                        queryParams: {
-                                            id : 0
+                                toolbar : [{
+                                    text:'Tambah',
+                                    disabled: ! configApp.evaluasi.add_program_renstra,
+                                    iconCls: 'icon-add',
+                                    handler: function(){
+                                        var r = $('.xbidang').datagrid('getSelected');
+                                        r.kd_unit = kd_unit;
+                                        r.kd_subunit = kd_subunit;
+                                        $('#x-dialog').dialog({
+                                            title: 'Tambah Program',
+                                            width: 450,
+                                            height: 340,
+                                            modal:true,
+                                            method:'post',
+                                            href: BASE_URL+ 'store/evaluasi_renstra/form/add_program_renstra.php',
+                                            queryParams: r,
+                                            buttons:[{
+                                                text:'Save',
+                                                handler:function (){                            
+                                                    var keg = $('.list-kegiatan').datagrid('getChecked');
+                                                    for(var i=0; i<keg.length; i++){
+                                                        keg[i].kd_unit = kd_unit;
+                                                        keg[i].kd_sub_unit = kd_subunit;
+                                                        keg[i].kd_kegiatan = keg[i].kode;
+                                                        delete keg[i].nm_kegiatan;
+                                                        delete keg[i].kode;
+                                                    }
+                                                    $.post(BASE_URL + 'store/evaluasi_renstra/add_program_renstra.php', {
+                                                        d : keg
+                                                    },
+                                                    function (d) {
+                                                        var data = eval('(' + d + ')');
+                                                            if (data.success) {
+                                                                $.messager.show({  
+                                                                    title: 'Status',  
+                                                                    msg: data.message  
+                                                                });
+                                                                $('.xprogram').datagrid('reload');
+                                                                $('#x-dialog').dialog('close');
+                                                            }
+                                                            else {
+                                                                $.messager.alert('Warning', data.message);
+                                                            } 
+                                                    });
+                                                }
+                                            },{
+                                                text:'Close',
+                                                handler:function(){
+                                                    $('#x-dialog').dialog('close')
+                                                }
+                                            }]
+                                        });
+                                    }
+                                },'-',{
+                                    text:'Hapus',
+                                    disabled : ! configApp.evaluasi.delete_program_renstra,
+                                    iconCls: 'icon-remove',
+                                    handler: function(){
+                                        var row = $('.xprogram').datagrid('getSelected');
+                                        if(! row) {
+                                            console.log('Harap Pilih data yang akan di hapus');
+                                            return;
                                         }
-                                    });
+                                        $.messager.confirm('Hapus data Indikator', 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
+                                            if (r)
+                                            {
+                                                row.kd_unit = kd_unit;
+                                                row.kd_sub_unit = kd_subunit;
+                                                delete row.nm_program;
+                                                $.post(BASE_URL + 'store/evaluasi_renstra/delete_program_renstra.php', row,
+                                                function (d) {
+                                                    var data = eval('(' + d + ')');
+                                                        if (data.success) {
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.xprogram').datagrid('reload');
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                });
+                                            }
+                                        });
+                                    }
+                                }],
+                                onSelect : function (i,r) {
                                      $('.xindikator').datagrid({
                                         toolbar : [{
                                             text:'Tambah',
-                                            disabled: ! configApp.evaluasi.add_indikator_outcome,
+                                            disabled: ! configApp.evaluasi.add_indikator_outcome_renstra,
                                             iconCls: 'icon-add',
                                             handler: function(){
                                                 $('#x-dialog').dialog({
                                                     title: 'Tambah Indikator',
                                                     width: 450,
-                                                    height: 180,
+                                                    height: 340,
                                                     modal:true,
                                                     method:'post',
                                                     href: BASE_URL+ 'store/evaluasi_renstra/form/add_outcome.php',
@@ -610,9 +495,6 @@
                                                                             msg: data.message  
                                                                         });
                                                                         $('.xindikator').datagrid('reload');
-                                                                        $('.indikatorTarget').datagrid({
-                                                                            queryParams : {id:0}
-                                                                        });
                                                                         $('#x-dialog').dialog('close')
                                                                     }
                                                                     else {
@@ -634,7 +516,7 @@
                                             }
                                         },'-',{
                                             text:'Edit',
-                                            disabled : ! configApp.evaluasi.edit_indikator_outcome,
+                                            disabled : ! configApp.evaluasi.edit_indikator_outcome_renstra,
                                             iconCls: 'icon-edit',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');
@@ -646,7 +528,7 @@
                                                 $('#x-dialog').dialog({
                                                     title: 'Edit Indikator',
                                                     width: 450,
-                                                    height: 180,
+                                                    height: 340,
                                                     modal:true,
                                                     method:'post',
                                                     href: BASE_URL+ 'store/evaluasi_renstra/form/edit_outcome.php',
@@ -687,7 +569,7 @@
                                             }
                                         },'-',{
                                             text:'Hapus',
-                                            disabled : ! configApp.evaluasi.delete_indikator_outcome,
+                                            disabled : ! configApp.evaluasi.delete_indikator_outcome_renstra,
                                             iconCls: 'icon-remove',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');
@@ -761,22 +643,111 @@
                                 idField:'kd_kegiatan',
                                 fit:true,
                                 fitColumns:true,
+                                toolbar : [{
+                                    text:'Tambah',
+                                    disabled: ! configApp.evaluasi.add_kegiatan_renstra,
+                                    iconCls: 'icon-add',
+                                    handler: function(){
+                                        var r = $('.xprogram').datagrid('getSelected');
+                                        r.kd_unit = kd_unit;
+                                        r.kd_subunit = kd_subunit;
+                                        $('#x-dialog').dialog({
+                                            title: 'Tambah Program',
+                                            width: 450,
+                                            height: 340,
+                                            modal:true,
+                                            method:'post',
+                                            href: BASE_URL+ 'store/evaluasi_renstra/form/add_kegiatan_renstra.php',
+                                            queryParams: r,
+                                            buttons:[{
+                                                text:'Save',
+                                                handler:function (){                            
+                                                    var keg = $('.list-kegiatan').datagrid('getChecked');
+                                                    for(var i=0; i<keg.length; i++){
+                                                        keg[i].kd_unit = kd_unit;
+                                                        keg[i].kd_sub_unit = kd_subunit;
+                                                        keg[i].kd_kegiatan = keg[i].kode;
+                                                        delete keg[i].nm_kegiatan;
+                                                        delete keg[i].kode;
+                                                    }
+                                                    $.post(BASE_URL + 'store/evaluasi_renstra/add_kegiatan_renstra.php', {
+                                                        d : keg
+                                                    },
+                                                    function (d) {
+                                                        var data = eval('(' + d + ')');
+                                                            if (data.success) {
+                                                                $.messager.show({  
+                                                                    title: 'Status',  
+                                                                    msg: data.message  
+                                                                });
+                                                                $('.xkegiatan').datagrid('reload');
+                                                                $('#x-dialog').dialog('close');
+                                                            }
+                                                            else {
+                                                                $.messager.alert('Warning', data.message);
+                                                            } 
+                                                    });
+                                                }
+                                            },{
+                                                text:'Close',
+                                                handler:function(){
+                                                    $('#x-dialog').dialog('close')
+                                                }
+                                            }]
+                                        });
+                                    }
+                                },'-',{
+                                    text:'Hapus',
+                                    disabled : ! configApp.evaluasi.delete_kegiatan_renstra,
+                                    iconCls: 'icon-remove',
+                                    handler: function(){
+                                        var row = $('.xkegiatan').datagrid('getSelected');
+                                        if(! row) {
+                                            console.log('Harap Pilih data yang akan di hapus');
+                                            return;
+                                        }
+                                        $.messager.confirm('Hapus data Indikator', 'Apakah Anda yakin bahwa data tersebut akan anda hapus?', function(r){
+                                            if (r)
+                                            {
+                                                row.kd_unit = kd_unit;
+                                                row.kd_sub_unit = kd_subunit;
+                                                delete row.nm_kegiatan;
+                                                $.post(BASE_URL + 'store/evaluasi_renstra/delete_kegiatan_renstra.php', row,
+                                                function (d) {
+                                                    var data = eval('(' + d + ')');
+                                                        if (data.success) {
+                                                            $.messager.show({  
+                                                                title: 'Status',  
+                                                                msg: data.message  
+                                                            });
+                                                            $('.xkegiatan').datagrid('reload');
+                                                        }
+                                                        else {
+                                                            $.messager.alert('Warning', data.message);
+                                                        } 
+                                                });
+                                            }
+                                        });
+                                    }
+                                }],
                                 onSelect : function (i,r) {
-                                    $('.indikatorTarget,.indikatorRealisasi').datagrid({
+                                    $('.xAnggaran').datagrid({
                                         queryParams: {
-                                            id : 0
+                                            kd_unit : kd_unit,
+                                            kd_subunit : kd_subunit,
+                                            kd_kegiatan : r.kd_urusan + r.kd_bidang +r.kd_program + r.kd_kegiatan
                                         }
                                     });
                                      $('.xindikator').datagrid({
                                         toolbar : [{
                                             text:'Tambah',
-                                            disabled: ! configApp.evaluasi.add_indikator_output,
+                                            disabled: ! configApp.evaluasi.add_indikator_output_renstra,
                                             iconCls: 'icon-add',
                                             handler: function(){
                                                 $('#x-dialog').dialog({
                                                     title: 'Tambah Indikator',
                                                     width: 450,
-                                                    height: 180,
+                                                    height: 340,
                                                     modal:true,
                                                     method:'post',
                                                     href: BASE_URL+ 'store/evaluasi_renstra/form/add_output.php',
@@ -821,7 +792,7 @@
                                             }
                                         },'-',{
                                             text:'Edit',
-                                            disabled : ! configApp.evaluasi.edit_indikator_output,
+                                            disabled : ! configApp.evaluasi.edit_indikator_output_renstra,
                                             iconCls: 'icon-edit',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');
@@ -833,7 +804,7 @@
                                                 $('#x-dialog').dialog({
                                                     title: 'Edit Indikator',
                                                     width: 450,
-                                                    height: 180,
+                                                    height: 340,
                                                     modal:true,
                                                     method:'post',
                                                     href: BASE_URL+ 'store/evaluasi_renstra/form/edit_output.php',
@@ -874,7 +845,7 @@
                                             }
                                         },'-',{
                                             text:'Hapus',
-                                            disabled : ! configApp.evaluasi.delete_indikator_output,
+                                            disabled : ! configApp.evaluasi.delete_indikator_output_renstra,
                                             iconCls: 'icon-remove',
                                             handler: function(){
                                                 var row = $('.xindikator').datagrid('getSelected');

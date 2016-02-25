@@ -13,7 +13,7 @@ $req = Common::obj(Request::all());
     class="easyui-form" 
     method="post" 
     data-options="novalidate:true" 
-    action="<?php echo BASE_URL; ?>store/evaluasi/add_outcome.php"
+    action="<?php echo BASE_URL; ?>store/evaluasi_renstra/add_outcome.php"
 >
     <div class="row p10">
         <div class="row mb20">
@@ -44,6 +44,90 @@ $req = Common::obj(Request::all());
                             valueField: 'id',
                             textField: 'nm_satuan',
                             url: BASE_URL + 'store/satuan/list.php'" />
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_awal" class="left inline">Tahun Awal</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_awal" 
+                        class="easyui-numberbox" 
+                        data-options="precision:2,
+                            groupSeparator:'.',
+                            decimalSeparator:',',
+                            readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                        style="width:100%"></input>
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_tahun_1" class="left inline">Tahun I</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_tahun_1" 
+                        class="easyui-numberbox" 
+                        data-options="precision:2,
+                            groupSeparator:'.',
+                            decimalSeparator:',',
+                            readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                        style="width:100%"></input>
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_tahun_2" class="left inline">Tahun II</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_tahun_2" 
+                        class="easyui-numberbox" 
+                        data-options="precision:2,
+                            groupSeparator:'.',
+                            decimalSeparator:',',
+                            readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                            style="width:100%"></input>
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_tahun_3" class="left inline">Tahun III</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_tahun_3" 
+                    class="easyui-numberbox" 
+                    data-options="precision:2,
+                        groupSeparator:'.',
+                        decimalSeparator:',',
+                        readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                    style="width:100%"></input>
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_tahun_4" class="left inline">Tahun IV</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_tahun_4" 
+                    class="easyui-numberbox" 
+                    data-options="precision:2,
+                        groupSeparator:'.',
+                        decimalSeparator:',',
+                        readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                    style="width:100%"></input>
+            </div>
+        </div>
+        <div class="row mb20">
+            <div class="small-3 columns">
+                <label for="target_tahun_5" class="left inline">Tahun V</label>
+            </div>
+            <div class="small-9 columns">
+                <input name="target_tahun_5" 
+                    class="easyui-numberbox" 
+                    data-options="precision:2,
+                        groupSeparator:'.',
+                        decimalSeparator:',',
+                        readonly : ! configApp.evaluasi.add_indikator_outcome_renstra" 
+                    style="width:100%"></input>
             </div>
         </div>
     </div>

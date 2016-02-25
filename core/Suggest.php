@@ -104,6 +104,20 @@ class Suggest
         
     }
 
+    public static function checkTargetOutput($id='')
+    {
+        if ($id == '' || intval($id) < 1) {
+            return true;
+        }
+
+        $q = "SELECT count(id) as jml from target_indikator_output where id_indikator = {$id}";
+        $qry = DB::query($q);
+
+        $res = $qry->fetchAll();
+        return $res[0]->jml > 0 ? true : false;
+        
+    }
+
 
     public function targetAnggaran($tahun = 0, $kd_urusan =0,$kd_bidang =0,$kd_program =0,$kd_kegiatan =0,$kd_unit =0, $kd_subunit =0) {
         

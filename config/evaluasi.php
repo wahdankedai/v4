@@ -49,6 +49,47 @@ return [
             "realisasi_triwulan_4" => true,
         ],
 
+        /**
+         * Renstra Outcome
+         */
+        
+        'add_indikator_outcome_renstra' => true,
+        'edit_indikator_outcome_renstra' => true,
+        'delete_indikator_outcome_renstra' => true,
+
+        /**
+         * Renstra output
+         */
+        
+        'add_indikator_output_renstra' => true,
+        'edit_indikator_output_renstra' => true,
+        'delete_indikator_output_renstra' => true,
+
+        /**
+         * anggaran renstra
+         */
+        'anggaran_renstra' => [
+            "awal" => true,
+            "tahun1" => true,
+            "tahun2" => true,
+            "tahun3" => true,
+            "tahun4" => true,
+            "tahun5" => true
+        ],
+
+        /**
+         * Program renstra
+         */
+        
+        "add_program_renstra" => true,
+        "delete_program_renstra" => true,
+
+        /**
+         * Kegiatan renstra
+         */
+        
+        "add_kegiatan_renstra" => true,
+        "delete_kegiatan_renstra" => true,
     ]
 
     

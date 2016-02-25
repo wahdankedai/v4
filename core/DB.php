@@ -120,6 +120,43 @@ class DB
         
     }
 
+    public static function insertIgnore($table='', array $param)
+    {
+        if (count($param) == 0) {
+            return false;
+        }
+        
+        $q = "insert ignore into $table ";
+        
+
+        if (count($param) > 0) {
+            $k = '('; 
+            $v = "";
+            $i = 0;
+            foreach ($param as $key => $value) {
+                if(++$i === count($param)) {
+                    $k .= '`' . $key . '`) VALUES (';
+                    $v .=  "'$value' )";
+                    break;
+                }
+                    $k .= '`' . $key . '`, ';
+                    $v .=  "'$value', ";
+            }            
+        }
+
+        $q .= $k . $v;
+        // return $q;
+
+        try {
+            $dt = self::instance()->query($q);
+            return true;
+            
+        } catch (Exception $e) {
+            return false;
+        }
+        
+    }
+
     public static function update($table='',array $where, array $field)
     {
         if (count($field) == 0 || count($where) == 0) {
@@ -225,7 +262,7 @@ class DB
         $q = "DELETE FROM $table WHERE ";
         $i = 0;
         foreach ($param as $key => $value) {
-            if(++$i === count($param)) {
+            if(++$i == count($param)) {
                 $q .= $key . " = '" . $value . "'";
                 break;
             }

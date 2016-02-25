@@ -25,7 +25,7 @@ $id = Request::post('id');
 //  };
 
 
-$delete = DB::delete('indikator_outcome_renstra', [
+$delete = DB::delete('indikator_output_renstra', [
     'id' => $id
 ]);
 
