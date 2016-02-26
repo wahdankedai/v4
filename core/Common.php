@@ -25,17 +25,45 @@ class Common
         return file_exists($fileTarget);
    }
 
+   public static function cekReport($param)
+   {
+        if (! isset($param->folder) || ! isset($param->tipe)) {
+          return false;
+        }
+
+        $fileTarget = REPORT . DS . strtolower(str_replace(" ", "_", $param->folder)) . DS . $param->tipe . EXT; 
+        return file_exists($fileTarget);
+   }
+
    public static function getView($file = "")
    {
        $fileTarget = ROOT . DS . 'views' . DS . $file . EXT; 
 
        include $fileTarget;
    }
+
+   public static function getReport($param)
+   {
+
+       $fileTarget = REPORT . DS . strtolower(str_replace(" ", "_", $param->folder)) . DS . $param->tipe . EXT; 
+
+       include $fileTarget;
+   }
+
    public static function Error($file = "")
    {
        $fileTarget = ROOT . DS . 'views' . DS . 'error' . DS . $file . EXT; 
 
        include $fileTarget;
+   }
+
+   public static function generateNamaReport($param)
+   {
+      if (! isset($param->folder) || ! isset($param->tipe)) {
+          return false;
+      }
+
+      return 'report/pdf_file/' . str_replace(" ", "_", $param->folder) . "_" . time() . '.' . $param->tipe;
    }
 
    public static function obj(array $dt)

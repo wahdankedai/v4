@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-25 15:06:51
+Date: 2016-02-26 16:02:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -5506,6 +5506,8 @@ INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '1011766', '10101'
 INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '1011768', '10101', '1', null, null, null, null, null, null);
 INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '1011770', '10101', '1', null, null, null, null, null, null);
 INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '1011772', '10101', '1', null, null, null, null, null, null);
+INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '2011501', '10101', '1', '2000000.00', '2000000.00', '2000000.00', '2000000.00', '2000000.00', '2000000.00');
+INSERT INTO `indikator_anggaran_renstra` VALUES ('2015-2019', '2011502', '10101', '1', null, null, null, null, null, null);
 
 -- ----------------------------
 -- Table structure for `indikator_outcome_program`
@@ -5520,7 +5522,7 @@ CREATE TABLE `indikator_outcome_program` (
   `satuan` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_program`,`satuan`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of indikator_outcome_program
@@ -5529,6 +5531,7 @@ INSERT INTO `indikator_outcome_program` VALUES ('18', '10101', '1', '10116', 'hg
 INSERT INTO `indikator_outcome_program` VALUES ('10', '10101', '1', '10621', 'aaaa', '3');
 INSERT INTO `indikator_outcome_program` VALUES ('16', '10101', '1', '10115', 'Test Indikator iki', '2');
 INSERT INTO `indikator_outcome_program` VALUES ('11', '12009', '1', '12001', 'Persentase pelayanan administrasi perkantoran', '2');
+INSERT INTO `indikator_outcome_program` VALUES ('22', '10101', '1', '10621', 'dfgdfgdfgdfg', '2');
 
 -- ----------------------------
 -- Table structure for `indikator_outcome_renstra`
@@ -5574,12 +5577,13 @@ CREATE TABLE `indikator_output_kegiatan` (
   `satuan` int(11) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_kegiatan`,`satuan`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indikator_output_kegiatan
 -- ----------------------------
 INSERT INTO `indikator_output_kegiatan` VALUES ('2', '10101', '1', '1011503', 'Oke Outputnya', '2');
+INSERT INTO `indikator_output_kegiatan` VALUES ('3', '10101', '1', '1011503', 'Jumlah ruang kelas yang dibangun', '9');
 
 -- ----------------------------
 -- Table structure for `indikator_output_renstra`
@@ -5601,11 +5605,12 @@ CREATE TABLE `indikator_output_renstra` (
   `tahun5` decimal(13,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`kd_kegiatan`,`satuan`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 
 -- ----------------------------
 -- Records of indikator_output_renstra
 -- ----------------------------
+INSERT INTO `indikator_output_renstra` VALUES ('5', '2015-2019', '10101', '1', '2011501', 'tes', '7', '10.00', '10.00', '10.00', '10.00', '10.00', '10.00');
 INSERT INTO `indikator_output_renstra` VALUES ('4', '2015-2019', '10101', '1', '1011503', 'hhgjghjhgjgh', '3', '1.00', '1.00', '1.00', '1.00', '1.00', '1.00');
 
 -- ----------------------------
@@ -11235,7 +11240,7 @@ CREATE TABLE `report` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `modul_id` int(11) unsigned NOT NULL,
   `nm_laporan` varchar(255) NOT NULL,
-  `file` varchar(255) NOT NULL,
+  `folder` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `modul_id` (`modul_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
@@ -11243,10 +11248,10 @@ CREATE TABLE `report` (
 -- ----------------------------
 -- Records of report
 -- ----------------------------
-INSERT INTO `report` VALUES ('1', '1', 'Laporan Evaluasi Triwulanan', '');
-INSERT INTO `report` VALUES ('2', '1', 'Laporan Evaluasi Tahunan', '');
-INSERT INTO `report` VALUES ('3', '1', 'Laporan Evaluasi 5 Tahunan', '');
-INSERT INTO `report` VALUES ('4', '1', 'Laporan Sakip', '');
+INSERT INTO `report` VALUES ('1', '1', 'Laporan Evaluasi Triwulanan', 'triwulan');
+INSERT INTO `report` VALUES ('2', '1', 'Laporan Evaluasi Tahunan', 'tahunan');
+INSERT INTO `report` VALUES ('3', '1', 'Laporan Evaluasi 5 Tahunan', 'renstra');
+INSERT INTO `report` VALUES ('4', '1', 'Laporan Sakip', 'sakip');
 
 -- ----------------------------
 -- Table structure for `rpjm`
@@ -11335,7 +11340,7 @@ CREATE TABLE `sasaran_skpd` (
   `sasaran` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_subunit` (`kd_subunit`,`tahun`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sasaran_skpd
@@ -11344,6 +11349,7 @@ INSERT INTO `sasaran_skpd` VALUES ('4', '1010101', '2015', 'thgfhgfhfgh sdfdfdfd
 INSERT INTO `sasaran_skpd` VALUES ('5', '1010101', '2015', 'fgh fgdfg');
 INSERT INTO `sasaran_skpd` VALUES ('6', '1010101', '2015', 'fghfghfgh');
 INSERT INTO `sasaran_skpd` VALUES ('7', '1010102', '2015', 'fgfgfg');
+INSERT INTO `sasaran_skpd` VALUES ('8', '1010101', '2015', 'tes');
 
 -- ----------------------------
 -- Table structure for `satuan`
@@ -11354,7 +11360,7 @@ CREATE TABLE `satuan` (
   `nm_satuan` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nm_sumber_dana` (`nm_satuan`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of satuan
@@ -11366,6 +11372,7 @@ INSERT INTO `satuan` VALUES ('5', 'Bulan');
 INSERT INTO `satuan` VALUES ('6', 'Tahun');
 INSERT INTO `satuan` VALUES ('7', 'Org');
 INSERT INTO `satuan` VALUES ('8', 'Org/Bln');
+INSERT INTO `satuan` VALUES ('9', 'unit');
 
 -- ----------------------------
 -- Table structure for `subunit`
@@ -14841,7 +14848,9 @@ INSERT INTO `tabel_renstra` VALUES ('2015-2019', '1', '01', '17', '69', '10101',
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '1', '01', '17', '70', '10101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '1', '01', '17', '71', '10101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '1', '01', '17', '72', '10101', '01');
+INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '15', '01', '10101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '15', '01', '20101', '01');
+INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '15', '02', '10101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '15', '02', '20101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '15', '03', '20101', '01');
 INSERT INTO `tabel_renstra` VALUES ('2015-2019', '2', '01', '16', '09', '20101', '01');
@@ -14946,6 +14955,7 @@ CREATE TABLE `target_anggaran` (
 -- ----------------------------
 INSERT INTO `target_anggaran` VALUES ('2015', '1', '01', '15', '03', '10101', '01', '100.00', '100.00', '100.00', '100.00', '100.00', '100.00', '100.00', null);
 INSERT INTO `target_anggaran` VALUES ('2015', '1', '01', '15', '15', '10101', '01', null, '110.00', '0.00', '0.00', '0.00', '550.00', '0.00', '0.00');
+INSERT INTO `target_anggaran` VALUES ('2015', '1', '06', '21', '19', '10101', '01', '10.00', '10.00', '10.00', '10.00', '10.00', '10.00', '10.00', '1.00');
 
 -- ----------------------------
 -- Table structure for `target_indikator_outcome`
@@ -15058,7 +15068,7 @@ CREATE TABLE `unit_eselon` (
   `parent_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `kd_unit` (`kd_unit`,`kd_subunit`,`eselon`,`parent_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of unit_eselon
@@ -15066,6 +15076,11 @@ CREATE TABLE `unit_eselon` (
 INSERT INTO `unit_eselon` VALUES ('1', '10101', '1', 'Dinas Pendidikan', 'Kepala Dinas', 'II', '0');
 INSERT INTO `unit_eselon` VALUES ('2', '10101', '1', 'Bidang TK SD', 'Kabid TK SD', 'III', '1');
 INSERT INTO `unit_eselon` VALUES ('3', '10101', '1', 'Sub Bid TK', 'Kasie TK', 'IV', '2');
+INSERT INTO `unit_eselon` VALUES ('28', '10601', '1', 'Bidang Ekonomi', 'Kabid Ekonomi', 'III', '26');
+INSERT INTO `unit_eselon` VALUES ('27', '10601', '1', 'Sekretariat', 'Sekretaris', 'III', '26');
+INSERT INTO `unit_eselon` VALUES ('25', '10101', '53', 'sdn gunung gedangan II', 'mukhlis', 'II', '0');
+INSERT INTO `unit_eselon` VALUES ('26', '10601', '1', 'Bappeko', 'Kepala Bappeko', 'II', '0');
+INSERT INTO `unit_eselon` VALUES ('29', '10601', '1', 'Sub Bidang Ekonomi Lemah', 'Kasie Lemah', 'IV', '28');
 
 -- ----------------------------
 -- Table structure for `unit_tupoksi`
@@ -15085,6 +15100,7 @@ INSERT INTO `unit_tupoksi` VALUES ('10101', '106');
 INSERT INTO `unit_tupoksi` VALUES ('10101', '117');
 INSERT INTO `unit_tupoksi` VALUES ('10101', '118');
 INSERT INTO `unit_tupoksi` VALUES ('10101', '120');
+INSERT INTO `unit_tupoksi` VALUES ('10101', '201');
 INSERT INTO `unit_tupoksi` VALUES ('10201', '102');
 INSERT INTO `unit_tupoksi` VALUES ('10201', '106');
 INSERT INTO `unit_tupoksi` VALUES ('10201', '120');
@@ -15231,18 +15247,27 @@ CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nama` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `alamat` text CHARACTER SET utf8,
+  `telepon` int(13) DEFAULT NULL,
+  `is_whatsapp` tinyint(1) NOT NULL,
+  `pin_bb` varchar(10) CHARACTER SET utf8 DEFAULT NULL,
+  `role` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `active` tinyint(1) NOT NULL,
+  `logged_in` tinyint(1) NOT NULL,
+  `last_seen` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'aa', 'aa@aa.aa', '4124bc0a9335c27f086f24ba207a4912', '0');
-INSERT INTO `users` VALUES ('2', 'bb', 'bb@bb.bb', '4124bc0a9335c27f086f24ba207a4912', '0');
+INSERT INTO `users` VALUES ('1', 'aa', 'aa@aa.aa', 'alex', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'admin', '0', '0', '2016-02-26 15:58:35');
+INSERT INTO `users` VALUES ('2', 'bb', 'bb@bb.bb', '', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'adminskpd', '0', '0', '0000-00-00 00:00:00');
+INSERT INTO `users` VALUES ('3', 'cc', 'aa', '', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'userskpd', '0', '0', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for `users_detail`
@@ -15263,19 +15288,4 @@ CREATE TABLE `users_detail` (
 -- ----------------------------
 -- Records of users_detail
 -- ----------------------------
-
--- ----------------------------
--- Table structure for `users_organisasi`
--- ----------------------------
-DROP TABLE IF EXISTS `users_organisasi`;
-CREATE TABLE `users_organisasi` (
-  `userid` int(11) unsigned NOT NULL,
-  `kd_unit` int(5) unsigned NOT NULL,
-  `kd_sub_unit` tinyint(2) unsigned zerofill NOT NULL,
-  PRIMARY KEY (`userid`),
-  KEY `userid` (`userid`,`kd_unit`,`kd_sub_unit`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- ----------------------------
--- Records of users_organisasi
--- ----------------------------
+INSERT INTO `users_detail` VALUES ('1', 'Alex', 'Canggu', '8111', '1', '546512');

@@ -20,6 +20,7 @@
     </script>
     <script type="text/javascript">
 
+        var selectedNode, mainReady = true;
         var configApp = {};
         var selectedModul = {};
 
@@ -61,7 +62,7 @@
 
     <div id="x-dialog"></div>
     <div id="x-dialog2"></div>
-    <div id="x-dialog3"></div>
+    <div id="x-dialog-report" style="overflow:hidden"></div>
 
     <script type="text/javascript">
 
@@ -87,19 +88,33 @@
         $("#x-menu-tree").tree({
             url : BASE_URL + 'store/menu/list.php',
             lines : true,
+            onDblClick : function () {
+
+            },
             onSelect: function(node){
                 
-                if (node.component != "") {
+                if (selectedNode == node.id) {
+                    return;
+                };
 
+                selectedNode = node.id;
+                if (mainReady === false) {
+                    return;
+                };
+
+
+                if (node.component != "") {
+                    mainReady = false;
                     $.post( "view.php", { view: node.id })
                         .done(function( data ) {
                             $("#x-content").empty();
                             $("#x-content").append(data);
-                            $.parser.parse();   
+                            $.parser.parse();
                         })
                         .fail(function(e) {
                             console.log(e);
                         });
+                    mainReady = true;
                 }
 
             }
