@@ -1,7 +1,6 @@
 <?php 
 
-define('OK', 'OKE', true);
-define('OK', 'OKEsss');
-define('OK', 'OKEs');
+require 'boot.php';
 
-echo OK;
+
+var_dump(Common::renstra());

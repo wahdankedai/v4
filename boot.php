@@ -13,7 +13,7 @@ define('EXT', '.php');
 
 define('REPORT', ROOT . DS . 'report');
 define('LIB', ROOT . DS . 'library');
-
+define('FPDF_FONTPATH', LIB . DS . 'font' .DS);
 
 /**
  * ambil composer

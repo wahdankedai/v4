@@ -162,5 +162,28 @@ class Suggest
         return empty($res) ? $res : $res[0];
 
     }
+
+    public static function getSatker($kd_subunit = 0)
+    {
+        if ($kd_subunit ==0) {
+            return '';
+        }
+
+        $q = "SELECT nm_subunit
+                FROM
+                subunit
+                WHERE concat(
+                kd_urusan,
+                kd_bidang,
+                kd_unit,
+                kd_subunit) = $kd_subunit";
+        $qry = DB::query($q);
+        $res = $qry->fetchAll();
+        if (count($res) > 0) {
+            return $res[0]->nm_subunit;
+        }
+        return '';
+    }
 }
+
 

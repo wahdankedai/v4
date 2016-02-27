@@ -13,6 +13,7 @@ if (empty($req)) {
     $users = DB::get("users");
     for ($i=0; $i < count($users); $i++) { 
         $users[$i]->password = 'xxxxxxxx';
+        $users[$i]->satker = Suggest::getSatker($users[$i]->kd_subunit);
     }
 
     echo json_encode($users);
@@ -24,6 +25,7 @@ $users = DB::findAll("users", $req);
 
 for ($i=0; $i < count($users); $i++) { 
     $users[$i]->password = 'xxxxxxxx';
+    $users[$i]->satker = Suggest::getSatker($users[$i]->kd_subunit);
 }
 echo json_encode($users);
 

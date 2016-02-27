@@ -38,12 +38,22 @@ class Request
     public static function writeSession(array $data)
     {
         $app =  Config::get('aplikasi');
-        foreach ($data as $key => $value) {
+        $uname = $data['username'];
+        $users = DB::find("users", [
+            'username' => $uname ]);
+        $user = Common::arr($users);
+        
+        unset($user['password']);
+
+        $dt = array_merge($data, (array) $user);
+        $ret;
+        foreach ($dt as $key => $value) {
+            // $ret[] = $value;
             $_SESSION[$app->name][$key] = $value;
         }
 
         $_SESSION[$app->name]["auth"] = true;
-
+        // return $ret;
         return ($_SESSION);
 
 

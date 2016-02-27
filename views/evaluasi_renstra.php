@@ -246,6 +246,9 @@
                                 singleSelect:true,
                                 fit:true,
                                 fitColumns:true,
+                                queryParams : {
+                                    <?php echo App::filterUserOrganisasi($session->role, $session->kd_subunit); ?>
+                                },
                                 idField:'kd_urusan',
                                 onDblClickRow: function(i,r) {
                                      xUrusan = r.kd_urusan;
@@ -253,6 +256,7 @@
                                      $('.unit').datagrid({
                                         queryParams:{
                                             kode : r.kode
+                                            <?php echo App::filterUserSubOrganisasi($session->role, $session->kd_subunit, 'prefix'); ?>
                                         }
                                      });
                                      parents = 0;

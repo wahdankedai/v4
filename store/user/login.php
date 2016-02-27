@@ -17,5 +17,5 @@ unset($session["password"]);
 
 $f = DB::find('users', $param);
 
-$f !== false ? Request::writeSession($session) : http_response_code(401); 
+($f !== false) ? Request::writeSession($session) : http_response_code(401); 
 exit;

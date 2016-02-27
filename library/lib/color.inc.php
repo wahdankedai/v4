@@ -1,15 +1,15 @@
 <?php
 /**
- * Title: Library color function
+ * Title: Library color public static function
  * Class: Color
  * Author: vietcom (vncommando at yahoo dot com)
  * Version: 1.0
  */
 class Color{
 	/**
-	 * @desc Use only for function HSL2RGB()
+	 * @desc Use only for public static function HSL2RGB()
 	 */
-	function _HSL_2_RGB( $v1, $v2, $vH ){
+	public static function _HSL_2_RGB( $v1, $v2, $vH ){
 		if ( $vH < 0 ) $vH += 1;
 		if ( $vH > 1 ) $vH -= 1;
 		if ( ( 6 * $vH ) < 1 ) return ( $v1 + ( $v2 - $v1 ) * 6 * $vH );
@@ -23,7 +23,7 @@ class Color{
 	 * RGB results = From 0 to 255
 	 * Code from http://www.easyrgb.com/math.php?MATH=M19#text19
 	 */
-	function HSL2RGB($H, $S, $L, &$R, &$G, &$B){
+	public static function HSL2RGB($H, $S, $L, &$R, &$G, &$B){
 		if ( $S == 0 ){
 			$R = $L * 255;
 			$G = $L * 255;
@@ -40,7 +40,7 @@ class Color{
 	/**
 	 * @desc Convert decimal color to #ffffff
 	 */
-	function RGB2HEX($r, $g, $b){
+	public static function RGB2HEX($r, $g, $b){
 		$r = ($r<16)? '0'.dechex($r) : dechex($r);
 		$g = ($g<16)? '0'.dechex($g) : dechex($g);
 		$b = ($b<16)? '0'.dechex($b) : dechex($b);
@@ -50,7 +50,7 @@ class Color{
 	/**
 	 * @desc Convert color #ffffff to RGB
 	 */
-	function HEX2RGB($c){
+	public static function HEX2RGB($c){
 		if (strlen($c)!=7) return 0;
 		$r[] = hexdec($c{1}.$c{2});
 		$r[] = hexdec($c{3}.$c{4});
@@ -61,7 +61,7 @@ class Color{
 	/**
 	 * @desc Genereate an array of n colors differents
 	 */
-	function getListColor($n){
+	public static function getListColor($n){
 		$h = 0;
 		$s = 1;
 		$l = 0.6;

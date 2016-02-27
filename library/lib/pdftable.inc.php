@@ -6,9 +6,6 @@
  * Version: 1.95
  * History: pdftable.log
  */
-require_once(LIB . DS . 'lib' . DS . 'fpdf.inc.php');
-require_once(LIB . DS . 'lib' . DS . 'color.inc.php');
-require_once(LIB . DS . 'lib' . DS . 'htmlparser.inc.php');
 
 define('FHR',0.58);
 define('PDFTABLE_VERSION','1.95');
@@ -845,12 +842,13 @@ function _putinfo(){
 	$this->_out('/CreationDate '.$this->_textstring('D:'.@date('YmdHis')));
 }
 private function getAlign($v){
-	global $PDF_ALIGN;
+	$PDF_ALIGN  = array('left'=>'L','center'=>'C','right'=>'R','justify'=>'J');
 	$v = strtolower($v);
 	return isset($PDF_ALIGN[$v])?$PDF_ALIGN[$v]:'L';
 }
 private function getVAlign($v){
-	global $PDF_VALIGN;
+
+$PDF_VALIGN = array('top'=>'T','middle'=>'M','bottom'=>'B');
 	$v = strtolower($v);
 	return isset($PDF_VALIGN[$v])?$PDF_VALIGN[$v]:'T';
 }

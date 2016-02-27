@@ -17,7 +17,8 @@ $req = Common::obj(Request::all());
             </div>
             <div class="small-9 columns">
                 <select id="pilihanSatker" class="easyui-combobox" name="satker" style="width:100%;"
-                    data-options="valueField:'kode',textField:'nama',url:'store/organisasi/list_report.php'">
+                    data-options="valueField:'kode',textField:'nama',url:'store/organisasi/list_report.php',
+                    queryParams: {<?php echo App::filterReportUser($session->role, $session->kd_subunit); ?>}">
                 </select>
             </div>
         </div>

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50620
 File Encoding         : 65001
 
-Date: 2016-02-26 16:02:31
+Date: 2016-02-27 15:48:11
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -15249,6 +15249,7 @@ CREATE TABLE `users` (
   `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nama` varchar(255) CHARACTER SET utf8 NOT NULL,
   `password` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
+  `kd_subunit` int(7) NOT NULL,
   `alamat` text CHARACTER SET utf8,
   `telepon` int(13) DEFAULT NULL,
   `is_whatsapp` tinyint(1) NOT NULL,
@@ -15265,9 +15266,9 @@ CREATE TABLE `users` (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES ('1', 'aa', 'aa@aa.aa', 'alex', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'admin', '0', '0', '2016-02-26 15:58:35');
-INSERT INTO `users` VALUES ('2', 'bb', 'bb@bb.bb', '', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'adminskpd', '0', '0', '0000-00-00 00:00:00');
-INSERT INTO `users` VALUES ('3', 'cc', 'aa', '', '4124bc0a9335c27f086f24ba207a4912', null, null, '0', null, 'userskpd', '0', '0', '0000-00-00 00:00:00');
+INSERT INTO `users` VALUES ('1', 'aa', 'aa@aa.aa', 'alex', '4124bc0a9335c27f086f24ba207a4912', '1010101', null, null, '0', null, 'admin', '0', '0', '2016-02-27 08:30:40');
+INSERT INTO `users` VALUES ('2', 'bb', 'bb@bb.bb', '', '4124bc0a9335c27f086f24ba207a4912', '1010101', null, null, '0', null, 'adminskpd', '0', '0', '2016-02-27 11:29:49');
+INSERT INTO `users` VALUES ('3', 'cc', 'aa', '', '4124bc0a9335c27f086f24ba207a4912', '1010105', null, null, '0', null, 'userskpd', '0', '0', '2016-02-27 10:37:01');
 
 -- ----------------------------
 -- Table structure for `users_detail`

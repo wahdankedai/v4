@@ -5,7 +5,9 @@
     if (! isset($_SESSION[$aplikasi->name]) || $_SESSION[$aplikasi->name]['auth'] == "") {
         App::redirectTo('login');
     } 
+
 ?>
+<?php require 'session.php'; ?>
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -55,7 +57,10 @@
 
     <div id="x-content" data-options="region:'center'">
         <div id="" class="bg-kotak"  title="Selamat Datang di Emoneva - Sistem Informasi Monitoring & Evaluasi">
-            
+            <pre>
+                <?php print_r($session); ?>
+                
+            </pre>
         </div>
 
     </div>

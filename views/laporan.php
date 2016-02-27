@@ -9,6 +9,8 @@
             fitColumns:true,
             singleSelect:true,
             onDblClickRow: function (i,r) {
+                r.kd_subunit = <?php echo $session->kd_subunit; ?> ;
+                r.role = '<?php echo $session->role; ?>' ;
                 $('#x-dialog').dialog({
                     title: 'Konfigurasi ' + r.nm_laporan,
                     width: 400,
