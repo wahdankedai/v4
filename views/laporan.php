@@ -14,11 +14,13 @@
                 $('#x-dialog').dialog({
                     title: 'Konfigurasi ' + r.nm_laporan,
                     width: 400,
-                    height: 170,
+                    height: 180,
                     href: 'store/report/form.php',
                     queryParams : r,
                     method: 'post',
-                    modal: true
+                    modal: true,
+                    toolbar : '',
+                    buttons : ''
                 });
             }">
     <thead>

@@ -16,7 +16,7 @@ window.addEventListener('popstate', function(event) {
 
 idleTimer = null;
 idleState = false;
-idleWait = 5 * 60 * 1000; // 5 menit non aktif = logout
+idleWait = 60 * 60 * 1000; // 60 menit non aktif = logout
 
 (function ($) {
 

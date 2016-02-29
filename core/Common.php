@@ -130,4 +130,37 @@ class Common
    {
      return array('top'=>'T','middle'=>'M','bottom'=>'B');
    }
+
+   /**
+    * gradeNilai Sesuai dengan permendagri no 27 tahun 2014
+    * @param  int    $nilai 
+    * @return string predikat        
+    */
+   public static function gradeNilai(int $nilai)
+   {
+
+      if ($nilai <= 50) {
+          return 'Sangat Rendah';
+      }
+
+      if ($nilai >= 51 && $nilai <= 65) {
+          return 'Rendah';
+      }
+
+      if ($nilai >= 66 && $nilai <= 75) {
+          return 'Sedang';
+      }
+
+      if ($nilai >= 76 && $nilai <= 90) {
+          return 'Sedang';
+      }
+
+      if ($nilai >= 91 && $nilai <= 100) {
+          return 'Sedang';
+      }
+
+      return 'Tidak ada';
+
+      // return $predikat;
+   }
 }
