@@ -58,3 +58,7 @@ body {
 	display:none;
 }
 
+.loginBody {
+    background-image: url(../images/wallpaper2.jpg);
+    background-size:cover;
+}

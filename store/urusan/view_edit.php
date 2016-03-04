@@ -1,16 +1,20 @@
 <?php 
 require '../../boot.php';
+require '../../session.php';
 
-$id = Request::Post('id');
-print_r($id);
-die();
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
+
+$id = Request::get('id');
+
 $old = DB::find('urusan', ['kd_urusan' => $id]);
+
 
 ?>
 <form id="fm" method="post" 
     class="easyui-form" 
-    method="post" 
-    data-options="novalidate:true" 
+    method="post"  
     action="<?php echo BASE_URL; ?>store/urusan/edit.php"
 >
     <div class="row p10">
@@ -23,15 +27,13 @@ $old = DB::find('urusan', ['kd_urusan' => $id]);
                         id="kd_urusan" 
                         name="kd_urusan" 
                         class="form-control easyui-numberbox" 
-                        value = "<?php echo $old->nm_urusan; ?>"
+                        value = "<?php echo $old->kd_urusan; ?>"
                         data-options="
                             min:1,
+                            readonly:true,
                             precision:0,
                             delay:200,
-                            required:true,
-                            validType:{
-                                dataKosong:['<?php echo BASE_URL; ?>store/urusan/check.php','id']
-                            }">
+                            required:true">
             </div>
         </div>
         <div class="row mb20">

@@ -94,3 +94,10 @@
 .icon-large-chart{
 	background:url('../images/icons/large_chart.png') no-repeat center center;
 }
+.icon-xlsx{
+	background:url('../images/icons/xlsx.png') no-repeat center center;
+}
+
+.icon-pdf{
+	background:url('../images/icons/pdf.gif') no-repeat center center;
+}

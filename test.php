@@ -1,3 +1,6 @@
 <?php 
 
-echo (int) "6";
+require 'boot.php';
+
+
+var_dump(Common::renstra());

@@ -1,5 +1,10 @@
 <?php 
 require '../../boot.php';
+require '../../session.php';
+
+if (! isset($session) || $session->auth == "") {
+    Common::Error(401, 'json');
+}
 ?>
 <form id="fm" method="post" 
     class="easyui-form" 
@@ -21,10 +26,7 @@ require '../../boot.php';
                             min:1,
                             precision:0,
                             delay:200,
-                            required:true,
-                            validType:{
-                                dataKosong:['<?php echo BASE_URL; ?>store/urusan/check.php','id']
-                            }">
+                            required:true">
             </div>
         </div>
         <div class="row mb20">

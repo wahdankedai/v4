@@ -18,9 +18,6 @@ $('#x-datagrid').datagrid({
                     text:'Save',
                     handler:function (){                            
                         $('#fm').form('submit',{  
-                            onSubmit:function(){
-                                return $('#fm').form('enableValidation').form('validate');
-                            },
                             success: function(data){
                                 var data = eval('(' + data + ')');
                                 if (data.success){
@@ -63,11 +60,8 @@ $('#x-datagrid').datagrid({
                     queryParams : {id : row.kd_urusan},
                     buttons:[{
                         text:'Save',
-                        handler:function (){                            
+                        handler:function (){    
                             $('#fm').form('submit',{  
-                                onSubmit:function(){
-                                    return $('#fm').form('enableValidation').form('validate');
-                                },
                                 success: function(data){
                                     var data = eval('(' + data + ')');
                                     if (data.success){
@@ -128,12 +122,14 @@ $('#x-datagrid').datagrid({
         }
     }],
     columns:[[
-        {field:'kd_urusan',title:'Kode',width:100, align:'right'},
+        {field:'kd_urusan',title:'Kode',width:100, align:'right',sortable:true,order:'asc'},
         {field:'nm_urusan',title:'Nama Urusan',width:280}
     ]],
     rownumbers : true,
     singleSelect:true,
-    striped:true
+    striped:true,
+    remoteSort:false,
+    multiSort:true
 });
 
     $('#x-datagrid').datagrid({url:BASE_URL+ 'store/urusan/list.php',resize:true});
