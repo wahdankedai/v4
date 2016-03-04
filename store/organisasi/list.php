@@ -23,7 +23,15 @@ if (isset($req->kode) && $req->kode != 0 && !isset($req->kd_subunit)) {
             ORDER BY kode ASC, kd_subunit ASC");
 }
 
-if (isset($req->kode) && $req->kode != 0 && isset($req->kd_subunit)) {
+if (isset($req->kode) && $req->kode != 0 && isset($req->kd_subunit) && $req->kd_subunit == '01' ) {
+    $qry = DB::query("SELECT CONCAT(kd_urusan,kd_bidang,kd_unit) as kode,
+        kd_subunit,
+            nm_subunit as nama from subunit
+        WHERE CONCAT(kd_urusan,kd_bidang,kd_unit) = ". $req->kode ." 
+            ORDER BY kode ASC, kd_subunit ASC");
+}
+
+if (isset($req->kode) && $req->kode != 0 && isset($req->kd_subunit) && $req->kd_subunit != '01' ) {
     $qry = DB::query("SELECT CONCAT(kd_urusan,kd_bidang,kd_unit) as kode,
         kd_subunit,
             nm_subunit as nama from subunit

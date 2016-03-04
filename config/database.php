@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'name' => 'forge',
+    'name' => 'fbwi',
     'user' => 'root',
     'pass' => '',
 ];

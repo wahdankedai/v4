@@ -39,6 +39,10 @@ class App
             $param .= "kd_subunit : 0";
         }
 
+        else if ($role == 'admin'  || $role == 'adminskpd'  || $role == 'adminkecamatan' ) {
+            $param .= "kd_subunit : '01'";
+        }
+
         else if ($role == 'userskpd'  || $role == 'userkecamatan' ) {
             $param .= "kd_subunit : " . substr($satker, -2);
         }

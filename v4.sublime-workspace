@@ -4,16 +4,48 @@
 		"selected_items":
 		[
 			[
-				"PD",
-				"PDF_VALIGN"
+				"re",
+				"Renstra"
+			],
+			[
+				"qury",
+				"query_indikator_outcome"
+			],
+			[
+				"resu",
+				"result_program_adum"
+			],
+			[
+				"qu",
+				"query_indikator_outcome"
+			],
+			[
+				"quer",
+				"query"
+			],
+			[
+				"va",
+				"value_program_adum"
+			],
+			[
+				"val",
+				"value_program_adum"
+			],
+			[
+				"que",
+				"query_program_adum"
 			],
 			[
 				"ht",
-				"htmltable"
+				"htmlTemplate"
 			],
 			[
-				"re",
-				"renstra"
+				"query",
+				"query_urusan"
+			],
+			[
+				"PD",
+				"PDF_VALIGN"
 			],
 			[
 				"fun",
@@ -328,10 +360,6 @@
 				"qDetil"
 			],
 			[
-				"que",
-				"query"
-			],
-			[
 				"n",
 				"ndskn"
 			],
@@ -390,10 +418,6 @@
 			[
 				"dta",
 				"datagrid"
-			],
-			[
-				"qu",
-				"queryProgramPrioritas"
 			],
 			[
 				"ur",
@@ -490,78 +514,16 @@
 			[
 				"ch",
 				"checkAllMenu"
-			],
-			[
-				"siz",
-				"size"
-			],
-			[
-				"use",
-				"user_group"
-			],
-			[
-				"grou",
-				"group_name"
-			],
-			[
-				"show",
-				"showGroup"
-			],
-			[
-				"PARA",
-				"PARAM_INT"
-			],
-			[
-				"eve",
-				"event_name"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "<?php\n$renstra = Common::renstra();\n\n$req = Common::obj(Request::all());\n\n$req->tahun = ($req->tahun == '' || (! isset($req->tahun))) ? $session->tahun:  $req->tahun;\n$req->skpd = ($req->skpd == '' || (! isset($req->skpd))) ? $session->kd_subunit : $req->skpd;\n\n$htmlTemplate ='\n    <table width=98% border=1 cellspacing=1 cellpadding=0>\n        <tr repeat=1>\n        <td align=\\'center\\' valign=middle rowspan=2>No</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Kode</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Program / Kegiatan</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Indikator Kinerja Program (outcome)/Kegiatan (output)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Target Renstra SKPD pada Tahun ' . $renstra[4] .' (Akhir Periode Renstra SKPD)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja Renstra SKPD sampai dengan Renja SKPD Tahun Lalu '. ($req->tahun - 1).'</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Target Kinerja dan Anggaran Renja SKPD Tahun berjalan '.$req->tahun.' yang dievaluasi</td>\n        <td align=\\'center\\' valign=middle colspan=8>Realisasi Kinerja Pada Triwulan</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (Tahun '.$req->tahun.')</td>\n        <td align=\\'center\\' colspan=2 rowspan=2>Tingkat Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (%) Tahun '.$req->tahun.'</td>       \n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Kinerja dan Anggaran Renstra SKPD s/d tahun 2015 (Akhir Tahun Pelaksanaan Renja SKPD)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Tingkat Capaian Kinerja Dan Realisasi Anggaran Renstra SKPD s/d tahun 2015 (%)</td>\n        <td align=\\'center\\' valign=middle rowspan=2>unit SKPD Penanggung Jawab</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Ket.</td>\n    </tr>\n    <tr repeat=1>\n        <td valign=middle align=\\'center\\' colspan=2>I</td>\n        <td valign=middle align=\\'center\\' colspan=2>II</td>\n        <td valign=middle align=\\'center\\' colspan=2>III</td>\n        <td valign=middle align=\\'center\\' colspan=2>IV</td>\n    </tr>\n    <tr repeat=1>\n        <td align=\\'center\\' rowspan=2>1</td>\n        <td align=\\'center\\' rowspan=2>2</td>\n        <td align=\\'center\\' rowspan=2>3</td>\n        <td align=\\'center\\' rowspan=2>4</td>\n        <td align=\\'center\\' colspan=2>5</td>\n        <td align=\\'center\\' colspan=2>6</td>\n        <td align=\\'center\\' colspan=2>7</td>\n        <td align=\\'center\\' colspan=2>8</td>\n        <td align=\\'center\\' align=\\'center\\' colspan=2>9</td>\n        <td align=\\'center\\' colspan=2>10</td>\n        <td align=\\'center\\' colspan=2>11</td>\n        <td align=\\'center\\' colspan=2>12</td>\n        <td align=\\'center\\' colspan=2>13</td>\n        <td align=\\'center\\' colspan=2>14</td>\n        <td align=\\'center\\' colspan=2>15</td>\n        <td align=\\'center\\' rowspan=2>16</td>\n        <td align=\\'center\\' rowspan=2>17</td>\n    </tr>\n    <tr repeat=1>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp.</td>\n    </tr>';\n\n/**\n * data kegiatan administrasi umum (rutin)\n */\n\n$query_program_adum = DB::query(\"SELECT \")\n\n\n\n/**\n * \n */\nrequire_once('library/lib/fpdf.inc.php');\nrequire_once('library/lib/pdftable.inc.php');\nrequire_once('library/lib/pdf.inc.php');\nrequire_once('library/lib/color.inc.php');\nrequire_once('library/lib/htmlparser.inc.php');\n\n\n\n$p = new PDF();  \n$p->SetMargins(20,10,10);\n$p->AddPage();\n$p->setStyle('small');\n$p->text(0,'Formulir Evaluasi Hasil Renja SKPD',0,'C');\n$p->text(0,'SKPD '. Suggest::getSatker($req->skpd) , 0,'C');\n$p->text(0,'Periode Kegiatan  Tahun ' .$req->tahun,0,'C');\n$p->SetFont('helvetica','', '5');\n$p->htmltable($htmlTemplate);\n$p->output(NAMA_LAPORAN, 'F');\n?>",
-			"file": "report/triwulan/pdf.php",
-			"file_size": 4657,
-			"file_write_time": 131011829773669571,
+			"file": "core/Config.php",
 			"settings":
 			{
-				"buffer_size": 4648,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/coding/AppData/Local/Temp/scp55507/var/www/html/bojonegoro/skpd/editPassword.php",
-			"settings":
-			{
-				"buffer_size": 4693,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app.js",
-			"settings":
-			{
-				"buffer_size": 1038,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "<?php\nini_set(\"display_errors\", 0);\nsession_start();\nini_set('error_reporting', E_ALL);\ninclude (\"../function.php\");\n$var_thn_report = isset($_GET['thn']) ? $_GET['thn'] : 2015;\n$var_thn_lalu = $var_thn_report -1;\n$var_skpd_report = $_SESSION['auth']['skpd'];\n$var_skpd = get_detil_skpd($var_skpd_report);\n$bappeko = get_detil_skpd('1060101');\n$skpd_nama = $var_skpd['nama'];\n$skpd_nip = $var_skpd['nip'];\n$skpd_pangkat = $var_skpd['pangkat'];\n$skpd_kepala = $var_skpd['kepala'];\n$user_login = $_SESSION['auth']['nama'];\n$var_tb = isset($_GET['tb']) ? $_GET['tb'] : 1;\n\nfunction prosen($data)\n{\n	return number_format($data, 2, ',', '.');\n}\nfunction rerata($a)\n{\n	$b = array_sum($a) / count($a);\n	return number_format($b, 2, ',', '.');\n}\nfunction predikat ($a) {\n  \n  if ($a <= 50) {\n    return 'Sangat Rendah';\n  }  else if ($a <= 65) {\n    return 'Rendah';\n  }  else if ($a <= 75) {\n    return 'Sedang';\n  }  else if ($a <= 90) {\n    return 'Tinggi';\n  }  else if ($a <= 100) {\n    return 'Sangat Tinggi';\n  } else {\n    return '';\n  }\n}\n\n$rco = array();\n$rca = array();\n$rrro = array();\n$rrra = array();\n\nswitch ($var_thn_report) {\n    case 2013:\n        $pembagi = 1;\n        break;\n	case 2014:\n		$pembagi = 2;\n		break;\n	case 2015:\n		$pembagi = 3;\n		break;\n	case 2016:\n		$pembagi = 4;\n		break;\n	case 2017:\n		$pembagi = 5;\n		break;\n}\n\n/*\n	Query Disini\n*/\n	$query = mysql_query(\"SELECT \n				dpa.kd_urusan, \n				outcome.indikator, \n				sum(target_anggaran.tb4) as tatb4, \n				satuan.satuan, \n				dpa.kd_bidang, \n				dpa.kd_prog, \n				dpa.nm_prog, \n				outcome.target_tb1 as totb1, \n				outcome.target_tb2 as totb2, \n				outcome.target_tb3 as totb3, \n				outcome.target_tb4 as totb4, \n				outcome.real_tb1 as rotb1, \n				outcome.real_tb2 as rotb2, \n				outcome.real_tb3 as rotb3, \n				outcome.real_tb4 as rotb4, \n				dpa.kode,\n				dpa.thn,\n				outcome.renstra as tor, \n				outcome.realisasi_renstra as ror, \n				sum(target_anggaran.tb1) as tatb1, \n				sum(target_anggaran.tb2) as tatb2, \n				sum(target_anggaran.tb3) as tatb3, \n				sum(target_anggaran.tb4) as tatb4, \n				sum(target_anggaran.realisasi_tb1) as ratb1, \n				sum(target_anggaran.realisasi_tb2) as ratb2, \n				sum(target_anggaran.realisasi_tb3) as ratb3, \n				sum(target_anggaran.realisasi_tb4) as ratb4, \n				sum(dpa.jml_pagu) as pagu,\n				sum(target_anggaran.renstra) as tar, \n				sum(target_anggaran.realisasi_renstra) as rar \n				FROM \n				dpa \n				LEFT JOIN outcome ON outcome.kd_bidang = dpa.kd_bidang AND  outcome.kd_program = dpa.kd_prog AND outcome.kd_skpd = dpa.kode AND outcome.thn = dpa.thn \n				LEFT JOIN target_anggaran ON target_anggaran.id_dpa = dpa.id \n				INNER JOIN satuan ON satuan.id = outcome.satuan \n				where  dpa.kode={$var_skpd_report} and dpa.thn={$var_thn_report}\n				GROUP BY \n				dpa.kd_urusan, \n				dpa.kd_bidang, \n				dpa.kd_prog, \n				dpa.kode, \n				dpa.thn \n	\");\n	\n\n/* plugins fpdf */\n	$rootpath = $_SERVER['DOCUMENT_ROOT'].\"/include/report/\"; // rubah, disesuaikan dengan path document berada\n\n	define('FPDF_FONTPATH','./pdf/font/');\n	\n	require_once('./pdf/lib/fpdf.inc.php');\n	require_once('./pdf/lib/pdftable.inc.php');\n	require_once('./pdf/lib/pdf.inc.php');\n	require_once('./pdf/lib/color.inc.php');\n	require_once('./pdf/lib/htmlparser.inc.php');\n	\n	\n	\n	$htmlTemplate ='\n	<table width=\"98%\" border=\"1\" cellspacing=\"1\" cellpadding=\"0\">\n		<tr repeat=1>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">Kode</td>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">Program / Kegiatan</td>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">Indikator Kinerja Program (outcome)/Kegiatan (output)</td>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">Satuan</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Target Renstra SKPD pada Tahun 2015 (Akhir Periode Renstra SKPD)</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Realisasi Capaian Kinerja Renstra SKPD sampai dengan Renja SKPD Tahun Lalu '.$var_thn_lalu.'</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Target Kinerja dan Anggaran Renja SKPD Tahun berjalan '.$var_thn_report.' yang dievaluasi</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"8\">Realisasi Kinerja Pada Triwulan</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Realisasi Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (Tahun '.$var_thn_report.')</td>\n		<td align=\"center\" colspan=\"2\" rowspan=\"2\">Tingkat Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (%) Tahun '.$var_thn_report.'</td>		\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Realisasi Kinerja dan Anggaran Renstra SKPD s/d tahun 2015 (Akhir Tahun Pelaksanaan Renja SKPD)</td>\n		<td align=\"center\" valign=\"middle\" colspan=\"2\" rowspan=\"2\">Tingkat Capaian Kinerja Dan Realisasi Anggaran Renstra SKPD s/d tahun 2015 (%)</td>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">unit SKPD Penanggung Jawab</td>\n		<td align=\"center\" valign=\"middle\" rowspan=\"2\">Ket.</td>\n	</tr>\n	<tr repeat=1>\n		<td valign=\"middle\" align=\"center\" colspan=\"2\">I</td>\n		<td valign=\"middle\" align=\"center\" colspan=\"2\">II</td>\n		<td valign=\"middle\" align=\"center\" colspan=\"2\">III</td>\n		<td valign=\"middle\" align=\"center\" colspan=\"2\">IV</td>\n	</tr>\n	<tr repeat=1>\n		<td align=\"center\" rowspan=\"2\">1</td>\n		<td align=\"center\" rowspan=\"2\">2</td>\n		<td align=\"center\" rowspan=\"2\">3</td>\n		<td align=\"center\" rowspan=\"2\">4</td>\n		<td align=\"center\" colspan=\"2\">5</td>\n		<td align=\"center\" colspan=\"2\">6</td>\n		<td align=\"center\" colspan=\"2\">7</td>\n		<td align=\"center\" colspan=\"2\">8</td>\n		<td align=\"center\" align=\"center\" colspan=\"2\">9</td>\n		<td align=\"center\" colspan=\"2\">10</td>\n		<td align=\"center\" colspan=\"2\">11</td>\n		<td align=\"center\" colspan=\"2\">12</td>\n		<td align=\"center\" colspan=\"2\">13</td>\n		<td align=\"center\" colspan=\"2\">14</td>\n		<td align=\"center\" colspan=\"2\">15</td>\n		<td align=\"center\" rowspan=\"2\">16</td>\n		<td align=\"center\" rowspan=\"2\">17</td>\n	</tr>\n	<tr repeat=1>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n		<td align=\"center\">K</td>\n		<td align=\"center\">Rp.</td>\n	</tr>';\n	while ($row=mysql_fetch_assoc($query))\n	{\n		$aq_check = mysql_query(\"SELECT count(outcome.id) as jml \n				from outcome \n				INNER JOIN satuan ON satuan.id = outcome.satuan\n				where \n				outcome.kd_bidang=\".$row['kd_bidang'].\" and \n				outcome.kd_program=\".$row['kd_prog'].\" and \n				outcome.kd_skpd=\".$row['kode'].\" \n				and outcome.thn=\".$row['thn']);\n		$ahasil = mysql_fetch_array($aq_check);	\n		$jml_indi = $ahasil['jml'];	\n		if ($var_tb == 1)\n		{\n			$rto =  $row['rotb1'];\n			$rotb1 =  $row['rotb1'];\n			$rotb2 =  0;\n			$rotb3 =  0;\n			$rotb4 =  0;\n			$rta =  $row['ratb1'] / $jml_indi;\n			$ratb1 = $row['ratb1'] / $jml_indi;\n			$ratb2 = 0;\n			$ratb3 = 0;\n			$ratb4 = 0;\n\n			$co = $row['totb4'] == 0 ? 0 : ($rto/$row['totb4']) * 100;\n			$ca = $row['pagu'] == 0 ? 0 : ($rta/$row['pagu']) * 100;\n			$rro = $row['ror'] + $rto;\n			$rra = $row['rar'] + $rta;\n			$cro = $row['tor'] == 0 ? 0 : ($rro/$row['tor']) * 100;\n			$cra = $row['tar'] == 0 ? 0 : ($rra/$row['tar']) * 100;\n		}\n		else if ($var_tb == 2)\n		{\n			$rto =  $row['rotb2'];\n			$rotb1 =  $row['rotb1'];\n			$rotb2 =  $row['rotb2'] - ($row['rotb1']);\n			$rotb3 =  0;\n			$rotb4 =  0;\n			$rta =  ($row['ratb2'])  / $jml_indi;\n			$ratb1 = $row['ratb1'] / $jml_indi;\n			$ratb2 = ($row['ratb2'] - $row['ratb1'] ) / $jml_indi;\n			$ratb3 = 0;\n			$ratb4 = 0;\n\n			$co = $row['totb4'] == 0 ? 0 : ($rto/$row['totb4']) * 100;\n			$ca = $row['pagu'] == 0 ? 0 : ($rta/$row['pagu']) * 100;\n			$rro = $row['ror'] + $rto;\n			$rra = $row['rar'] + $rta;\n			$cro = $row['tor'] == 0 ? 0 : ($rro/$row['tor']) * 100;\n			$cra = $row['tar'] == 0 ? 0 : ($rra/$row['tar']) * 100;\n		}\n		else if ($var_tb == 3)\n		{\n			$rto =  $row['rotb3'];\n			$rotb1 =  $row['rotb1'];\n			$rotb2 =  $row['rotb2'] - ($row['rotb1']);\n			$rotb3 =  $row['rotb3'] - ($row['rotb2']);\n			$rotb4 =  0;\n			$rta =  ($row['ratb3'])  / $jml_indi;\n			$ratb1 = $row['ratb1']  / $jml_indi;\n			$ratb2 = ($row['ratb2'] - $row['ratb1']) / $jml_indi;\n			$ratb3 = ($row['ratb3']  - $row['ratb2'] - $row['ratb1'])  / $jml_indi;\n			$ratb4 = 0;\n\n			$co = $row['totb4'] == 0 ? 0 : ($rto/$row['totb4']) * 100;\n			$ca = $row['pagu'] == 0 ? 0 : ($rta/$row['pagu']) * 100;\n			$rro = $row['ror'] + $rto;\n			$rra = $row['rar'] + $rta;\n			$cro = $row['tor'] == 0 ? 0 : ($rro/$row['tor']) * 100;\n			$cra = $row['tar'] == 0 ? 0 : ($rra/$row['tar']) * 100;\n		}\n		else if ($var_tb == 4)\n		{\n			$rto =  $row['rotb4'];\n			$rotb1 =  $row['rotb1'];\n			$rotb2 =  $row['rotb2'] - ($row['rotb1']);\n			$rotb3 =  $row['rotb3'] - ($row['rotb2']);\n			$rotb4 =  $row['rotb4'] - ($row['rotb3']);\n			$rta =  $row['ratb4']  / $jml_indi;\n			$ratb1 = $row['ratb1'] / $jml_indi;\n			$ratb2 = ($row['ratb2']  -  $row['ratb1']) / $jml_indi;\n			$ratb3 = ($row['ratb3']  -  $row['ratb2']) / $jml_indi ;\n			$ratb4 = ($row['ratb4']  - $row['ratb3']) / $jml_indi ;\n\n			$co = $row['totb4'] == 0 ? 0 : ($rto/$row['totb4']) * 100;\n			$ca = $row['pagu'] == 0 ? 0 : ($rta/$row['pagu']) * 100;\n			$rro = $row['ror'] + $rto;\n			$rra = $row['rar'] + $rta;\n			$cro = $row['tor'] == 0 ? 0 : ($rro/$row['tor']) * 100;\n			$cra = $row['tar'] == 0 ? 0 : ($rra/$row['tar']) * 100;\n		}\n\n			\n		\n		$q_check = mysql_query(\"SELECT count(outcome.id) as jml \n				from outcome \n				INNER JOIN satuan ON satuan.id = outcome.satuan\n				where \n				outcome.kd_bidang=\".$row['kd_bidang'].\" and \n				outcome.kd_program=\".$row['kd_prog'].\" and \n				outcome.kd_skpd=\".$row['kode'].\" \n				and outcome.thn=\".$row['thn']);\n		$hasil = mysql_fetch_array($q_check);\n		if ($hasil['jml']>1)\n		{ \n			$htmlTemplate .='\n			  <tr  bgcolor=\"#dddddd\">\n				<td rowspan='.$hasil['jml'].'>' . $row['kd_bidang'] . $row['kd_prog'] . '</td>\n				<td rowspan='.$hasil['jml'].'>' . $row['nm_prog'] . ' </td>\n				<td border=\"1101\">' . $row['indikator'] . '</td>\n				<td border=\"1101\">' . $row['satuan'] . '</td>\n				<td border=\"1101\">' . $row['tor'] . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($row['tar']) . '</td>\n				<td border=\"1101\">' . $row['ror'] . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($row['rar']) . '</td>\n				<td border=\"1101\">' . $row['totb4'] . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($row['pagu']) . '</td>\n				<td border=\"1101\">' . prosen($rotb1) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($ratb1) . '</td>\n				<td border=\"1101\">' . prosen($rotb2) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($ratb2) . '</td>\n				<td border=\"1101\">' . prosen($rotb3) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($ratb3) . '</td>\n				<td border=\"1101\">' . prosen($rotb4) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($ratb4) . '</td>\n				<td border=\"1101\">' . prosen($rto) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($rta) . '</td>\n				<td border=\"1101\">' . prosen($co) . '%</td>\n				<td rowspan='.$hasil['jml'].'>' . prosen($ca) . '%</td>\n				<td border=\"1101\">' . prosen($rro) . '</td>\n				<td rowspan='.$hasil['jml'].'>' . buatrp($rra) . '</td>\n				<td border=\"1101\">' . prosen($cro) . '%</td>\n				<td rowspan='.$hasil['jml'].'>' . prosen($cra) . '%</td>\n				<td rowspan='.$hasil['jml'].'></td>\n				<td rowspan='.$hasil['jml'].'></td>\n			</tr>'; \n			$q_child_p = mysql_query(\"SELECT \n						outcome.indikator, \n						outcome.target_tb1 as totb1, \n						outcome.target_tb2 as totb2, \n						outcome.target_tb3 as totb3, \n						outcome.target_tb4 as totb4, \n						outcome.real_tb1 as rotb1, \n						outcome.real_tb2 as rotb2, \n						outcome.real_tb3 as rotb3, \n						outcome.real_tb4 as rotb4, \n						outcome.thn, \n						outcome.renstra as tor, \n						outcome.realisasi_renstra as ror, \n						satuan.satuan \n						FROM \n						outcome \n						INNER Join satuan ON satuan.id = outcome.satuan \n						where outcome.kd_bidang=\".$row['kd_bidang'].\" AND \n						outcome.kd_program=\".$row['kd_prog'].\" AND \n						outcome.kd_skpd=\".$row['kode']);\n			$skip_p = mysql_fetch_assoc($q_child_p);\n			while($skip_p = mysql_fetch_assoc($q_child_p))\n			{\n	\n				if ($var_tb == 1)\n				{\n					$rto =  $skip_p['rotb1'];\n					$rotb1 =  $skip_p['rotb1'];\n					$rotb2 =  0;\n					$rotb3 =  0;\n					$rotb4 =  0;\n					\n\n					$co = $skip_p['totb4'] == 0 ? 0 : ($rto/$skip_p['totb4']) * 100;\n					\n					$rro = $skip_p['ror'] + $rto;\n					\n					$cro = $skip_p['tor'] == 0 ? 0 : ($rro/$skip_p['tor']) * 100;\n\n				}\n				else if ($var_tb == 2)\n				{\n					$rto =  $skip_p['rotb2'];\n					$rotb1 =  $skip_p['rotb1'];\n					$rotb2 =  $skip_p['rotb2'] - ($skip_p['rotb1']);\n					$rotb3 =  0;\n					$rotb4 =  0;\n\n					$co = $skip_p['totb4'] == 0 ? 0 : ($rto/$skip_p['totb4']) * 100;\n					\n					$rro = $skip_p['ror'] + $rto;\n				\n					$cro = $skip_p['tor'] == 0 ? 0 : ($rro/$skip_p['tor']) * 100;\n					\n				}\n				else if ($var_tb == 3)\n				{\n					$rto =  $skip_p['rotb3'];\n					$rotb1 =  $skip_p['rotb1'];\n					$rotb2 =  $skip_p['rotb2'] - ($skip_p['rotb1']);\n					$rotb3 =  $skip_p['rotb3'] - ($skip_p['rotb2']);\n					$rotb4 =  0;\n				\n					$co = $skip_p['totb4'] == 0 ? 0 : ($rto/$skip_p['totb4']) * 100;\n					\n					$rro = $skip_p['ror'] + $rto;\n				\n					$cro = $skip_p['tor'] == 0 ? 0 : ($rro/$skip_p['tor']) * 100;\n				\n				}\n				else if ($var_tb == 4)\n				{\n					$rto =  $skip_p['rotb4'];\n					$rotb1 =  $skip_p['rotb1'];\n					$rotb2 =  $skip_p['rotb2'] - ($skip_p['rotb1']);\n					$rotb3 =  $skip_p['rotb3'] - ($skip_p['rotb2']);\n					$rotb4 =  $skip_p['rotb4'] - ($skip_p['rotb3']);\n					\n					$co = $skip_p['totb4'] == 0 ? 0 : ($rto/$skip_p['totb4']) * 100;\n					\n					$rro = $skip_p['ror'] + $rto;\n					\n					$cro = $skip_p['tor'] == 0 ? 0 : ($rro/$skip_p['tor']) * 100;\n				\n				}\n				\n				$htmlTemplate .='\n			  <tr  bgcolor=\"#dddddd\">\n				<td border=\"0101\">' . $skip_p['indikator'] . '</td>\n				<td border=\"0101\">' . $skip_p['satuan'] . '</td>\n				<td border=\"0101\">' . prosen($skip_p['tor']) . '</td>\n				<td border=\"0101\">' . prosen($skip_p['ror']) . '</td>\n				<td border=\"0101\">' . prosen($skip_p['totb4']) . '</td>\n				<td border=\"0101\">' . prosen($rotb1) . '</td>\n				<td border=\"0101\">' . prosen($rotb2) . '</td>\n				<td border=\"0101\">' . prosen($rotb3) . '</td>\n				<td border=\"0101\">' . prosen($rotb4) . '</td>\n				<td border=\"0101\">' . prosen($rto) . '</td>\n				<td border=\"0101\">' . prosen($co) . '%</td>\n				<td border=\"0101\">' . prosen($rro) . '</td>\n				<td border=\"0101\">' . prosen($cro) . '%</td>\n			  </tr>';\n			}\n		}\n		\n		else {\n		$htmlTemplate .='\n			<tr  bgcolor=\"#dddddd\">\n				<td>' . $row['kd_bidang'] . $row['kd_prog'] . '</td>\n				<td>' . $row['nm_prog'] . ' </td>\n				<td>' . $row['indikator'] . '</td>\n				<td>' . $row['satuan'] . '</td>\n				<td>' . prosen($row['tor']) . '</td>\n				<td>' . buatrp($row['tar']) . '</td>\n				<td>' . prosen($row['ror']) . '</td>\n				<td>' . buatrp($row['rar']) . '</td>\n				<td>' . prosen($row['totb4']) . '</td>\n				<td>' . buatrp($row['pagu']) . '</td>\n				<td>' . prosen($rotb1) . '</td>\n				<td>' . buatrp($ratb1) . '</td>\n				<td>' . prosen($rotb2) . '</td>\n				<td>' . buatrp($ratb2) . '</td>\n				<td>' . prosen($rotb3) . '</td>\n				<td>' . buatrp($ratb3) . '</td>\n				<td>' . prosen($rotb4) . '</td>\n				<td>' . buatrp($ratb4) . '</td>\n				<td>' . prosen($rto) . '</td>\n				<td>' . buatrp($rta) . '</td>\n				<td>' . prosen($co) . '%</td>\n				<td>' . prosen($ca) . '%</td>\n				<td>' . prosen($rro) . '</td>\n				<td>' . buatrp($rra) . '</td>\n				<td>' . prosen($cro) . '%</td>\n				<td>' . prosen($cra) . '%</td>\n				<td></td>\n				<td></td>\n			</tr>'; \n		}\n		\n		$q_kegiatan = mysql_query(\"SELECT \n			dpa.kd_kegiatan, \n			dpa.id, \n			dpa.ket, \n			dpa.jml_pagu as pagu,\n			if(dpa.nm_subkegiatan='',dpa.nm_kegiatan,CONCAT(dpa.nm_kegiatan,' (',dpa.nm_subkegiatan, ')')) as kegiatan, \n			target_kegiatan.indikator, \n			satuan.satuan, \n			target_kegiatan.output_tb1 as totb1, \n			target_kegiatan.output_tb2 as totb2, \n			target_kegiatan.output_tb3 as totb3, \n			target_kegiatan.output_tb4 as totb4, \n			target_kegiatan.realisasi_tb1 as rotb1, \n			target_kegiatan.realisasi_tb2 as rotb2, \n			target_kegiatan.realisasi_tb3 as rotb3, \n			target_kegiatan.realisasi_tb4 as rotb4, \n			target_kegiatan.renstra as tor, \n			target_kegiatan.realisasi_renstra as ror, \n			target_anggaran.tb1 as tatb1, \n			target_anggaran.tb2 as tatb2, \n			target_anggaran.tb3 as tatb3, \n			target_anggaran.tb4 as tatb4, \n			target_anggaran.realisasi_tb1 as ratb1, \n			target_anggaran.realisasi_tb2 as ratb2, \n			target_anggaran.realisasi_tb3 as ratb3, \n			target_anggaran.realisasi_tb4 as ratb4, \n			target_anggaran.renstra as tar, \n			target_anggaran.realisasi_renstra as rar\n			FROM \n			dpa \n			LEFT JOIN target_anggaran ON target_anggaran.id_dpa = dpa.id \n			LEFT JOIN target_kegiatan ON target_kegiatan.id_dpa = dpa.id \n			INNER JOIN satuan ON satuan.id = target_kegiatan.satuan\n			where dpa.kode=$var_skpd_report and dpa.thn=$var_thn_report and dpa.kd_prog=\" . $row['kd_prog']. \" and dpa.kd_bidang =\" . $row['kd_bidang'] .\"\n			GROUP BY \n			dpa.kd_urusan, \n			dpa.kd_bidang, \n			dpa.kd_prog, \n			dpa.kd_kegiatan, \n			dpa.kd_kegiatan,\n			dpa.nm_subkegiatan,			\n			dpa.kode, \n			dpa.thn\");\n\n		while ($row2 = mysql_fetch_assoc($q_kegiatan))\n		{\n			if ($var_tb == 1)\n			{\n				$rto2 =  $row2['rotb1'];\n				$rotb21 =  $row2['rotb1'];\n				$rotb22 =  0;\n				$rotb23 =  0;\n				$rotb24 =  0;\n				$rta2 =  $row2['ratb1'];\n				$ratb21 = $row2['ratb1'];\n				$ratb22 = 0;\n				$ratb23 = 0;\n				$ratb24 = 0;\n\n				$co2 = $row2['totb4'] == 0 ? 0 : ($rto2/$row2['totb4']) * 100;\n				$ca2 = $row2['pagu'] == 0 ? 0 : ($rta2/$row2['pagu']) * 100;\n				$rro2 = $row2['ror'] + $rto2;\n				$rra2 = $row2['rar'] + $rta2;\n				$cro2 = $row2['tor'] == 0 ? 0 : ($rro2/$row2['tor']) * 100;\n				$cra2 = $row2['tar'] == 0 ? 0 : ($rra2/$row2['tar']) * 100;\n			}\n			else if ($var_tb == 2)\n			{\n				$rto2 =  $row2['rotb2'];\n				$rotb21 =  $row2['rotb1'];\n				$rotb22 =  $row2['rotb2'] - ($row2['rotb1']);\n				$rotb23 =  0;\n				$rotb24 =  0;\n				$rta2 =  $row2['ratb2'];\n				$ratb21 = $row2['ratb1'];\n				$ratb22 = $row2['ratb2'] - $row2['ratb1'];\n				$ratb23 = 0;\n				$ratb24 = 0;\n\n				$co2 = $row2['totb4'] == 0 ? 0 : ($rto2/$row2['totb4']) * 100;\n				$ca2 = $row2['pagu'] == 0 ? 0 : ($rta2/$row2['pagu']) * 100;\n				$rro2 = $row2['ror'] + $rto2;\n				$rra2 = $row2['rar'] + $rta2;\n				$cro2 = $row2['tor'] == 0 ? 0 : ($rro2/$row2['tor']) * 100;\n				$cra2 = $row2['tar'] == 0 ? 0 : ($rra2/$row2['tar']) * 100;\n			}\n			else if ($var_tb == 3)\n			{\n				$rto2 =  $row2['rotb3'];\n				$rotb21 =  $row2['rotb1'];\n				$rotb22 =  $row2['rotb2'] - ($row2['rotb1']);\n				$rotb23 =  $row2['rotb3'] - ($row2['rotb2']);\n				$rotb24 =  0;\n				$rta2 =  $row2['ratb3'];\n				$ratb21 = $row2['ratb1'];\n				$ratb22 = $row2['ratb2']  - $row2['ratb1'];\n				$ratb23 = $row2['ratb3']  -  $row2['ratb2'];\n				$ratb24 = 0;\n\n				$co2 = $row2['totb4'] == 0 ? 0 : ($rto2/$row2['totb4']) * 100;\n				$ca2 = $row2['pagu'] == 0 ? 0 : ($rta2/$row2['pagu']) * 100;\n				$rro2 = $row2['ror'] + $rto2;\n				$rra2 = $row2['rar'] + $rta2;\n				$cro2 = $row2['tor'] == 0 ? 0 : ($rro2/$row2['tor']) * 100;\n				$cra2 = $row2['tar'] == 0 ? 0 : ($rra2/$row2['tar']) * 100;\n			}\n			else if ($var_tb == 4)\n			{\n				$rto2 =  $row2['rotb4'];\n				$rotb21 =  $row2['rotb1'];\n				$rotb22 =  $row2['rotb2'] - ($row2['rotb1']);\n				$rotb23 =  $row2['rotb3'] - ($row2['rotb2']);\n				$rotb24 =  $row2['rotb4'] - ($row2['rotb3']);\n				$rta2 =  $row2['ratb4'];\n				$ratb21 = $row2['ratb1'];\n				$ratb22 = $row2['ratb2'] - $row2['ratb1'];\n				$ratb23 = $row2['ratb3'] -  $row2['ratb2'];\n				$ratb24 = $row2['ratb4'] -  $row2['ratb3'];\n\n				$co2 = $row2['totb4'] == 0 ? 0 : ($rto2/$row2['totb4']) * 100;\n				$ca2 = $row2['pagu'] == 0 ? 0 : ($rta2/$row2['pagu']) * 100;\n				$rro2 = $row2['ror'] + $rto2;\n				$rra2 = $row2['rar'] + $rta2;\n				$cro2 = $row2['tor'] == 0 ? 0 : ($rro2/$row2['tor']) * 100;\n				$cra2 = $row2['tar'] == 0 ? 0 : ($rra2/$row2['tar']) * 100;\n			}\n					array_push($rco, $co2);\n					array_push($rca, $ca2);\n					array_push($rrro, $ro2);\n					array_push($rrra, $rra2);\n			\n			$q_check_k = mysql_query(\"SELECT count(target_kegiatan.id) as jml \n				from target_kegiatan \n				INNER JOIN satuan ON satuan.id = target_kegiatan.satuan\n				where  \n				target_kegiatan.id_dpa=\".$row2['id']) and target_kegiatan.satuan>0;\n			$hasilk = mysql_fetch_array($q_check_k);\n			if ($hasilk['jml']>1)\n			{\n				$htmlTemplate .='\n				  <tr>\n					<td rowspan='.$hasilk['jml'].'>' . $row2['kd_kegiatan'] . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . $row2['kegiatan'] . ' </td>\n					<td border=\"1101\">' . $row2['indikator'] . '</td>\n					<td border=\"1101\">' . $row2['satuan'] . '</td>\n					<td border=\"1101\">' . prosen($row2['tor']) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($row2['tar']) . '</td>\n					<td border=\"1101\">' . prosen($row2['ror']) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($row2['rar']) . '</td>\n					<td border=\"1101\">' . prosen($row2['totb4']) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($row2['pagu']) . '</td>\n					<td border=\"1101\">' . prosen($rotb21) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($ratb21) . '</td>\n					<td border=\"1101\">' . prosen($rotb22) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($ratb22) . '</td>\n					<td border=\"1101\">' . prosen($rotb23) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($ratb23) . '</td>\n					<td border=\"1101\">' . prosen($rotb24) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($ratb24) . '</td>\n					<td border=\"1101\">' . prosen($rto2) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($rta2) . '</td>\n					<td border=\"1101\">' . prosen($co2) . '%</td>\n					<td rowspan='.$hasilk['jml'].'>' . prosen($ca2) . '%</td>\n					<td border=\"1101\">' . prosen($rro2) . '</td>\n					<td rowspan='.$hasilk['jml'].'>' . buatrp($rra2) . '</td>\n					<td border=\"1101\">' . prosen($cro2) . '%</td>\n					<td rowspan='.$hasilk['jml'].'>' . prosen($cra2) . '%</td>\n					<td rowspan='.$hasilk['jml'].'></td>\n					<td rowspan='.$hasilk['jml'].'>'.$row2['ket'].'</td>\n				</tr>';	\n				\n				$q_child_k = mysql_query(\"SELECT \n					target_kegiatan.indikator, \n					satuan.satuan, \n					target_kegiatan.output_tb1 as totb1, \n					target_kegiatan.output_tb2 as totb2, \n					target_kegiatan.output_tb3 as totb3, \n					target_kegiatan.output_tb4 as totb4, \n					target_kegiatan.realisasi_tb1 as rotb1, \n					target_kegiatan.realisasi_tb2 as rotb2, \n					target_kegiatan.realisasi_tb3 as rotb3, \n					target_kegiatan.realisasi_tb4 as rotb4, \n					target_kegiatan.renstra as tor,\n					target_kegiatan.realisasi_renstra as ror\n					FROM  \n					target_kegiatan \n					INNER JOIN satuan ON satuan.id = target_kegiatan.satuan\n					where target_kegiatan.id_dpa=\".$row2['id']);\n				$skip_k = mysql_fetch_assoc($q_child_k);\n				while($skip_k = mysql_fetch_assoc($q_child_k))\n				{\n				if ($var_tb == 1)\n				{\n					$rto2 =  $skip_k['rotb1'];\n					$rotb21 =  $skip_k['rotb1'];\n					$rotb22 =  0;\n					$rotb23 =  0;\n					$rotb24 =  0;\n\n					$co2 = $skip_k['totb4'] == 0 ? 0 : ($rto2/$skip_k['totb4']) * 100;\n					\n					$rro2 = $skip_k['ror'] + $rto2;\n					\n					$cro2 = $skip_k['tor'] == 0 ? 0 : ($rro2/$skip_k['tor']) * 100;\n					\n				}\n				else if ($var_tb == 2)\n				{\n					$rto2 =  $skip_k['rotb2'];\n					$rotb21 =  $skip_k['rotb1'];\n					$rotb22 =  $skip_k['rotb2'] - ($skip_k['rotb1']);\n					$rotb23 =  0;\n					$rotb24 =  0;\n\n					$co2 = $skip_k['totb4'] == 0 ? 0 : ($rto2/$skip_k['totb4']) * 100;\n\n					$rro2 = $skip_k['ror'] + $rto2;\n\n					$cro2 = $skip_k['tor'] == 0 ? 0 : ($rro2/$skip_k['tor']) * 100;\n\n				}\n				else if ($var_tb == 3)\n				{\n					$rto2 =  $skip_k['rotb3'];\n					$rotb21 =  $skip_k['rotb1'];\n					$rotb22 =  $skip_k['rotb2'] - ($skip_k['rotb1']);\n					$rotb23 =  $skip_k['rotb3'] - ($skip_k['rotb2']);\n					$rotb24 =  0;\n\n					$co2 = $skip_k['totb4'] == 0 ? 0 : ($rto2/$skip_k['totb4']) * 100;\n\n					$rro2 = $skip_k['ror'] + $rto2;\n\n					$cro2 = $skip_k['tor'] == 0 ? 0 : ($rro2/$skip_k['tor']) * 100;\n\n				}\n				else if ($var_tb == 4)\n				{\n					$rto2 =  $skip_k['rotb4'];\n					$rotb21 =  $skip_k['rotb1'];\n					$rotb22 =  $skip_k['rotb2'] - ($skip_k['rotb1']);\n					$rotb23 =  $skip_k['rotb3'] - ($skip_k['rotb2']);\n					$rotb24 =  $skip_k['rotb4'] - ($skip_k['rotb3']);\n\n\n					$co2 = $skip_k['totb4'] == 0 ? 0 : ($rto2/$skip_k['totb4']) * 100;\n\n					$rro2 = $skip_k['ror'] + $rto2;\n\n					$cro2 = $skip_k['tor'] == 0 ? 0 : ($rro2/$skip_k['tor']) * 100;\n\n				}\n					array_push($rco, $co2);\n					// array_push($rca, $ca2);\n					array_push($rrro, $ro2);\n					// array_push($rrra, $rra2);\n					$htmlTemplate .='\n					  <tr>\n						<td border=\"0101\">' . $skip_k['indikator'] . '</td>\n						<td border=\"0101\">' . $skip_k['satuan'] . '</td>\n						<td border=\"0101\">' . prosen($skip_k['tor']) . '</td>\n						<td border=\"0101\">' . prosen($skip_k['ror']) . '</td>\n						<td border=\"0101\">' . prosen($skip_k['totb4']) . '</td>\n						<td border=\"0101\">' . prosen($rotb21) . '</td>\n						<td border=\"0101\">' . prosen($rotb22) . '</td>\n						<td border=\"0101\">' . prosen($rotb23) . '</td>\n						<td border=\"0101\">' . prosen($rotb24) . '</td>\n						<td border=\"0101\">' . prosen($rto2) . '</td>\n						<td border=\"0101\">' . prosen($co2) . '%</td>\n						<td border=\"0101\">' . prosen($rro2) . '</td>\n						<td border=\"0101\">' . prosen($cro2) . '%</td>\n					  </tr>';\n				 }\n			}\n			else\n			{\n				$htmlTemplate .='\n				  <tr>\n					<td>' . $row2['kd_kegiatan'] . '</td>\n					<td>' . $row2['kegiatan'] . ' </td>\n					<td>' . $row2['indikator'] . '</td>\n					<td>' . $row2['satuan'] . '</td>\n					<td>' . prosen($row2['tor']) . '</td>\n					<td>' . buatrp($row2['tar']) . '</td>\n					<td>' . prosen($row2['ror']) . '</td>\n					<td>' . buatrp($row2['rar']) . '</td>\n					<td>' . prosen($row2['totb4']) . '</td>\n					<td>' . buatrp($row2['pagu']) . '</td>\n					<td>' . prosen($rotb21) . '</td>\n					<td>' . buatrp($ratb21) . '</td>\n					<td>' . prosen($rotb22) . '</td>\n					<td>' . buatrp($ratb22) . '</td>\n					<td>' . prosen($rotb23) . '</td>\n					<td>' . buatrp($ratb23) . '</td>\n					<td>' . prosen($rotb24) . '</td>\n					<td>' . buatrp($ratb24) . '</td>\n					<td>' . prosen($rto2) . '</td>\n					<td>' . buatrp($rta2) . '</td>\n					<td>' . prosen($co2) . '%</td>\n					<td>' . prosen($ca2) . '%</td>\n					<td>' . prosen($rro2) . '</td>\n					<td>' . buatrp($rra2) . '</td>\n					<td>' . prosen($cro2) . '%</td>\n					<td>' . prosen($cra2) . '%</td>\n					<td></td>\n					<td>'.$row2['ket'].'</td>\n				</tr>';\n			} \n		}\n	}\n\n	$rat1 = rerata($rco);\n	$rat2 = rerata($rca);\n	$rat3 = rerata($rrro);\n	$rat4 = rerata($rrra);\n\n	$pr1 = predikat($rat1);\n	$pr2 = predikat($rat2);\n	$pr3 = predikat($rat3);\n	$pr4 = predikat($rat4);\n\n\n\n\n	 $htmlTemplate .='\n		<tr pbr>\n			<td align=\"right\" colspan=\"20\">Rata-rata capaian kinerja (%)</td>\n			<td>'.$rat1.'%</td>\n			<td>'.$rat2.'%</td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td></td>\n			<td></td>\n		</tr>\n		<tr>\n			<td align=\"right\" colspan=\"20\">Predikat Kinerja</td>\n			<td>'.$pr1.'</td>\n			<td>'.$pr2.'</td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td bgcolor=\"#000000\"></td>\n			<td></td>\n			<td></td>\n		</tr>\n	 ';\n\n	 $query_ket = mysql_query(\"select `pendorong`, `penghambat`, `triwulan`, `renja` \n		from pendorong \n		where tb='$var_tb' and kode='$var_skpd_report' and thn='$var_thn_report'\");\n	 $r_ket = mysql_fetch_assoc($query_ket);\n		$pendorong = $r_ket['pendorong'];\n		$penghambat = $r_ket['penghambat'];\n		$triwulan = $r_ket['triwulan'];\n		$renja = $r_ket['renja'];\n	 \n	 $htmlTemplate .='\n		<tr>\n			<td colspan=\"28\">Faktor Pendorong keberhasilan kinerja : '.$pendorong.'</td>\n		</tr>\n		<tr>\n			<td colspan=\"28\">Faktor penghambat pencapaian kinerja : '.$penghambat.'</td>\n		</tr>\n		<tr>\n			<td colspan=\"28\">Tindak langsung yang diperlukan dalam triwulan berikutnya : '.$triwulan.'</td>\n		</tr>\n		<tr>\n			<td colspan=\"28\">Tindak langsung yang diperlukan dalam Renja SKPD berikutnya : '.$renja.'</td>\n		</tr>\n	 ';\n	 \n	 $htmlTemplate .='\n		<tr>\n			<td border=\"0\" colspan=\"17\"></td>\n			<td border=\"0\" colspan=\"5\"></td>\n			<td border=\"0\" colspan=\"5\"></td>			\n			<td border=\"0\"></td>\n		</tr>\n		<tr>\n			<td border=\"0\" colspan=\"17\"></td>\n			<td border=\"0\" align=\"center\" colspan=\"5\">Mojokerto, Tanggal ' . date('j-m-Y') .' <br><br>\n				Dievaluasi<br>\n				KEPALA BAPPEDA<br>\n				Kota Mojokerto<br><br><br><br>\n				<font style=\"bold,underline\">' . strtoupper($bappeko[\"kepala\"]) . '</font><br>\n				' . $bappeko[\"pangkat\"] .'<br>\n				NIP. ' . $bappeko[\"nip\"] .'<br>\n			</td>\n			<td border=\"0\" align=\"center\" colspan=\"5\">Mojokerto, Tanggal ' . date('j-m-Y') .' <br><br>\n				Disusun<br>\n				KEPALA ' .strtoupper($skpd_nama).'<br>\n				Kota Mojokerto<br><br><br><br>\n				<font style=\"bold,underline\">'.strtoupper($skpd_kepala).'</font><br>\n				'.$skpd_pangkat.'<br>\n				NIP. '.$skpd_nip.'<br>\n			</td>\n			<tdborder=\"0\"></td>\n		</tr>\n	 ';\n	\n	// fpdf class\n			############################\n	 $namafile = 'laporan tribulan ' . $var_tb . '.pdf';\n			$p = new PDF();\n			\n			// PAGE // Data\n			$p->SetMargins(20,10,10);\n			$p->AddPage();\n			$p->setStyle('small');\n			$p->text(0,'Formulir Evaluasi Hasil Renja SKPD',0,'C');\n			$p->text(0,'SKPD '. Common::getSatker($session->kd_subunit),0,'C');\n			$p->text(0,'Periode Kegiatan  Tahun ' .$session->tahun,0,'C');\n			$p->SetFont('helvetica','', '5');\n			$p->htmltable($htmlTemplate);\n			\n			$filename = \"MyFiles - \".rand(111,999).\" .pdf\"; // ubah namafile sesuai dengan keinginan\n			// archive in server\n			$p->output($namafile,'I'); // tempat file pdf yg akan disimpan di server\n			// end archives\n?>",
-			"file": "/C/Users/coding/AppData/Local/Temp/scp41775/opt/lampp/htdocs/bappeko/include/report/index.php",
-			"file_size": 30960,
-			"file_write_time": 131010255790000000,
-			"settings":
-			{
-				"buffer_size": 30068,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "core/Common.php",
-			"settings":
-			{
-				"buffer_size": 3945,
+				"buffer_size": 654,
 				"line_ending": "Windows"
 			}
 		}
@@ -693,15 +655,21 @@
 		"/F/WAMPP/htdocs/v4",
 		"/F/WAMPP/htdocs/v4/config",
 		"/F/WAMPP/htdocs/v4/core",
-		"/F/WAMPP/htdocs/v4/library",
-		"/F/WAMPP/htdocs/v4/library/lib",
-		"/F/WAMPP/htdocs/v4/report",
-		"/F/WAMPP/htdocs/v4/report/error",
-		"/F/WAMPP/htdocs/v4/report/triwulan",
-		"/F/WAMPP/htdocs/v4/store"
+		"/F/WAMPP/htdocs/v4/db"
 	],
 	"file_history":
 	[
+		"/C/Users/coding/AppData/Local/Temp/scp10444/var/www/html/bojonegoro/include/class.php",
+		"/F/WAMPP/htdocs/v4/core/Common.php",
+		"/C/Users/coding/AppData/Local/Temp/scp07406/var/www/html/bojonegoro/include/class.php",
+		"/C/Users/coding/AppData/Local/Temp/scp41775/opt/lampp/htdocs/bappeko/include/report/index.php",
+		"/F/WAMPP/htdocs/v4/views/laporan.php",
+		"/F/WAMPP/htdocs/v4/report/triwulan/pdf.php",
+		"/C/Users/coding/AppData/Local/Temp/scp18957/var/www/html/bojonegoro/kecamatan/select_SKPD.php",
+		"/C/Users/coding/AppData/Local/Temp/scp18204/var/www/html/bojonegoro/include/class.php",
+		"/F/WAMPP/htdocs/v4/app.js",
+		"/C/Users/coding/AppData/Local/Temp/scp41686/var/www/html/bojonegoro/kecamatan/editPassword.php",
+		"/C/Users/coding/AppData/Local/Temp/scp55507/var/www/html/bojonegoro/skpd/editPassword.php",
 		"/F/WAMPP/htdocs/v4/library/lib/pdftable.inc.php",
 		"/F/WAMPP/htdocs/v4/report/error/pdf.php",
 		"/F/WAMPP/htdocs/v4/composer.json",
@@ -714,24 +682,20 @@
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI62.063/fpdf.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI61.860/htmlparser.inc.php",
 		"/F/WAMPP/htdocs/v4/library/lib/htmlparser.inc.php",
-		"/C/Users/coding/AppData/Local/Temp/scp41775/opt/lampp/htdocs/bappeko/include/report/index.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI34.657/pdf.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI43.328/pdftable.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI44.516/fpdf.inc.php",
 		"/F/WAMPP/htdocs/v4/library/lib/fpdf.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI60.813/htmlparser.inc.php",
-		"/F/WAMPP/htdocs/v4/report/triwulan/pdf.php",
 		"/F/WAMPP/htdocs/v4/library/lib/color.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI14.813/pdftable.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI19.078/htmlparser.inc.php",
 		"/F/WAMPP/htdocs/v4/boot.php",
 		"/C/Users/coding/AppData/Local/Temp/scp55843/opt/lampp/htdocs/bappeko/include/report/pdf/lib/pdf.inc.php",
-		"/F/WAMPP/htdocs/v4/core/Common.php",
 		"/F/WAMPP/htdocs/v4/test.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI13.344/vncode.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/scp55601/opt/lampp/htdocs/bappeko/include/report/pdf/lib/fpdf.inc.php",
 		"/F/WAMPP/htdocs/v4/store/user/login.php",
-		"/F/WAMPP/htdocs/v4/views/laporan.php",
 		"/F/WAMPP/htdocs/v4/store/report/form.php",
 		"/F/WAMPP/htdocs/v4/core/App.php",
 		"/F/WAMPP/htdocs/v4/store/organisasi/list_report.php",
@@ -764,7 +728,6 @@
 		"/F/WAMPP/htdocs/v4/static/js/PDFObject.js",
 		"/C/Users/coding/AppData/Local/Temp/scp55886/opt/lampp/htdocs/bappeko/include/report/index.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI38.375/example.php",
-		"/F/WAMPP/htdocs/v4/app.js",
 		"/F/WAMPP/htdocs/v4/library/lib/pdftable.log",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/add_kegiatan_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/form/add_kegiatan_renstra.php",
@@ -823,13 +786,7 @@
 		"/F/WAMPP/htdocs/v4/store/keselarasan/list.php",
 		"/F/WAMPP/htdocs/v4/store/keselarasan/view_create.php",
 		"/F/WAMPP/htdocs/v4/store/keselarasan/view_edit.php",
-		"/F/WAMPP/htdocs/v4/store/menu/list.php",
-		"/F/WAMPP/htdocs/v4/store/modul/list.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/add_tupoksi.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/delete.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/delete_tupoksi.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/list_bidang.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/save.php"
+		"/F/WAMPP/htdocs/v4/store/menu/list.php"
 	],
 	"find":
 	{
@@ -865,6 +822,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"on>'",
+			"'<option",
+			"2010101",
+			"kd_unit",
+			"left",
+			"center",
+			"rowspan=2",
+			"colspan=2",
+			"rowspan=2",
+			" rowspan=2",
+			"urusan",
+			"value_urusan",
 			"($nilai <",
 			"=<",
 			"tahun",
@@ -980,19 +949,7 @@
 			"triwulan",
 			"Triwulan",
 			"triwulan",
-			"Triwulan",
-			"triwulan",
-			"field",
-			"bidang",
-			"'store/evaluasi/",
-			"satker",
-			"div",
-			"require '../../boot.php';",
-			"require '../../../boot.php';",
-			"require '../../../boot.php'",
-			"target",
-			"collapse",
-			"_dochecks"
+			"Triwulan"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1039,24 +996,24 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "report/triwulan/pdf.php",
-					"semi_transient": false,
+					"file": "core/Config.php",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 4648,
+						"buffer_size": 654,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4054,
-								4054
+								408,
+								408
 							]
 						],
 						"settings":
@@ -1066,127 +1023,10 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1452.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/C/Users/coding/AppData/Local/Temp/scp55507/var/www/html/bojonegoro/skpd/editPassword.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4693,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2011,
-								2011
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2365.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1038,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								346,
-								346
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/C/Users/coding/AppData/Local/Temp/scp41775/opt/lampp/htdocs/bappeko/include/report/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 30068,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3033,
-								3246
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 418.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "core/Common.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3945,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3649,
-								3649
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2948.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
+					"stack_index": 0,
 					"type": "text"
 				}
 			]
