@@ -144,6 +144,47 @@
                             ]]
                         });
 
+                         $('.indikatorRealisasi, .indikatorTarget').datagrid({ 
+                            onDblClickRow : function (i,r) {
+                                $('#x-dialog').dialog({
+                                    title : 'Edit Target dan Realisasi',
+                                    width : 450,
+                                    height : 300,
+                                    href : 'store/sasaran_skpd/form/edit_realisasi.php',
+                                    queryParams : r,
+                                    method: 'post',
+                                    buttons:[{
+                                        text:'Save',
+                                        handler:function (){                            
+                                            $('#fm').form('submit',{  
+                                                success: function(data){
+                                                    var data = eval('(' + data + ')');
+                                                    if (data.success){
+                                                        $.messager.show({  
+                                                            title: 'Status',  
+                                                            msg: data.message  
+                                                        });
+                                                        $('.indikatorRealisasi, .indikatorTarget').datagrid('reload');
+                                                        $('#x-dialog').dialog('close')
+                                                    }
+                                                    else {
+                                                        $.messager.alert('Warning', data.message);
+                                                    } 
+                                                } 
+                                            });
+                                            }
+                                        },{
+                                        text:'Close',
+                                        handler:function(){
+                                            $('#x-dialog').dialog('close')
+                                        }
+                                    }],
+                                    onLoad : function() {
+                                    }
+                                });
+                            }
+                         });
+
                         $('.list-program').datagrid({
                             fit:true,
                             fitColumns:true,

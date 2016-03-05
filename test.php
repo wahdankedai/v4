@@ -2,5 +2,6 @@
 
 require 'boot.php';
 
-
-var_dump(Common::renstra());
+$app =  Config::get('aplikasi');
+// var_dump($app);exit;
+var_dump(Suggest::checkKelebihanAnggaran($app));

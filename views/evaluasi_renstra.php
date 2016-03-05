@@ -184,14 +184,6 @@
                                 {field:'satuan',title:'satuan',width:100,hidden:true },
                                 {field:'kd_subunit',title:'kd_subunit',width:100,hidden:true },
                                 {field:'kd_kegiatan',title:'kd_kegiatan',width:100,hidden:true },
-                                {field:'awal',title:'Awal',align:'right',width:80,
-                                    formatter: function(value,row,index){
-                                        if (row.awal){
-                                            return accounting.formatNumber(row.awal,{decimal : ',',  thousand: '.',  precision : 0});
-                                        } else {
-                                            return value;
-                                        }
-                                    }},
                                 {field:'tahun1',title:'I',align:'right',width:80,
                                     formatter: function(value,row,index){
                                         if (row.tahun1){

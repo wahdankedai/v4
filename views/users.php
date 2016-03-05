@@ -34,7 +34,6 @@
                     <th data-options="field:'alamat'" width="250">Alamat</th>
                     <th data-options="field:'telepon'" width="150">HP</th>
                     <th data-options="field:'is_whatsapp'" width="30">WA</th>
-                    <th data-options="field:'pin_bb'" width="130">PIN BB</th>
                 </tr>
             </thead>
         </table>

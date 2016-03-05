@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"tri",
+				"triwulan"
+			],
+			[
+				"NM",
+				"nm_satuan"
+			],
+			[
+				"le",
+				"left"
+			],
+			[
 				"re",
 				"Renstra"
 			],
@@ -130,10 +142,6 @@
 			[
 				"pri",
 				"print_r"
-			],
-			[
-				"le",
-				"length	String"
 			],
 			[
 				"unse",
@@ -506,24 +514,43 @@
 			[
 				"stri",
 				"string"
-			],
-			[
-				"sav",
-				"saveGroupMenu"
-			],
-			[
-				"ch",
-				"checkAllMenu"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "core/Config.php",
+			"contents": "<?php\n$renstra = Common::renstra();\n\n$req = Common::obj(Request::all());\n\n$req->tahun = ($req->tahun == '' || (! isset($req->tahun))) ? $session->tahun:  $req->tahun;\n$req->skpd = ($req->skpd == '' || (! isset($req->skpd))) ? $session->kd_subunit : $req->skpd;\n$req->triwulan = ($req->triwulan == '' || (! isset($req->triwulan))) ? 1 : $req->triwulan;\n\n\n$req->sebelumnya == $req->tahun -1;\n\nif ($renstra[0] == $req->tahun) {\n    $req->sebelumnya == 0;\n}\n\n$nomor = 0;\n\n$htmlTemplate ='\n    <table width=98% border=1 cellspacing=1 cellpadding=0>\n        <tr repeat=1>\n        <td align=\\'center\\' valign=middle rowspan=2>No</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Kode</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Program / Kegiatan</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Indikator Kinerja Program (outcome)/Kegiatan (output)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Target Renstra SKPD pada Tahun ' . $renstra[4] .' (Akhir Periode Renstra SKPD)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja Renstra SKPD sampai dengan Renja SKPD Tahun Lalu '. ($req->tahun - 1).'</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Target Kinerja dan Anggaran Renja SKPD Tahun berjalan '.$req->tahun.' yang dievaluasi</td>\n        <td align=\\'center\\' valign=middle colspan=8>Realisasi Kinerja Pada Triwulan </td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (Tahun '.$req->tahun.')</td>\n        <td align=\\'center\\' colspan=2 rowspan=2>Tingkat Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (%) Tahun '.$req->tahun.'</td>       \n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Realisasi Kinerja dan Anggaran Renstra SKPD s/d tahun 2015 (Akhir Tahun Pelaksanaan Renja SKPD)</td>\n        <td align=\\'center\\' valign=middle colspan=2 rowspan=2>Tingkat Capaian Kinerja Dan Realisasi Anggaran Renstra SKPD s/d tahun 2015 (%)</td>\n        <td align=\\'center\\' valign=middle rowspan=2>unit SKPD Penanggung Jawab</td>\n        <td align=\\'center\\' valign=middle rowspan=2>Ket.</td>\n    </tr>\n    <tr repeat=1>\n        <td valign=middle align=\\'center\\' colspan=2>I</td>\n        <td valign=middle align=\\'center\\' colspan=2>II</td>\n        <td valign=middle align=\\'center\\' colspan=2>III</td>\n        <td valign=middle align=\\'center\\' colspan=2>IV</td>\n    </tr>\n    <tr repeat=1>\n        <td align=\\'center\\' rowspan=2>1</td>\n        <td align=\\'center\\' rowspan=2>2</td>\n        <td align=\\'center\\' rowspan=2>3</td>\n        <td align=\\'center\\' rowspan=2>4</td>\n        <td align=\\'center\\' colspan=2>5</td>\n        <td align=\\'center\\' colspan=2>6</td>\n        <td align=\\'center\\' colspan=2>7</td>\n        <td align=\\'center\\' colspan=2>8</td>\n        <td align=\\'center\\' align=\\'center\\' colspan=2>9</td>\n        <td align=\\'center\\' colspan=2>10</td>\n        <td align=\\'center\\' colspan=2>11</td>\n        <td align=\\'center\\' colspan=2>12</td>\n        <td align=\\'center\\' colspan=2>13</td>\n        <td align=\\'center\\' colspan=2>14</td>\n        <td align=\\'center\\' colspan=2>15</td>\n        <td align=\\'center\\' rowspan=2>16</td>\n        <td align=\\'center\\' rowspan=2>17</td>\n    </tr>\n    <tr repeat=1>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n        <td align=\\'center\\'>K</td>\n        <td align=\\'center\\'>Rp. (ribuan)</td>\n    </tr>';\n\n/**\n * data kegiatan administrasi umum (rutin)\n */\n\n$query_program_adum = DB::query(\"SELECT\n        a.tahun,\n        program.nm_program,\n        program.kd_program,\n        program.kd_urusan,\n        program.kd_bidang,\n        sum(if(a.is_perubahan = 1,a.pagu_perubahan,a.pagu_anggaran)) as pagu\n        FROM\n        tabel_dpa AS a\n        INNER JOIN program ON program.kd_urusan = a.kd_urusan AND program.kd_bidang = a.kd_bidang AND program.kd_program = a.kd_program\n        WHERE\n        CONCAT(a.kd_unit,kd_sub_unit) = {$req->skpd} AND\n        a.tahun = {$req->tahun}  AND\n        a.kd_program < 15\n        GROUP BY a.kd_urusan, a.kd_bidang, a.kd_program\");\n$result_program_adum = $query_program_adum->fetchAll();\n\n\nforeach ($result_program_adum as $value_program_adum) {\n    $nomor++;\n\n    $query_indikator_outcome = DB::query(\"SELECT\n        a.id,\n        a.kd_unit,\n        a.kd_subunit,\n        a.kd_program,\n        a.indikator,\n        a.satuan,\n        b.nm_satuan\n        FROM\n        indikator_outcome_program AS a\n        INNER JOIN satuan AS b ON b.id = a.satuan\n        WHERE a.kd_unit = \" . substr($req->skpd,0,5) . \"\n            AND a.kd_subunit =  \" .substr($req->skpd,-2) .\" \n            AND a.kd_program = \" . $value_program_adum->kd_urusan . $value_program_adum->kd_bidang . $value_program_adum->kd_program . \"\n    ORDER BY\n            a.id ASC\");\n\n    $result_indikator_outcome = $query_indikator_outcome->fetchAll();\n\n    $rowspan_indikator_outcome = count($result_indikator_outcome) > 1 ? \"rowspan=\" . count($result_indikator_outcome) : \"\";\n\n\n\n    $htmlTemplate .= '<tr>\n        <td ' . $rowspan_indikator_outcome .' align=\\'center\\'>' .$nomor.'</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'left\\'> '\n            . $value_program_adum->kd_urusan\n            . '.' . $value_program_adum->kd_bidang\n            . '.' . $value_program_adum->kd_program\n        .'</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'left\\'>'. $value_program_adum->nm_program .'</td>\n        <td align=\\'left\\'>' . $result_indikator_outcome[0]->indikator . ' (' . $result_indikator_outcome[0]->nm_satuan .')</td>\n        <td align=\\'right\\'></td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'></td>\n        <td align=\\'right\\'>7</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>8</td>\n        <td align=\\'right\\'>' . Common::ribuan($value_program_adum->pagu) .'</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>' . Common::ribuan($value_program_adum->pagu) .'</td>\n        <td align=\\'right\\'>11</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>12</td>\n        <td align=\\'right\\'>13</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>14</td>\n        <td align=\\'right\\'>15</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>5</td>\n        <td align=\\'right\\'>6</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>7</td>\n        <td align=\\'right\\'>8</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>9</td>\n        <td align=\\'right\\'>10</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>11</td>\n        <td align=\\'right\\'>12</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>13</td>\n        <td align=\\'right\\'>14</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'right\\'>15</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'center\\'>16</td>\n        <td ' . $rowspan_indikator_outcome .' align=\\'center\\'>17</td>\n    </tr>';\n}\n\n/**\n * query urusan\n */\n\n$query_urusan = DB::query(\"SELECT\n        a.tahun,\n        urusan.nm_urusan,\n        a.kd_urusan\n        FROM\n        tabel_dpa AS a\n        INNER JOIN urusan ON urusan.kd_urusan = a.kd_urusan\n        WHERE\n        CONCAT(a.kd_unit,kd_sub_unit) = {$req->skpd} AND\n        a.tahun = {$req->tahun}\n        GROUP BY a.kd_urusan\");\n\n\n$result_urusan = $query_urusan->fetchAll();\n\nforeach ($result_urusan as $value_urusan) {\n    $htmlTemplate .= '<tr>\n        <td align=\\'center\\'></td>\n        <td align=\\'left\\'>' . $value_urusan->kd_urusan .'</td>\n        <td align=\\'left\\' colspan=26>' . $value_urusan->nm_urusan .'</td>\n    </tr>';\n\n    $query_bidang = DB::query(\"SELECT\n            a.tahun,\n            bidang.kd_bidang,\n            bidang.nm_bidang\n            FROM\n            tabel_dpa AS a\n            INNER JOIN bidang ON bidang.kd_urusan = a.kd_urusan AND bidang.kd_bidang = a.kd_bidang\n            WHERE\n                    CONCAT(a.kd_unit,kd_sub_unit) = {$req->skpd} AND\n                    a.tahun = {$req->tahun} AND \n                    a.kd_urusan = {$value_urusan->kd_urusan} AND\n                    a.kd_program > 14\n            GROUP BY a.kd_urusan,a.kd_bidang\");\n\n    $result_bidang = $query_bidang->fetchAll();\n\n    foreach ($result_bidang as $value_bidang) {\n        $htmlTemplate .= '<tr>\n            <td align=\\'center\\'></td>\n            <td align=\\'left\\'>' . $value_urusan->kd_urusan . '.' .$value_bidang->kd_bidang .'</td>\n            <td align=\\'left\\' colspan=26>' . $value_bidang->nm_bidang .'</td>\n        </tr>';\n    }\n}\n\n\n\n\n\n\n/**\n * \n */\nrequire_once('library/lib/fpdf.inc.php');\nrequire_once('library/lib/pdftable.inc.php');\nrequire_once('library/lib/pdf.inc.php');\nrequire_once('library/lib/color.inc.php');\nrequire_once('library/lib/htmlparser.inc.php');\n\n\n\n$p = new PDF();  \n$p->SetMargins(20,10,10);\n$p->AddPage();\n$p->setStyle('small');\n$p->text(0,'Formulir Evaluasi Hasil Renja SKPD',0,'C');\n$p->text(0,'SKPD '. Suggest::getSatker($req->skpd) , 0,'C');\n$p->text(0,'Periode Kegiatan  Tahun ' .$req->tahun . ' ' . Common::textTriwulan($req->triwulan) ,0,'C');\n$p->SetFont('helvetica','', '5');\n$p->htmltable($htmlTemplate);\n$p->output(NAMA_LAPORAN, 'F');\n?>",
+			"file": "report/triwulan/pdf.php",
+			"file_size": 10225,
+			"file_write_time": 131016343281834639,
 			"settings":
 			{
-				"buffer_size": 654,
+				"buffer_size": 10025,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "views/users.php",
+			"settings":
+			{
+				"buffer_size": 1608,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Suggest.php",
+			"settings":
+			{
+				"buffer_size": 5345,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "core/Common.php",
+			"settings":
+			{
+				"buffer_size": 4449,
 				"line_ending": "Windows"
 			}
 		}
@@ -535,8 +562,8 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 154.0,
-		"last_filter": "remo",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
 			[
@@ -628,7 +655,7 @@
 				"Set Syntax: PHP"
 			]
 		],
-		"width": 512.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -653,14 +680,29 @@
 	"expanded_folders":
 	[
 		"/F/WAMPP/htdocs/v4",
-		"/F/WAMPP/htdocs/v4/config",
 		"/F/WAMPP/htdocs/v4/core",
-		"/F/WAMPP/htdocs/v4/db"
+		"/F/WAMPP/htdocs/v4/report",
+		"/F/WAMPP/htdocs/v4/store",
+		"/F/WAMPP/htdocs/v4/store/report",
+		"/F/WAMPP/htdocs/v4/store/sasaran_skpd/form",
+		"/F/WAMPP/htdocs/v4/store/user",
+		"/F/WAMPP/htdocs/v4/views"
 	],
 	"file_history":
 	[
-		"/C/Users/coding/AppData/Local/Temp/scp10444/var/www/html/bojonegoro/include/class.php",
+		"/F/WAMPP/htdocs/v4/store/sasaran_skpd/proses_indikator.php",
+		"/F/WAMPP/htdocs/v4/store/sasaran_skpd/form/edit_realisasi.php",
 		"/F/WAMPP/htdocs/v4/core/Common.php",
+		"/F/WAMPP/htdocs/v4/views/sasaran_program.php",
+		"/F/WAMPP/htdocs/v4/views/evaluasi_renstra.php",
+		"/F/WAMPP/htdocs/v4/config/evaluasi.php",
+		"/F/WAMPP/htdocs/v4/test.php",
+		"/F/WAMPP/htdocs/v4/core/Suggest.php",
+		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/form_anggaran.php",
+		"/F/WAMPP/htdocs/v4/store/organisasi/list.php",
+		"/F/WAMPP/htdocs/v4/core/App.php",
+		"/F/WAMPP/htdocs/v4/config/database.php",
+		"/C/Users/coding/AppData/Local/Temp/scp10444/var/www/html/bojonegoro/include/class.php",
 		"/C/Users/coding/AppData/Local/Temp/scp07406/var/www/html/bojonegoro/include/class.php",
 		"/C/Users/coding/AppData/Local/Temp/scp41775/opt/lampp/htdocs/bappeko/include/report/index.php",
 		"/F/WAMPP/htdocs/v4/views/laporan.php",
@@ -692,23 +734,18 @@
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI19.078/htmlparser.inc.php",
 		"/F/WAMPP/htdocs/v4/boot.php",
 		"/C/Users/coding/AppData/Local/Temp/scp55843/opt/lampp/htdocs/bappeko/include/report/pdf/lib/pdf.inc.php",
-		"/F/WAMPP/htdocs/v4/test.php",
 		"/C/Users/coding/AppData/Local/Temp/Rar$DI13.344/vncode.inc.php",
 		"/C/Users/coding/AppData/Local/Temp/scp55601/opt/lampp/htdocs/bappeko/include/report/pdf/lib/fpdf.inc.php",
 		"/F/WAMPP/htdocs/v4/store/user/login.php",
 		"/F/WAMPP/htdocs/v4/store/report/form.php",
-		"/F/WAMPP/htdocs/v4/core/App.php",
 		"/F/WAMPP/htdocs/v4/store/organisasi/list_report.php",
 		"/F/WAMPP/htdocs/v4/store/config.php",
-		"/F/WAMPP/htdocs/v4/store/organisasi/list.php",
 		"/F/WAMPP/htdocs/v4/core/DB.php",
 		"/F/WAMPP/htdocs/v4/formlogin.php",
 		"/F/WAMPP/htdocs/v4/view.php",
-		"/F/WAMPP/htdocs/v4/views/sasaran_program.php",
 		"/F/WAMPP/htdocs/v4/views/sasaran_skpd.php",
 		"/F/WAMPP/htdocs/v4/views/unit_eselon.php",
 		"/F/WAMPP/htdocs/v4/views/tabel_anggaran.php",
-		"/F/WAMPP/htdocs/v4/views/evaluasi_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_subunit.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/list_organisasi.php",
 		"/F/WAMPP/htdocs/v4/views/tabel_dpa.php",
@@ -717,7 +754,6 @@
 		"/F/WAMPP/htdocs/v4/index.php",
 		"/F/WAMPP/htdocs/v4/core/Request.php",
 		"/F/WAMPP/htdocs/v4/core/Session.php",
-		"/F/WAMPP/htdocs/v4/core/Suggest.php",
 		"/F/WAMPP/htdocs/v4/store/user/detail.php",
 		"/F/WAMPP/htdocs/v4/laporan.php",
 		"/F/WAMPP/htdocs/v4/static/css/icon.css",
@@ -731,13 +767,11 @@
 		"/F/WAMPP/htdocs/v4/library/lib/pdftable.log",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/add_kegiatan_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/form/add_kegiatan_renstra.php",
-		"/F/WAMPP/htdocs/v4/config/evaluasi.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/delete_kegiatan_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/list_program_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/list_kegiatan_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/form/add_program_renstra.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/combo.php",
-		"/F/WAMPP/htdocs/v4/store/evaluasi_anggaran/form_anggaran.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/proses_anggaran.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/form_anggaran.php",
 		"/F/WAMPP/htdocs/v4/store/evaluasi_renstra/list_anggaran.php",
@@ -761,7 +795,6 @@
 		"/F/WAMPP/htdocs/v4/views/unit_tupoksi.php",
 		"/C/Users/coding/AppData/Local/Temp/scp29872/var/www/html/db/forge.sql",
 		"/F/WAMPP/htdocs/v4/store/report/list.php",
-		"/F/WAMPP/htdocs/v4/store/sasaran_skpd/form/edit_realisasi.php",
 		"/F/WAMPP/htdocs/v4/store/unit_eselon/delete.php",
 		"/F/WAMPP/htdocs/v4/store/unit_eselon/list.php",
 		"/F/WAMPP/htdocs/v4/store/unit_eselon/save.php",
@@ -784,9 +817,7 @@
 		"/F/WAMPP/htdocs/v4/store/keselarasan/delete.php",
 		"/F/WAMPP/htdocs/v4/store/keselarasan/edit.php",
 		"/F/WAMPP/htdocs/v4/store/keselarasan/list.php",
-		"/F/WAMPP/htdocs/v4/store/keselarasan/view_create.php",
-		"/F/WAMPP/htdocs/v4/store/keselarasan/view_edit.php",
-		"/F/WAMPP/htdocs/v4/store/menu/list.php"
+		"/F/WAMPP/htdocs/v4/store/keselarasan/view_create.php"
 	],
 	"find":
 	{
@@ -822,6 +853,24 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Rp.",
+			"skpd",
+			"$req->",
+			"$data",
+			"evaluasi/",
+			"intval",
+			"target",
+			"float",
+			"$res[0]->jml",
+			"target",
+			".",
+			",",
+			"`",
+			"` ",
+			"tinyint",
+			"NULL,",
+			"xAnggaran",
+			"asc",
 			"on>'",
 			"'<option",
 			"2010101",
@@ -931,25 +980,7 @@
 			"value=",
 			"$data->",
 			"data->target_",
-			"satuan",
-			"post('tahun1')",
-			"satuan",
-			"add_target_indikator_outcome_renstra",
-			"edit_target_indikator_outcome",
-			"output",
-			"target_tahun_4",
-			"target_tahun_1",
-			"<div class=\"small-4 columns\">",
-			"<div class=\"small-3 columns\">\n                <input",
-			"\n            <div class=\"small-5 columns\">\n                <label>&nbsp;&nbsp;&nbsp;<?php echo $req->nm_satuan; ?></label>\n            </div>",
-			"target_triwulan_4",
-			">tahun",
-			"triwulan",
-			"Triwulan",
-			"triwulan",
-			"Triwulan",
-			"triwulan",
-			"Triwulan"
+			"satuan"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1001,19 +1032,49 @@
 			[
 				{
 					"buffer": 0,
-					"file": "core/Config.php",
-					"semi_transient": true,
+					"file": "report/triwulan/pdf.php",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 654,
+						"buffer_size": 10025,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								408,
-								408
+								5137,
+								5137
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2508.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "views/users.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1608,
+								1608
 							]
 						],
 						"settings":
@@ -1026,7 +1087,67 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "core/Suggest.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5345,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5295,
+								5295
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3894.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "core/Common.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4449,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4381,
+								4381
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3696.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
 					"type": "text"
 				}
 			]
@@ -1081,8 +1202,16 @@
 		"selected_items":
 		[
 			[
+				"eva",
+				"views\\evaluasi_renstra.php"
+			],
+			[
+				"ev",
+				"config\\evaluasi.php"
+			],
+			[
 				"sasa",
-				"views\\sasaran_skpd.php"
+				"views\\sasaran_program.php"
 			],
 			[
 				"form",
@@ -1225,6 +1354,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"F:\\WAMPP\\htdocs\\magersari\\magersari.sublime-project"
+			]
 		],
 		"width": 380.0
 	},
@@ -1245,7 +1378,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 286.0,
+	"side_bar_width": 268.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

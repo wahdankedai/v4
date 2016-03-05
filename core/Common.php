@@ -122,13 +122,17 @@ class Common
 
    }
 
-   public static function hAlign()
+   public static function indikatorSasaran($id = 0)
    {
-     return array('left'=>'L','center'=>'C','right'=>'R','justify'=>'J');
-   }
-   public static function vAlign()
-   {
-     return array('top'=>'T','middle'=>'M','bottom'=>'B');
+      if ($id == 0) {
+          return false;
+      }
+
+      $q = "SELECT * from indikator_sasaran where id = $id";
+
+      $qry = DB::query($q);
+
+      return $qry->fetch(); 
    }
 
    /**
@@ -162,5 +166,28 @@ class Common
       return 'Tidak ada';
 
       // return $predikat;
+   }
+
+   public static function textTriwulan($value = 1)
+   {
+      $triwulan = [
+        1 => 'Triwulan I',
+        2 => 'Triwulan II',
+        3 => 'Triwulan III',
+        4 => 'Triwulan IV'
+      ];
+
+      return $triwulan[$value];
+   }
+
+   public static function ribuan($number= 0)
+   {
+      $number = $number / 1000;
+      return number_format ( $number , 2 , "," , "." );
+   }
+
+   public static function nomor($number= 0)
+   {
+      return number_format ( $number , 2 , "," , "." );
    }
 }

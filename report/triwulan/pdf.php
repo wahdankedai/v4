@@ -5,6 +5,8 @@ $req = Common::obj(Request::all());
 
 $req->tahun = ($req->tahun == '' || (! isset($req->tahun))) ? $session->tahun:  $req->tahun;
 $req->skpd = ($req->skpd == '' || (! isset($req->skpd))) ? $session->kd_subunit : $req->skpd;
+$req->triwulan = ($req->triwulan == '' || (! isset($req->triwulan))) ? 1 : $req->triwulan;
+
 
 $req->sebelumnya == $req->tahun -1;
 
@@ -24,7 +26,7 @@ $htmlTemplate ='
         <td align=\'center\' valign=middle colspan=2 rowspan=2>Target Renstra SKPD pada Tahun ' . $renstra[4] .' (Akhir Periode Renstra SKPD)</td>
         <td align=\'center\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja Renstra SKPD sampai dengan Renja SKPD Tahun Lalu '. ($req->tahun - 1).'</td>
         <td align=\'center\' valign=middle colspan=2 rowspan=2>Target Kinerja dan Anggaran Renja SKPD Tahun berjalan '.$req->tahun.' yang dievaluasi</td>
-        <td align=\'center\' valign=middle colspan=8>Realisasi Kinerja Pada Triwulan</td>
+        <td align=\'center\' valign=middle colspan=8>Realisasi Kinerja Pada Triwulan </td>
         <td align=\'center\' valign=middle colspan=2 rowspan=2>Realisasi Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (Tahun '.$req->tahun.')</td>
         <td align=\'center\' colspan=2 rowspan=2>Tingkat Capaian Kinerja dan Anggaran Renja SKPD yang dievaluasi (%) Tahun '.$req->tahun.'</td>       
         <td align=\'center\' valign=middle colspan=2 rowspan=2>Realisasi Kinerja dan Anggaran Renstra SKPD s/d tahun 2015 (Akhir Tahun Pelaksanaan Renja SKPD)</td>
@@ -59,27 +61,27 @@ $htmlTemplate ='
     </tr>
     <tr repeat=1>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
         <td align=\'center\'>K</td>
-        <td align=\'center\'>Rp.</td>
+        <td align=\'center\'>Rp. (ribuan)</td>
     </tr>';
 
 /**
@@ -91,7 +93,8 @@ $query_program_adum = DB::query("SELECT
         program.nm_program,
         program.kd_program,
         program.kd_urusan,
-        program.kd_bidang
+        program.kd_bidang,
+        sum(if(a.is_perubahan = 1,a.pagu_perubahan,a.pagu_anggaran)) as pagu
         FROM
         tabel_dpa AS a
         INNER JOIN program ON program.kd_urusan = a.kd_urusan AND program.kd_bidang = a.kd_bidang AND program.kd_program = a.kd_program
@@ -127,37 +130,39 @@ foreach ($result_program_adum as $value_program_adum) {
 
     $rowspan_indikator_outcome = count($result_indikator_outcome) > 1 ? "rowspan=" . count($result_indikator_outcome) : "";
 
+
+
     $htmlTemplate .= '<tr>
-        <td ' . $rowspan_indikator_outcome .' align=\'center\'></td>
+        <td ' . $rowspan_indikator_outcome .' align=\'center\'>' .$nomor.'</td>
         <td ' . $rowspan_indikator_outcome .' align=\'left\'> '
             . $value_program_adum->kd_urusan
             . '.' . $value_program_adum->kd_bidang
             . '.' . $value_program_adum->kd_program
         .'</td>
         <td ' . $rowspan_indikator_outcome .' align=\'left\'>'. $value_program_adum->nm_program .'</td>
-        <td align=\'center\'>' . count($result_indikator_outcome) .'</td>
-        <td align=\'right\'>5</td>
-        <td align=\'right\'>6</td>
+        <td align=\'left\'>' . $result_indikator_outcome[0]->indikator . ' (' . $result_indikator_outcome[0]->nm_satuan .')</td>
+        <td align=\'right\'></td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'></td>
         <td align=\'right\'>7</td>
-        <td align=\'right\'>8</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>8</td>
         <td align=\'right\'>9</td>
-        <td align=\'right\'>10</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>' . Common::ribuan($value_program_adum->pagu) .'</td>
         <td align=\'right\'>11</td>
-        <td align=\'right\'>12</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>12</td>
         <td align=\'right\'>13</td>
-        <td align=\'right\'>14</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>14</td>
         <td align=\'right\'>15</td>
-        <td align=\'right\'>5</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>5</td>
         <td align=\'right\'>6</td>
-        <td align=\'right\'>7</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>7</td>
         <td align=\'right\'>8</td>
-        <td align=\'right\'>9</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>9</td>
         <td align=\'right\'>10</td>
-        <td align=\'right\'>11</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>11</td>
         <td align=\'right\'>12</td>
-        <td align=\'right\'>13</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>13</td>
         <td align=\'right\'>14</td>
-        <td align=\'right\'>15</td>
+        <td ' . $rowspan_indikator_outcome .' align=\'right\'>15</td>
         <td ' . $rowspan_indikator_outcome .' align=\'center\'>16</td>
         <td ' . $rowspan_indikator_outcome .' align=\'center\'>17</td>
     </tr>';
@@ -236,7 +241,7 @@ $p->AddPage();
 $p->setStyle('small');
 $p->text(0,'Formulir Evaluasi Hasil Renja SKPD',0,'C');
 $p->text(0,'SKPD '. Suggest::getSatker($req->skpd) , 0,'C');
-$p->text(0,'Periode Kegiatan  Tahun ' .$req->tahun,0,'C');
+$p->text(0,'Periode Kegiatan  Tahun ' .$req->tahun . ' ' . Common::textTriwulan($req->triwulan) ,0,'C');
 $p->SetFont('helvetica','', '5');
 $p->htmltable($htmlTemplate);
 $p->output(NAMA_LAPORAN, 'F');

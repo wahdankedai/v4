@@ -184,6 +184,23 @@ class Suggest
         }
         return '';
     }
+
+    public static function checkKelebihanAnggaran($param)
+    {
+        
+        $q = "SELECT if(is_perubahan = 1, pagu_perubahan,pagu_anggaran) as jml 
+                from tabel_dpa 
+                where concat(tahun,kd_urusan,kd_bidang,kd_program,kd_kegiatan,kd_unit,kd_sub_unit) = $param->kode";
+
+
+        $query = DB::query($q);
+
+        $res = $query->fetchAll();
+
+
+        return (floatval($res[0]->jml) >= $param->target) && (floatval($res[0]->jml) >= $param->realisasi)  ? true : false; 
+        
+    }
 }
 
 

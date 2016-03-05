@@ -8,6 +8,37 @@ if (! isset($session) || $session->auth == "") {
 
 $req = Common::obj(Request::all());
 
+$req->kode = $req->tahun . 
+             $req->kd_urusan . 
+             $req->kd_bidang . 
+             $req->kd_program . 
+             $req->kd_kegiatan . 
+             $req->kd_unit . 
+             $req->kd_sub_unit;
+$req->target = floatval($req->target_triwulan_1) +
+               floatval($req->target_triwulan_2) +
+               floatval($req->target_triwulan_3) +
+               floatval($req->target_triwulan_4);
+$req->realisasi = floatval($req->realisasi_triwulan_1) +
+               floatval($req->realisasi_triwulan_2) +
+               floatval($req->realisasi_triwulan_3) +
+               floatval($req->realisasi_triwulan_4);
+
+if (Suggest::checkKelebihanAnggaran($req) === false) {
+    $hasil = [
+        "success" => false,
+        "message" => "Data gagal dimasukkan, Jumlah Melebihi Pagu!!!"
+    ];
+
+    echo json_encode($hasil);
+
+
+    exit;
+
+}
+
+
+
 $req->target_triwulan_1 = Common::toNULL($req->target_triwulan_1);
 $req->target_triwulan_2 = Common::toNULL($req->target_triwulan_2);
 $req->target_triwulan_3 = Common::toNULL($req->target_triwulan_3);
